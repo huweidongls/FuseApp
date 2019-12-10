@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/gl_img0013x"
+                android:layout_width="40dp"
+                android:id="@+id/iv_header"
+                android:layout_height="40dp" />
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_user"
+                        android:layout_gravity="center_vertical"
+                        android:textStyle="bold"
+                        android:textColor="@color/black_333333"
+                        android:textSize="16sp"
+                        android:text="杨海峰"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    
+                    <TextView
+                        android:id="@+id/tv_status"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="9dp"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:background="@drawable/bg_ffbc1a_9dp"
+                        android:textSize="9sp"
+                        android:textColor="@color/white_ffffff"
+                        android:text="待审核"
+                        android:layout_width="wrap_content"
+                        android:layout_height="17dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:textColor="#CCCCCC"
+                    android:id="@+id/tv_addtime"
+                    android:textSize="10sp"
+                    android:text="发布时间：2019/09/02 10:40:58"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:id="@+id/ll_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ll_edit"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/modify"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp" />
+
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="#777777"
+                        android:textSize="10sp"
+                        android:text="修改"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/line"
+                    android:layout_width="1dp"
+                    android:layout_height="12dp"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_del"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/del"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp" />
+
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="#777777"
+                        android:textSize="10sp"
+                        android:text="删除"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="16dp"
+            android:textSize="12sp"
+            android:textColor="@color/black_333333"
+            android:text="进入新时代,双鸭山市紧扣转型发展主线,抢抓全面振兴全方位振兴发展机遇,做好三篇大文章,做实四头四尾,实现了由一煤独大向现代煤电化、粮食和绿色。"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.guoyu.fuseapp.nine.NineGridTestLayout
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/nine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:sapcing="4dp"/>
+
+        <ImageView
+            android:id="@+id/iv"
+            android:scaleType="centerCrop"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <LinearLayout
+                android:layout_marginRight="20dp"
+                android:id="@+id/ll_zan"
+                android:paddingRight="13dp"
+                android:layout_gravity="right"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp">
+
+                <ImageView
+                    android:id="@+id/iv_zan"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/icon004"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/tv_zan_num"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="7dp"
+                    android:textColor="@color/black_333333"
+                    android:textSize="11sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_text"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/feedback"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                />
+            <TextView
+                android:id="@+id/tv_fff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#777777"
+                android:text="【反馈意见】我市对该项目很重视，推进大力做好后续工作。"
+                />
+        </LinearLayout>
+        <View
+            android:background="@color/line"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white_ffffff"
+    android:layout_height="50dp">
+
+    <LinearLayout
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/icon006"
+            android:layout_width="17dp"
+            android:layout_height="11dp" />
+
+        <TextView
+            android:id="@+id/tv_liulan_num"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="6dp"
+            android:textColor="@color/black_333333"
+            android:textSize="11sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginRight="20dp"
+            android:id="@+id/ll_zan"
+            android:paddingRight="13dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_zan"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/icon004"
+                android:layout_width="15dp"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/tv_zan_num"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="7dp"
+                android:textColor="@color/black_333333"
+                android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!--<View-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:background="@color/line"-->
+            <!--android:layout_width="1dp"-->
+            <!--android:layout_height="15dp"/>-->
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ll_share"-->
+            <!--android:paddingRight="20dp"-->
+            <!--android:paddingLeft="18dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<ImageView-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:src="@mipmap/icon005"-->
+                <!--android:layout_width="13dp"-->
+                <!--android:layout_height="13dp" />-->
+
+            <!--<TextView-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:layout_marginLeft="7dp"-->
+                <!--android:textColor="@color/black_333333"-->
+                <!--android:textSize="11sp"-->
+                <!--android:text="分享"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+        <!--</LinearLayout>-->
+
+    </LinearLayout>
+
+</RelativeLayout>

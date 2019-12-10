@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#D62424">
+
+        <!--<ImageView-->
+            <!--android:layout_width="10dp"-->
+            <!--android:layout_height="17dp"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:layout_marginTop="14dp"-->
+            <!--android:src="@mipmap/backff" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:text="城市风采"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+
+        <!--<ImageView-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginLeft="40dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:src="@mipmap/seach3x"-->
+            <!--android:text="设置"-->
+            <!--android:textColor="#FFFFFF"-->
+            <!--android:textSize="17sp" />-->
+    </RelativeLayout>
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <RelativeLayout
+        android:id="@+id/empty_order_bloacks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="166dp"
+            android:layout_height="109dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/empty3x" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_img"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:text="暂无相关数据!"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+    </RelativeLayout>
+</LinearLayout>

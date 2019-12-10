@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.guoyu.fuseapp.page.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/view"></FrameLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_above="@+id/system_ll_button"
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:id="@+id/system_ll_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/menu1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/menu_1"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/select1"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:textColor="@drawable/select_text_color"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:textSize="11sp"
+                android:layout_below="@+id/menu_1"
+                android:text="首页"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/menu2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/menu_2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/select2"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:textColor="@drawable/select_text_color"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:textSize="11sp"
+                android:layout_below="@+id/menu_2"
+                android:text="城市微观"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/menu3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/menu_3"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/select3"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:textColor="@drawable/select_text_color"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:textSize="11sp"
+                android:layout_below="@+id/menu_3"
+                android:text="城市风采"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/menu4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/menu_4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/select4"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv4"
+                android:textColor="@drawable/select_text_color"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:textSize="11sp"
+                android:layout_below="@+id/menu_4"
+                android:text="我的"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

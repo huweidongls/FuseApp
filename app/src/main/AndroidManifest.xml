@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.guoyu.fuseapp">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 控制呼吸灯，振动器等，用于新消息提醒 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 外置存储存取权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- 多媒体相关 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- 自动对焦功能 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <!-- 调用前置摄像头功能 -->
+    <uses-feature android:name="android.hardware.camera.front" />
+
+    <application
+        android:name=".app.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".page.MainActivity"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".broadcastreceiver.NetBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".page.ComplaintConsultationActivity" />
+        <activity android:name=".page.ComplaintDetailsActivity" />
+        <activity android:name=".page.RegisterActivity" />
+        <activity android:name=".page.RegistrationTwoActivity" />
+        <activity android:name=".page.RegistrationThreeActivity" />
+        <activity android:name=".page.LoginActivity" />
+        <activity android:name=".page.MemberSetupActivity" />
+        <activity android:name=".page.RealNameActivity" />
+        <activity
+            android:name=".page.PersonInformationActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".page.ComplaintInsertActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name="com.donkingliang.imageselector.ImageSelectorActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.donkingliang.imageselector.PreviewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.donkingliang.imageselector.ClipImageActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!-- Android 7.0 文件共享配置，必须配置 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".page.Urban_microcosm_insertActivity" />
+        <activity
+            android:name=".page.GovernmentListActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".page.MoreActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+        <activity android:name=".page.ModuleWebViewActivity" />
+        <activity android:name=".page.SocialseCurityActivity" />
+        <activity android:name=".page.SocialsecuriTyenuiriesActivity" />
+        <activity
+            android:name=".page.CityMicroInsertActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+        <activity
+            android:name=".imagepreview.ImagePreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".page.CommunityServiceActivity" />
+        <activity android:name=".page.SearchActivity" />
+        <activity
+            android:name=".page.JiazhengListActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+        <activity android:name=".page.JiazhengDetailsActivity" />
+        <activity
+            android:name=".page.SafeListActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+        <activity android:name=".page.SafeDetailsActivity" />
+        <activity android:name=".page.ConvenienceNoticeActivity" />
+        <activity android:name=".page.ConvenienceNoticeDetailsActivity" />
+        <activity android:name=".page.AboutActivity" />
+        <activity
+            android:name=".page.CityMicroUpdateActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+        <activity android:name=".page.StylisticServiceActivity" />
+        <activity android:name=".page.StylisticServiceContentActivity" />
+        <activity android:name=".page.ShequListActivity" />
+        <activity android:name=".page.XiaoquListActivity" />
+        <activity android:name=".page.ZhongjieListActivity" />
+        <activity android:name=".page.ZhongjieDetailsActivity" />
+        <activity android:name=".page.CommunityBulletinContentActivity" />
+        <activity android:name=".page.GobernmentContentActivity" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wx131a8bb72cc2b81a" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".page.CreditActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+        <activity android:name=".page.LifePayActivity" />
+        <activity android:name=".page.WeizhangActivity" />
+        <activity android:name=".page.CreditDetailsActivity"/>
+    </application>
+
+</manifest>

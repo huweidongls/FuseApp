@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+        <LinearLayout
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_marginTop="21dp"
+                android:textStyle="bold"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp"
+                android:text="【国内游】双鸭山北海森林旅游区"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:lines="2"
+                android:ellipsize="end"
+                android:textColor="#777777"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"
+                android:text="双鸭山市紧扣转型发展主线,抢抓全面振兴全方位振兴发展机遇,做好三篇大文章......,做实四头四尾,实现了由一煤独大向现代煤电化、粮食和绿色。"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#aaaaaa"
+                android:textSize="10sp"
+                android:text="发布时间：2019-10-12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_marginBottom="5dp"
+        android:id="@+id/ll_add"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/text_sharp"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_width="80dp"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/upload3x"
+            android:layout_width="33dp"
+            android:layout_centerInParent="true"
+            android:layout_height="28dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginBottom="5dp"
+        android:id="@+id/rl_pic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_width="105dp"
+        android:layout_height="105dp">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_centerInParent="true"
+            android:id="@+id/iv_pic"
+            android:layout_width="87dp"
+            android:layout_height="87dp"
+            />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:id="@+id/iv_del1"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@mipmap/close_three3x" />
+    </RelativeLayout>
+
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_delete"-->
+    <!--android:layout_marginLeft="-7.5dp"-->
+    <!--android:layout_marginTop="2.5dp"-->
+    <!--android:layout_toRightOf="@+id/rl_pic"-->
+    <!--android:src="@mipmap/guanbi2"-->
+    <!--android:layout_width="15dp"-->
+    <!--android:layout_height="15dp" />-->
+
+</RelativeLayout>

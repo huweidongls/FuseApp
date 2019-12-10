@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/line"
+    tools:context="com.guoyu.fuseapp.page.SearchActivity">
+
+    <RelativeLayout
+        style="@style/rl_top_bar">
+
+        <RelativeLayout
+            android:id="@+id/rl_back"
+            android:layout_width="40dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                style="@style/iv_top_back" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:text="搜索"
+            style="@style/tv_top_title" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="@color/white_ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <RelativeLayout
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/textview_background_hui">
+
+            <EditText
+                android:singleLine="true"
+                android:imeOptions="actionSearch"
+                android:id="@+id/et_titles"
+                android:layout_width="305dp"
+                android:layout_height="34dp"
+                android:background="@null"
+                android:hint="请输入搜索关键字"
+                android:paddingLeft="15dp"
+                android:textColorHint="#BBBBBB"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/iv_btn"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/seach3x" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:background="@color/white_ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <net.lucode.hackware.magicindicator.MagicIndicator
+                android:id="@+id/magic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/empty_order_bloacks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="166dp"
+            android:layout_height="109dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/empty3x" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_img"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:text="暂无相关数据!"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+</LinearLayout>

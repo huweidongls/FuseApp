@@ -1,0 +1,110 @@
+package com.guoyu.fuseapp.net;
+
+/**
+ * Created by Administrator on 2019/9/29.
+ */
+
+public class NetUrl {
+//    public static final String BASE_URL = "http://192.168.2.103:8080/";//http://192.168.2.211:8080/
+    public static final String BASE_URL = "http://122.112.187.234:8888/";//http://192.168.2.211:8080/
+    //用户获取验证码
+    public static final String registerPhone = "/CitizenUser/registerPhone";
+    //验证码校验
+    public static final String yzmCode = "/CitizenUser/yzmCode";
+    //手机号注册
+    public static final String register = "/CitizenUser/register";
+    //app用户登录
+    public static final String loginApp = "/CitizenUser/loginApp";
+    //前台实名认证
+    public static final String realNameAuthentication = "/CitizenUser/realNameAuthentication";
+    //获取用户个人信息
+    public static final String CitizenUsergetOne = "/CitizenUser/getOne";
+    //投诉咨询列表
+    public static final String AppConsultationInfoqueryList = "/AppConsultationInfo/queryList";
+    //个人信息修改
+    public static final String CitizenUserupdate = "/CitizenUser/update";
+    //用户手机号验证码发送(忘记密码)
+    public static final String CitizenUserregisterPhoneWjmm = "/CitizenUser/registerPhoneWjmm";
+    //用户手机号验证码发送(忘记密码)
+    public static final String CitizenUserforgetThePassword = "/CitizenUser/forgetThePassword";
+    //发布咨询投诉
+    public static final String AppConsultationInfotoUpdate = "/AppConsultationInfo/toUpdate";
+    //查询更多模板
+    public static final String AppCitizenIndexfindAllInfoMore = "/AppCitizenIndex/findAllInfoMore";
+    //查询全部轮播图
+    public static final String AppBannerInfoqueryList = "/AppBannerInfo/queryList";
+    //查询首页展示模板
+    public static final String AppCitizenIndexfindAllInfo = "/AppCitizenIndex/findAllInfo";
+    //咨询投诉详情
+    public static final String AppConsultationInfogetOne = "/AppConsultationInfo/getOne";
+    //政务指南列表
+    public static final String AppGovernmentInfoqueryList = "/AppGovernmentInfo/queryList";
+    //展示政务指南
+    public static final String AppCitizenIndexfindNewGovernment = "/AppCitizenIndex/findNewGovernment";
+    //城市风采列表
+    public static final String AppCityInfoqueryList = "/AppCityInfo/queryList";
+    //城市微观
+    public static final String AppMiniCityInfoqueryList = "/AppMiniCityInfo/queryList";
+    //发布城市微观(城市微观修改提交)
+    public static final String AppMiniCityInfotoUpdate = "AppMiniCityInfo/toUpdate";
+    //删除城市微观
+    public static final String AppMiniCityInfotoDelete = "/AppMiniCityInfo/toDelete";
+    //首页展示便民查询
+    public static final String AppCitizenIndexfindConvenienceQuery = "/AppCitizenIndex/findConvenienceQuery";
+    //展示便民查询详细
+    public static final String AppCitizenIndexfindByFunCode = "/AppCitizenIndex/findByFunCode";
+    //获取社区信息(社区列表)
+    public static final String AppCommunityServiceInfofindCommunity = "/AppCommunityServiceInfo/findCommunity";
+    //获取社区信息(社区分类)
+    public static final String AppCommunityServiceInfofindType = "/AppCommunityServiceInfo/findType";
+    //社区信息列表
+    public static final String AppCommunityServiceInfoqueryList = "/AppCommunityServiceInfo/queryList";
+    //APP搜索
+    public static final String AppSearchqueryList = "/AppSearch/queryList";
+    //首页展示便民服务
+    public static final String AppCitizenIndexfindConvenienceNotice = "/AppCitizenIndex/findConvenienceNotice";
+    //APP家政服务
+    public static final String AppHouseServiceInfoqueryList = "/AppHouseServiceInfo/queryList";
+    //APP家政服务详情
+    public static final String AppHouseServiceInfogetOne = "/AppHouseServiceInfo/getOne";
+    //查询全部安全服务
+    public static final String AppSaveInfoqueryList = "/AppSaveInfo/queryList";
+    //安全服务详情
+    public static final String AppSaveInfogetOne = "/AppSaveInfo/getOne";
+    //部门
+    public static final String AppConsultationInfofindDepartment="/AppConsultationInfo/findDepartment";
+    //查询全部便民通知
+    public static final String AppConvenienceNoticequeryList="/AppConvenienceNotice/queryList";
+    //便民通知详情
+    public static final String AppConvenienceNoticegetOne="/AppConvenienceNotice/getOne";
+    //最新版本信息
+    public static final String AppVersionInfonewVersion="/AppVersionInfo/newVersionCity";
+    //城市微观获取一条
+    public static final String AppMiniCityInfogetOne = "/AppMiniCityInfo/getOne";
+    //所有小区
+    public static final String AppCommunityServiceInfofindArea = "/AppCommunityServiceInfo/findArea";
+    //文体服务列表
+    public static final String AppStyleInfoqueryList = "/AppStyleInfo/queryList";
+    //文体服务详情
+    public static final String AppStyleInfogetOne="/AppStyleInfo/getOne";
+    //APP全部中介服务
+    public static final String AppAgentServicequeryList="/AppAgentService/queryList";
+    //上传头像
+    public static final String apiupdateheadPortrait="/CitizenUser/updateheadPortrait";
+    //社区详情
+    public static final String AppCommunityServiceInfogetOne = "/AppCommunityServiceInfo/getOne";
+    //查询政务指南分类
+    public static final String AppGovernmentInfofindType= "/AppGovernmentInfo/findType";
+    //投诉咨询类别列表
+    public static final  String AppConsultationInfofindType = "/AppConsultationInfo/findType";
+    //查询unionid是否存在
+    public static final  String CitizenUserselectUnionid = "/CitizenUser/selectUnionid";
+    //查看点赞及浏览次数
+    public static final  String AppShareListPraiseTimesfindNum = "/AppShareListPraiseTimes/findNum";
+    //点赞
+    public static final  String AppShareListPraiseTimesclickLikes = "/AppShareListPraiseTimes/clickLikes";
+    //政务指南详情
+    public static final  String AppGovernmentInfogetOne = "/AppGovernmentInfo/getOne";
+    //中介服务详情
+    public static final  String AppAgentServicegetOne = "/AppAgentService/getOne";
+}

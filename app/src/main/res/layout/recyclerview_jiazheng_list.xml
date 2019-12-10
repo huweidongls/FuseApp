@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?android:selectableItemBackground">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_margin="15dp"
+            android:id="@+id/iv"
+            android:scaleType="centerCrop"
+            android:layout_width="85dp"
+            android:layout_height="85dp" />
+
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:lines="1"
+                android:ellipsize="end"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/black_333333"
+                android:text="双鸭山鸿基梦家政服务有限公司"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:layout_marginTop="6dp"
+                android:textColor="#aaaaaa"
+                android:textSize="10sp"
+                android:text="保姆保洁，有证上岗，服务周到..."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:textColor="#FF6600"
+                    android:textSize="14sp"
+                    android:text="¥40元"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textColor="#aaaaaa"
+                    android:textSize="10sp"
+                    android:text=" 起"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</LinearLayout>
