@@ -10,7 +10,9 @@ import android.view.WindowManager;
 import com.google.gson.Gson;
 import com.guoyu.fuseapp.bean.UnionidBean;
 import com.guoyu.fuseapp.bean.WxLoginBean;
+import com.guoyu.fuseapp.dialog.DialogWxType;
 import com.guoyu.fuseapp.net.NetUrl;
+import com.guoyu.fuseapp.page.LoginActivity;
 import com.guoyu.fuseapp.page.RegisterActivity;
 import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.SpUtils;
@@ -106,7 +108,7 @@ public class WXEntryActivity extends AppCompatActivity implements IWXAPIEventHan
                     public void onSuccess(String data) {
                         Logger.e("123123", data);
                         try {
-                            JSONObject jsonObject = new JSONObject(data);
+                            final JSONObject jsonObject = new JSONObject(data);
                             if(jsonObject.optString("status").equals("200")){
                                 Gson gson = new Gson();
                                 UnionidBean bean = gson.fromJson(data, UnionidBean.class);
@@ -120,12 +122,29 @@ public class WXEntryActivity extends AppCompatActivity implements IWXAPIEventHan
                                 finish();
                             }
                             else if(jsonObject.optString("status").equals("666")){
-                                Intent intent = new Intent();
-                                intent.setClass(context, RegisterActivity.class);
-                                intent.putExtra("type", "0");
-                                intent.putExtra("unionid", jsonObject.optString("data"));
-                                startActivity(intent);
-                                finish();
+                                DialogWxType dialogWxType = new DialogWxType(context, new DialogWxType.ClickListener() {
+                                    @Override
+                                    public void onRegister() {
+                                        Intent intent = new Intent();
+                                        intent.setClass(context, RegisterActivity.class);
+                                        intent.putExtra("type", "0");
+                                        intent.putExtra("unionid", jsonObject.optString("data"));
+                                        startActivity(intent);
+                                        WXEntryActivity.this.finish();
+                                    }
+
+                                    @Override
+                                    public void onLogin() {
+                                        Intent intent = new Intent();
+                                        intent.setClass(context, LoginActivity.class);
+                                        intent.putExtra("unionid", jsonObject.optString("data"));
+                                        startActivity(intent);
+                                        WXEntryActivity.this.finish();
+                                    }
+                                });
+                                dialogWxType.setCancelable(false);
+                                dialogWxType.setCanceledOnTouchOutside(false);
+                                dialogWxType.show();
                             }else {
                                 ToastUtil.showShort(context, jsonObject.optString("errorMsg"));
                                 finish();

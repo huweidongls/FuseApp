@@ -59,12 +59,14 @@ public class LoginActivity extends BaseActivity {
 
     private WXShare wxShare;
     private IWXAPI api;
+    private String unionid = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        unionid = getIntent().getStringExtra("unionid");
         api = WXAPIFactory.createWXAPI(context, null);
         api.registerApp(WXShare.APP_ID);
         ButterKnife.bind(LoginActivity.this);
@@ -98,9 +100,14 @@ public class LoginActivity extends BaseActivity {
                     ToastUtil.showShort(context, "账号或密码不能为空");
                 } else {
                     dialog = WeiboDialogUtils.createLoadingDialog(context, "请等待...");
+                    Map<String, String> map = new LinkedHashMap<>();
+                    map.put("phone", name);
+                    map.put("psd", pwd);
+                    if(!StringUtils.isEmpty(unionid)){
+                        map.put("unionid", unionid);
+                    }
                     ViseHttp.GET(NetUrl.loginApp)
-                            .addParam("phone", name)
-                            .addParam("psd", pwd)
+                            .addParams(map)
                             .request(new ACallback<String>() {
                                 @Override
                                 public void onSuccess(String data) {
