@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/line"
     tools:context="com.guoyu.fuseapp.page.WeizhangActivity">
 
     <RelativeLayout
@@ -26,28 +27,115 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/empty_order_bloacks"
+    <TextView
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:textColor="#646464"
+        android:textSize="14sp"
+        android:text="车辆基本信息"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical">
+        android:layout_height="40dp" />
 
-        <ImageView
-            android:id="@+id/iv_img"
-            android:layout_width="166dp"
-            android:layout_height="109dp"
-            android:layout_centerInParent="true"
-            android:src="@mipmap/empty3x" />
+    <LinearLayout
+        android:background="@color/white_ffffff"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/iv_img"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="18dp"
-            android:text="暂无相关数据!"
-            android:textColor="#000000"
-            android:textSize="17sp" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp"
+                android:text="车牌号码"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:gravity="end"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:textSize="14sp"
+                android:hint="请输入车牌号码"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:background="@color/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp"
+                android:text="车架号码"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:gravity="end"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:textSize="14sp"
+                android:hint="请输入车辆识别代码后六位"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_search"
+        android:textColor="@color/white_ffffff"
+        android:textSize="18sp"
+        android:text="查询"
+        android:background="#D62424"
+        android:layout_marginTop="26dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/empty_order_bloacks"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center_vertical">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_img"-->
+            <!--android:layout_width="166dp"-->
+            <!--android:layout_height="109dp"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:src="@mipmap/empty3x" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/iv_img"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:layout_marginTop="18dp"-->
+            <!--android:text="暂无相关数据!"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="17sp" />-->
+    <!--</RelativeLayout>-->
 
 </LinearLayout>

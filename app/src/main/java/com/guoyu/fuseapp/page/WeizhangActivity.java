@@ -1,6 +1,7 @@
 package com.guoyu.fuseapp.page;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -38,11 +39,17 @@ public class WeizhangActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.rl_back})
+    @OnClick({R.id.rl_back, R.id.btn_search})
     public void onClick(View view){
+        Intent intent = new Intent();
         switch (view.getId()){
             case R.id.rl_back:
                 finish();
+                break;
+            case R.id.btn_search:
+                intent.setClass(context, WeizhangResultActivity.class);
+                intent.putExtra("title", title);
+                startActivity(intent);
                 break;
         }
     }
