@@ -1,8 +1,10 @@
 package com.guoyu.fuseapp.page;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
@@ -18,6 +20,18 @@ public class SocialsecuriTyenuiriesActivity extends BaseActivity {
 
     @BindView(R.id.tv_title)
     TextView tvTitle;
+    @BindView(R.id.tv_zhanghu)
+    TextView tvZhanghu;
+    @BindView(R.id.view_zhanghu)
+    View viewZhanghu;
+    @BindView(R.id.tv_jiaofei)
+    TextView tvJiaofei;
+    @BindView(R.id.view_jiaofei)
+    View viewJiaofei;
+    @BindView(R.id.zhanghu)
+    LinearLayout zhanghu;
+    @BindView(R.id.jiaofei)
+    LinearLayout jiaofei;
 
     private String title = "";
 
@@ -38,11 +52,27 @@ public class SocialsecuriTyenuiriesActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.rl_back})
+    @OnClick({R.id.rl_back, R.id.ll_zhanghu, R.id.ll_jiaofei})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.rl_back:
                 finish();
+                break;
+            case R.id.ll_zhanghu:
+                tvZhanghu.setTextColor(Color.parseColor("#D62424"));
+                viewZhanghu.setVisibility(View.VISIBLE);
+                tvJiaofei.setTextColor(Color.parseColor("#000000"));
+                viewJiaofei.setVisibility(View.GONE);
+                zhanghu.setVisibility(View.VISIBLE);
+                jiaofei.setVisibility(View.GONE);
+                break;
+            case R.id.ll_jiaofei:
+                tvZhanghu.setTextColor(Color.parseColor("#000000"));
+                viewZhanghu.setVisibility(View.GONE);
+                tvJiaofei.setTextColor(Color.parseColor("#D62424"));
+                viewJiaofei.setVisibility(View.VISIBLE);
+                zhanghu.setVisibility(View.GONE);
+                jiaofei.setVisibility(View.VISIBLE);
                 break;
         }
     }

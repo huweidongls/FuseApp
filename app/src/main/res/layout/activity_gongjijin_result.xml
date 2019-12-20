@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.guoyu.fuseapp.page.SocialsecuriTyenuiriesActivity">
+    tools:context="com.guoyu.fuseapp.page.GongjijinResultActivity">
 
     <RelativeLayout style="@style/rl_top_bar">
 
@@ -18,6 +18,7 @@
         </RelativeLayout>
 
         <TextView
+            android:text="查询结果"
             android:id="@+id/tv_title"
             style="@style/tv_top_title" />
     </RelativeLayout>
@@ -31,70 +32,6 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/ll_zhanghu"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_zhanghu"
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="49dp"
-                        android:text="账户信息"
-                        android:textColor="#D62424"
-                        android:textSize="15sp" />
-
-                    <View
-                        android:id="@+id/view_zhanghu"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#D62424"
-                        android:layout_width="25dp"
-                        android:layout_height="1dp"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_jiaofei"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_jiaofei"
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="49dp"
-                        android:text="缴费信息"
-                        android:textColor="#000000"
-                        android:textSize="15sp" />
-
-                    <View
-                        android:id="@+id/view_jiaofei"
-                        android:visibility="gone"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#D62424"
-                        android:layout_width="25dp"
-                        android:layout_height="1dp"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_alignParentBottom="true"
-                android:background="@color/line" />
 
             <LinearLayout
                 android:id="@+id/zhanghu"
@@ -111,71 +48,7 @@
                         android:layout_marginLeft="18dp"
                         android:textColor="@color/black_333333"
                         android:textSize="14sp"
-                        android:text="用户姓名"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="18dp"
-                        android:textColor="#999999"
-                        android:textSize="12sp"
-                        android:text="张明阳"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@color/line"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                    <TextView
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="18dp"
-                        android:textColor="@color/black_333333"
-                        android:textSize="14sp"
-                        android:text="单位名称"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="18dp"
-                        android:textColor="#999999"
-                        android:textSize="12sp"
-                        android:text="双鸭山市网络开发公司"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@color/line"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                    <TextView
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="18dp"
-                        android:textColor="@color/black_333333"
-                        android:textSize="14sp"
-                        android:text="身份证号"
+                        android:text="个人公积金账户"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -207,7 +80,7 @@
                         android:layout_marginLeft="18dp"
                         android:textColor="@color/black_333333"
                         android:textSize="14sp"
-                        android:text="人员状况"
+                        android:text="姓名"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -217,7 +90,7 @@
                         android:layout_marginRight="18dp"
                         android:textColor="#999999"
                         android:textSize="12sp"
-                        android:text="在职"
+                        android:text="李明启"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -239,7 +112,7 @@
                         android:layout_marginLeft="18dp"
                         android:textColor="@color/black_333333"
                         android:textSize="14sp"
-                        android:text="社会保障卡号码"
+                        android:text="账户余额"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -249,7 +122,483 @@
                         android:layout_marginRight="18dp"
                         android:textColor="#999999"
                         android:textSize="12sp"
-                        android:text="45678445"
+                        android:text="635.00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="缴存基数"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="5001.25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="证件类型"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="身份证"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="证件号码"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="2310011926****1234"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="账号状态"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="正常"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="职工类型"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="老职工"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="个人缴费金额"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="2300.00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="个人缴费比例"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="8%"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="缴至年月"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="2019-09-26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="开户日期"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="2012-03-15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="单位账户"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="5987884521"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="单位缴存比例"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="12%"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="单位缴存金额"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="1200.00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="缴存总额"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="5845.00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="单位名称"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="双鸭山网络开发公司"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:textColor="@color/black_333333"
+                        android:textSize="14sp"
+                        android:text="手机号码"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="18dp"
+                        android:textColor="#999999"
+                        android:textSize="12sp"
+                        android:text="15045678900"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -257,207 +606,15 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/jiaofei"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                    <TextView
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="18dp"
-                        android:textColor="@color/black_333333"
-                        android:textSize="14sp"
-                        android:text="养老保险"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/black_333333"
-                        android:textSize="12sp"
-                        android:text="568.00"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="18dp"
-                        android:textColor="#999999"
-                        android:textSize="12sp"
-                        android:text="已缴"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@color/line"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                    <TextView
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="18dp"
-                        android:textColor="@color/black_333333"
-                        android:textSize="14sp"
-                        android:text="医疗保险"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/black_333333"
-                        android:textSize="12sp"
-                        android:text="328.00"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="18dp"
-                        android:textColor="#999999"
-                        android:textSize="12sp"
-                        android:text="已缴"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@color/line"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                    <TextView
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="18dp"
-                        android:textColor="@color/black_333333"
-                        android:textSize="14sp"
-                        android:text="失业保险"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/black_333333"
-                        android:textSize="12sp"
-                        android:text="68.00"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="18dp"
-                        android:textColor="#FF6600"
-                        android:textSize="12sp"
-                        android:text="欠费"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@color/line"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                    <TextView
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="18dp"
-                        android:textColor="@color/black_333333"
-                        android:textSize="14sp"
-                        android:text="工伤保险"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/black_333333"
-                        android:textSize="12sp"
-                        android:text="12.00"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="18dp"
-                        android:textColor="#999999"
-                        android:textSize="12sp"
-                        android:text="已缴"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@color/line"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                    <TextView
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="18dp"
-                        android:textColor="@color/black_333333"
-                        android:textSize="14sp"
-                        android:text="生育保险"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/black_333333"
-                        android:textSize="12sp"
-                        android:text="15.00"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="18dp"
-                        android:textColor="#999999"
-                        android:textSize="12sp"
-                        android:text="已缴"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </RelativeLayout>
-
-            </LinearLayout>
+            <!--<Button-->
+                <!--android:id="@+id/btn"-->
+                <!--android:background="#D62424"-->
+                <!--android:layout_margin="15dp"-->
+                <!--android:textColor="@color/white_ffffff"-->
+                <!--android:textSize="17sp"-->
+                <!--android:text="公积金明细查看"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="45dp" />-->
 
         </LinearLayout>
 
