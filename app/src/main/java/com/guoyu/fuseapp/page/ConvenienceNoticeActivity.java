@@ -62,6 +62,7 @@ public class ConvenienceNoticeActivity extends BaseActivity {
         ViseUtil.Post(context, NetUrl.AppConvenienceNoticequeryList, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
+                Logger.e("123123", s);
                 Gson gson = new Gson();
                 ConvenienceNoticeBean bean = gson.fromJson(s, ConvenienceNoticeBean.class);
                 mList = bean.getData();

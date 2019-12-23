@@ -6,11 +6,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.bean.ConvenienceNoticeBean;
+import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.page.ConvenienceNoticeDetailsActivity;
+import com.guoyu.fuseapp.util.GlideUtils;
 
 import java.util.List;
 
@@ -42,6 +45,7 @@ public class ConvenienceNoticeAdapter extends RecyclerView.Adapter<ConvenienceNo
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.tv.setText(data.get(position).getTitle());
+        GlideUtils.into(context, NetUrl.BASE_URL+data.get(position).getAppimg(), holder.iv);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,10 +67,12 @@ public class ConvenienceNoticeAdapter extends RecyclerView.Adapter<ConvenienceNo
     class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView tv;
+        private ImageView iv;
 
         public ViewHolder(View itemView) {
             super(itemView);
             tv = itemView.findViewById(R.id.tv);
+            iv = itemView.findViewById(R.id.iv);
         }
     }
 

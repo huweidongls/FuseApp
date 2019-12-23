@@ -53,8 +53,8 @@ public class StylisticServiceListAdapter extends RecyclerView.Adapter<StylisticS
                 GlideUtils.into(context, NetUrl.BASE_URL + pics[0], holder.iv_zhu);
             }
         }
-        holder.textView.setText("活动地点：" + data.get(position).getActivityPlace());
-        holder.textViews.setText("时间：" + data.get(position).getActivityTime());
+        holder.textView.setText(data.get(position).getActivityPlace());
+        holder.textViews.setText(data.get(position).getActivityTime());
         holder.textView2.setText(data.get(position).getTitle());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

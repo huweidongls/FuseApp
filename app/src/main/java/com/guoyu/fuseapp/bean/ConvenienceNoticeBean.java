@@ -10,9 +10,9 @@ public class ConvenienceNoticeBean {
 
     /**
      * status : 200
-     * data : [{"id":2,"title":"标题"}]
+     * data : [{"id":551,"title":"双鸭山多个大项目开复工","appimg":"upload/null/2019-10-19/fcc42dd17dc8477c8a62c6949c7d5156.png"},{"id":402,"title":"市科技局领导到南岗区调研高科技产业建设...","appimg":"upload/null/2019-10-19/fcc42dd17dc8477c8a62c6949c7d5156.png"},{"id":401,"title":"南岗区亲水文化节\u2014走近你最美河园随手拍...","appimg":"upload/null/2019-10-19/fcc42dd17dc8477c8a62c6949c7d5156.png"},{"id":301,"title":"区委书记梁野深入双鸭山市建文小学校实地...","appimg":"upload/null/2019-10-19/fcc42dd17dc8477c8a62c6949c7d5156.png"},{"id":201,"title":"南岗区亲水文化节\u2014走近你最美河园随手拍...","appimg":"upload/null/2019-10-19/fcc42dd17dc8477c8a62c6949c7d5156.png"},{"id":152,"title":"哈西街道办事处如期完成花园小学校区清理...","appimg":"upload/null/2019-10-19/fcc42dd17dc8477c8a62c6949c7d5156.png"},{"id":151,"title":"2019年下半年这15项便民大事儿你必须知道！","appimg":"upload/null/2019-10-19/fcc42dd17dc8477c8a62c6949c7d5156.png"},{"id":2,"title":"市科技局领导到南岗区调研高科技产业建设...","appimg":"upload/null/2019-10-19/fcc42dd17dc8477c8a62c6949c7d5156.png"},{"id":101,"title":"区委书记梁野深入双鸭山市建文小学校实地...","appimg":"upload/null/2019-10-19/fcc42dd17dc8477c8a62c6949c7d5156.png"}]
      * totalPage : 0
-     * totalCount : 1
+     * totalCount : 9
      */
 
     private String status;
@@ -54,12 +54,14 @@ public class ConvenienceNoticeBean {
 
     public static class DataBean {
         /**
-         * id : 2
-         * title : 标题
+         * id : 551
+         * title : 双鸭山多个大项目开复工
+         * appimg : upload/null/2019-10-19/fcc42dd17dc8477c8a62c6949c7d5156.png
          */
 
         private int id;
         private String title;
+        private String appimg;
 
         public int getId() {
             return id;
@@ -75,6 +77,14 @@ public class ConvenienceNoticeBean {
 
         public void setTitle(String title) {
             this.title = title;
+        }
+
+        public String getAppimg() {
+            return appimg;
+        }
+
+        public void setAppimg(String appimg) {
+            this.appimg = appimg;
         }
     }
 }

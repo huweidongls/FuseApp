@@ -5,9 +5,9 @@ package com.guoyu.fuseapp.net;
  */
 
 public class NetUrl {
-//    public static final String BASE_URL = "http://192.168.1.109:8080/";
+    public static final String BASE_URL = "http://192.168.1.116:8080/";
 //    public static final String BASE_URL = "http://122.112.187.234:8888/";
-    public static final String BASE_URL = "http://112.101.203.127:9999/";
+//    public static final String BASE_URL = "http://112.101.203.127:9999/";
     //用户获取验证码
     public static final String registerPhone = "/CitizenUser/registerPhone";
     //验证码校验
@@ -108,4 +108,6 @@ public class NetUrl {
     public static final  String AppGovernmentInfogetOne = "/AppGovernmentInfo/getOne";
     //中介服务详情
     public static final  String AppAgentServicegetOne = "/AppAgentService/getOne";
+    //文体活动类型列表
+    public static final  String StyleInfoItemqueryList = "/StyleInfoItemApp/queryListApp";
 }
