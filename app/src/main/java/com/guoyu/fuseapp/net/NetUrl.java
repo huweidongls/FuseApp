@@ -110,4 +110,6 @@ public class NetUrl {
     public static final  String AppAgentServicegetOne = "/AppAgentService/getOne";
     //文体活动类型列表
     public static final  String StyleInfoItemqueryList = "/StyleInfoItemApp/queryListApp";
+    //家政服务分类
+    public static final  String HouseServiceInfoItemAppqueryListApp = "/HouseServiceInfoItemApp/queryListApp";
 }
