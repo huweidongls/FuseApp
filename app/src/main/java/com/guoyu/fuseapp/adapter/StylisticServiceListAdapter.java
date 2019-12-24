@@ -27,11 +27,11 @@ import java.util.List;
 public class StylisticServiceListAdapter extends RecyclerView.Adapter<StylisticServiceListAdapter.ViewHolder> {
 
     private Context context;
-    private List<StylisticServiceListBean.DataBean.ListsBean> data;
+    private List<StylisticServiceListBean.DataBean> data;
     private String title;
     private String funCode;
 
-    public StylisticServiceListAdapter(List<StylisticServiceListBean.DataBean.ListsBean> data, String title, String funCode) {
+    public StylisticServiceListAdapter(List<StylisticServiceListBean.DataBean> data, String title, String funCode) {
         this.data = data;
         this.title = title;
         this.funCode = funCode;

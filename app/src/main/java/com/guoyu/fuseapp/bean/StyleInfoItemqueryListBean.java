@@ -63,6 +63,10 @@ public class StyleInfoItemqueryListBean {
         private String siiType;
         private String createDate;
 
+        public DataBean(String siiType) {
+            this.siiType = siiType;
+        }
+
         public int getId() {
             return id;
         }

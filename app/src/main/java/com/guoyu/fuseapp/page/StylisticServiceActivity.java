@@ -1,5 +1,6 @@
 package com.guoyu.fuseapp.page;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -29,9 +30,12 @@ import com.guoyu.fuseapp.bean.GovernmentListBean;
 import com.guoyu.fuseapp.bean.StyleInfoItemqueryListBean;
 import com.guoyu.fuseapp.bean.StylisticServiceListBean;
 import com.guoyu.fuseapp.net.NetUrl;
+import com.guoyu.fuseapp.util.DensityTool;
 import com.guoyu.fuseapp.util.GlideUtils;
 import com.guoyu.fuseapp.util.Logger;
+import com.guoyu.fuseapp.util.StringUtils;
 import com.guoyu.fuseapp.util.ViseUtil;
+import com.guoyu.fuseapp.util.WeiboDialogUtils;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -74,7 +78,7 @@ public class StylisticServiceActivity extends BaseActivity {
     private String title = "";
     private String funCode = "";
     private StylisticServiceListAdapter adapter;
-    private List<StylisticServiceListBean.DataBean.ListsBean> mList;
+    private List<StylisticServiceListBean.DataBean> mList;
     private int page = 1;
 
     private PopupWindow popupWindow;
@@ -84,7 +88,10 @@ public class StylisticServiceActivity extends BaseActivity {
     private List<StyleInfoItemqueryListBean.DataBean> list;
 
 //    private String type2 = "0";
+    private String type = "";
     private String type3 = "0";
+
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,9 +119,17 @@ public class StylisticServiceActivity extends BaseActivity {
                 Gson gson = new Gson();
                 StyleInfoItemqueryListBean bean = gson.fromJson(s, StyleInfoItemqueryListBean.class);
                 list = bean.getData();
+                list.add(0, new StyleInfoItemqueryListBean.DataBean("全部"));
                 wenti1Adapter = new Wenti1Adapter(list, new Wenti1Adapter.ClickListener() {
                     @Override
                     public void onItemClick(int pos) {
+                        if(pos == 0){
+                            type = "";
+                        }else {
+                            type = list.get(pos).getId()+"";
+                        }
+                        dialog = WeiboDialogUtils.createLoadingDialog(context, "请等待...");
+                        initData();
                         popupWindow.dismiss();
                     }
                 });
@@ -138,13 +153,17 @@ public class StylisticServiceActivity extends BaseActivity {
                 Map<String, String> map = new LinkedHashMap<>();
                 map.put("pageNum", "1");
                 map.put("pageSize", "10");
+                if(!StringUtils.isEmpty(type)){
+                    map.put("type", type);
+                }
+                map.put("time", type3);
                 ViseUtil.Post(StylisticServiceActivity.this, NetUrl.AppStyleInfoqueryList, map, new ViseUtil.ViseListener() {
                     @Override
                     public void onReturn(String s) {
                         Gson gson = new Gson();
                         StylisticServiceListBean bean = gson.fromJson(s, StylisticServiceListBean.class);
                         mList.clear();
-                        mList.addAll(bean.getData().getLists());
+                        mList.addAll(bean.getData());
                         adapter.notifyDataSetChanged();
                         page = 2;
                     }
@@ -158,12 +177,16 @@ public class StylisticServiceActivity extends BaseActivity {
                 Map<String, String> map = new LinkedHashMap<>();
                 map.put("pageNum", page + "");
                 map.put("pageSize", "10");
+                if(!StringUtils.isEmpty(type)){
+                    map.put("type", type);
+                }
+                map.put("time", type3);
                 ViseUtil.Post(StylisticServiceActivity.this, NetUrl.AppStyleInfoqueryList, map, new ViseUtil.ViseListener() {
                     @Override
                     public void onReturn(String s) {
                         Gson gson = new Gson();
                         StylisticServiceListBean bean = gson.fromJson(s, StylisticServiceListBean.class);
-                        mList.addAll(bean.getData().getLists());
+                        mList.addAll(bean.getData());
                         adapter.notifyDataSetChanged();
                         page = page + 1;
                     }
@@ -174,13 +197,18 @@ public class StylisticServiceActivity extends BaseActivity {
         Map<String, String> map = new LinkedHashMap<>();
         map.put("pageSize", "10");
         map.put("pageNum", "1");
+        if(!StringUtils.isEmpty(type)){
+            map.put("type", type);
+        }
+        map.put("time", type3);
         ViseUtil.Post(context, NetUrl.AppStyleInfoqueryList, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
                 Logger.e("123123", s);
+                WeiboDialogUtils.closeDialog(dialog);
                 Gson gson = new Gson();
                 StylisticServiceListBean bean = gson.fromJson(s, StylisticServiceListBean.class);
-                mList = bean.getData().getLists();
+                mList = bean.getData();
                 adapter = new StylisticServiceListAdapter(mList, title, funCode);
                 LinearLayoutManager manager = new LinearLayoutManager(StylisticServiceActivity.this) {
                     @Override
@@ -411,6 +439,8 @@ public class StylisticServiceActivity extends BaseActivity {
             public void onClick(View v) {
                 type3 = "0";
                 tv33.setText("全部时间");
+                dialog = WeiboDialogUtils.createLoadingDialog(context, "请等待...");
+                initData();
                 popupWindow.dismiss();
             }
         });
@@ -420,6 +450,8 @@ public class StylisticServiceActivity extends BaseActivity {
             public void onClick(View v) {
                 type3 = "1";
                 tv33.setText("一周内");
+                dialog = WeiboDialogUtils.createLoadingDialog(context, "请等待...");
+                initData();
                 popupWindow.dismiss();
             }
         });
@@ -429,6 +461,8 @@ public class StylisticServiceActivity extends BaseActivity {
             public void onClick(View v) {
                 type3 = "2";
                 tv33.setText("一个月内");
+                dialog = WeiboDialogUtils.createLoadingDialog(context, "请等待...");
+                initData();
                 popupWindow.dismiss();
             }
         });
@@ -438,6 +472,8 @@ public class StylisticServiceActivity extends BaseActivity {
             public void onClick(View v) {
                 type3 = "3";
                 tv33.setText("三个月内");
+                dialog = WeiboDialogUtils.createLoadingDialog(context, "请等待...");
+                initData();
                 popupWindow.dismiss();
             }
         });

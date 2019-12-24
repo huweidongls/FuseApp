@@ -43,7 +43,6 @@ public class WeiboDialogUtils {
         window.setAttributes(lp);
         window.setWindowAnimations(R.style.PopWindowAnimStyle);
         loadingDialog.show();
-
         return loadingDialog;
     }
 
