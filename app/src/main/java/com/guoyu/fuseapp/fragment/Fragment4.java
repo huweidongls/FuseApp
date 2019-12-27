@@ -63,6 +63,10 @@ public class Fragment4 extends BaseFragment {
     TextView tvPhone;
     @BindView(R.id.ll_register)
     LinearLayout llRegister;
+    @BindView(R.id.ll_forgot)
+    LinearLayout llForgot;
+    @BindView(R.id.v)
+    View v;
 
     private int REQUEST_CODE = 101;
     private String pic="";
@@ -83,11 +87,15 @@ public class Fragment4 extends BaseFragment {
         String id = SpUtils.getUserId(getContext());
         if(id.equals("0")){
             llRegister.setVisibility(View.VISIBLE);
+            llForgot.setVisibility(View.GONE);
+            v.setVisibility(View.GONE);
             Glide.with(getContext()).load(R.mipmap.timg).into(ivHead);
             tvName.setText("未登录用户");
             tvPhone.setText(null);
         }else {
             llRegister.setVisibility(View.GONE);
+            llForgot.setVisibility(View.VISIBLE);
+            v.setVisibility(View.VISIBLE);
             Map<String, String> map = new LinkedHashMap<>();
             map.put("id", SpUtils.getUserId(getContext()));
             ViseUtil.Get(getContext(), NetUrl.CitizenUsergetOne, map, new ViseUtil.ViseListener() {
@@ -117,7 +125,7 @@ public class Fragment4 extends BaseFragment {
 
     }
 
-    @OnClick({R.id.lzixun, R.id.ll_register, R.id.ll_real, R.id.ll_person, R.id.tv_set, R.id.rl_login,R.id.iv_head})
+    @OnClick({R.id.lzixun, R.id.ll_register, R.id.ll_real, R.id.ll_person, R.id.tv_set, R.id.rl_login,R.id.iv_head, R.id.ll_forgot})
     public void onClick(View view) {
         Intent intent = new Intent();
         switch (view.getId()){
@@ -183,6 +191,16 @@ public class Fragment4 extends BaseFragment {
             case R.id.rl_login:
                 if(SpUtils.getUserId(getContext()).equals("0")){
                     intent.setClass(getContext(), LoginActivity.class);
+                    startActivity(intent);
+                }
+                break;
+            case R.id.ll_forgot:
+                if(SpUtils.getUserId(getContext()).equals("0")){
+                    intent.setClass(getContext(), LoginActivity.class);
+                    startActivity(intent);
+                }else {
+                    intent.setClass(getContext(), RegisterActivity.class);
+                    intent.putExtra("type", "1");
                     startActivity(intent);
                 }
                 break;

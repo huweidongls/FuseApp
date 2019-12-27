@@ -76,6 +76,7 @@ public class IndexGongnengAdapter extends RecyclerView.Adapter<IndexGongnengAdap
                         }
                     }else {
                         intent.setClass(context, ModuleWebViewActivity.class);
+                        intent.putExtra("funcode", data.get(position).getFunCode());
                         intent.putExtra("title", data.get(position).getFunName());
                         intent.putExtra("urltype", data.get(position).getUrlType()+"");
                         intent.putExtra("url", data.get(position).getUrl());
@@ -93,6 +94,7 @@ public class IndexGongnengAdapter extends RecyclerView.Adapter<IndexGongnengAdap
                         }
                     }else {
                         intent.setClass(context, ModuleWebViewActivity.class);
+                        intent.putExtra("funcode", data.get(position).getFunCode());
                         intent.putExtra("title", data.get(position).getFunName());
                         intent.putExtra("urltype", data.get(position).getUrlType()+"");
                         intent.putExtra("url", data.get(position).getUrl());
