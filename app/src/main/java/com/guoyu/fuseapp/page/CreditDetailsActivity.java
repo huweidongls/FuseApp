@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -33,6 +34,8 @@ public class CreditDetailsActivity extends BaseActivity {
     TextView tvTitle;
     @BindView(R.id.rv)
     RecyclerView recyclerView;
+    @BindView(R.id.empty_order_bloacks)
+    RelativeLayout elEmpty;
 
     private String id = "";
     private String title = "";

@@ -27,8 +27,34 @@
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
+        android:visibility="gone"
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:id="@+id/empty_order_bloacks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="166dp"
+            android:layout_height="109dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/empty3x" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_img"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:text="暂无相关数据!"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+    </RelativeLayout>
 
 </LinearLayout>

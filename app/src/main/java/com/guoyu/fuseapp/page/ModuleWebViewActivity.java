@@ -169,7 +169,12 @@ public class ModuleWebViewActivity extends BaseActivity {
     public void onClick(View view){
         switch (view.getId()){
             case R.id.rl_back:
-                finish();
+                if (webview.canGoBack()) {
+                    webview.goBack();//后退
+                    //webview.goForward();//前进
+                }else {
+                    finish();
+                }
                 break;
             case R.id.rl_loc:
                 String s = NetUrl.H5BASE_URL+"pages/yliao_map.html";

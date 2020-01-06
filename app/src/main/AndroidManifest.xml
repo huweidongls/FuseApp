@@ -148,7 +148,8 @@
             android:name=".page.CreditActivity"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
         <activity android:name=".page.LifePayActivity" />
-        <activity android:name=".page.WeizhangActivity"
+        <activity
+            android:name=".page.WeizhangActivity"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
         <activity android:name=".page.CreditDetailsActivity" />
         <activity android:name=".page.GongjijinActivity" />
@@ -166,7 +167,8 @@
             android:name=".page.HuafeiSearchActivity"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
         <activity android:name=".page.HuafeiResultActivity" />
-        <activity android:name=".page.WeizhangResultActivity"/>
+        <activity android:name=".page.WeizhangResultActivity" />
+        <activity android:name=".page.WeizhangDetailsActivity"></activity>
     </application>
 
 </manifest>

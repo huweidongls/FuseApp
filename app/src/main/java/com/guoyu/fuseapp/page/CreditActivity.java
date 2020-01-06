@@ -54,6 +54,8 @@ public class CreditActivity extends BaseActivity {
                 String idCard = etIdCard.getText().toString();
                 if(StringUtils.isEmpty(idCard)){
                     ToastUtil.showShort(context, "身份证号不能为空");
+                }else if(!StringUtils.isLegalId(idCard)){
+                    ToastUtil.showShort(context, "请输入合法的身份证号");
                 }else {
                     Intent intent = new Intent();
                     intent.setClass(context, CreditDetailsActivity.class);
