@@ -168,7 +168,13 @@
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
         <activity android:name=".page.HuafeiResultActivity" />
         <activity android:name=".page.WeizhangResultActivity" />
-        <activity android:name=".page.WeizhangDetailsActivity"></activity>
+        <activity android:name=".page.WeizhangDetailsActivity" />
+        <activity android:name=".page.DatingYuyueActivity" />
+        <activity android:name=".page.MyYuyueActivity" />
+        <activity android:name=".page.MyYuyueDetailsActivity" />
+        <activity android:name=".page.YuyueBumenActivity" />
+        <activity android:name=".page.YuyueYewuActivity" />
+        <activity android:name=".page.YuyueShixiangActivity"></activity>
     </application>
 
 </manifest>
