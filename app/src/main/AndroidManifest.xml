@@ -174,7 +174,9 @@
         <activity android:name=".page.MyYuyueDetailsActivity" />
         <activity android:name=".page.YuyueBumenActivity" />
         <activity android:name=".page.YuyueYewuActivity" />
-        <activity android:name=".page.YuyueShixiangActivity"></activity>
+        <activity android:name=".page.YuyueShixiangActivity" />
+        <activity android:name=".page.YuyueTimeActivity" />
+        <activity android:name=".page.YuyueSureActivity"></activity>
     </application>
 
 </manifest>
