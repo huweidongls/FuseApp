@@ -177,7 +177,8 @@
         <activity android:name=".page.YuyueShixiangActivity" />
         <activity android:name=".page.YuyueTimeActivity" />
         <activity android:name=".page.YuyueSureActivity" />
-        <activity android:name=".page.PolicyInteractionActivity"></activity>
+        <activity android:name=".page.PolicyInteractionActivity" />
+        <activity android:name=".page.PolicyInteractionDetailsActivity"></activity>
     </application>
 
 </manifest>
