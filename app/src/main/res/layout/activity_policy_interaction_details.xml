@@ -1,9 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.guoyu.fuseapp.page.PolicyInteractionDetailsActivity">
-
-</android.support.constraint.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+    <RelativeLayout style="@style/rl_top_bar"
+        >
+        <RelativeLayout
+            android:id="@+id/rl_back"
+            android:layout_width="40dp"
+            android:layout_height="match_parent">
+            <ImageView style="@style/iv_top_back" />
+        </RelativeLayout>
+        <TextView
+            style="@style/tv_top_title"
+            android:layout_centerInParent="true"
+            android:text="政策互动" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:layout_marginTop="25dp"
+        android:text="双鸭山市财政厅 双鸭山市物价监督管理局 关于减免养老和医疗机构行政事业性收费 有关问题烦人通知"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#9C9C9C"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:text="双鸭山市财政厅 01月08日 08；16"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:textColor="#333333"
+        android:layout_marginTop="53dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"
+        android:text="省国土资源厅、省住房和城乡建设厅、省人民防空办公室， 各地（地）、县（市）财务局、物价局："
+        />
+    <View
+        android:layout_width="match_parent"
+        android:background="#F4F4F4"
+        android:layout_marginTop="36dp"
+        android:layout_height="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:textColor="#333333"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:text="热门评论"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white_ffffff"
+        android:id="@+id/rv"
+        />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#EEEEEE"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginRight="17dp"
+                android:hint="编辑评论参与互动哦"
+                android:textColor="#999999"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/textview_border"
+                android:layout_marginLeft="17dp"
+                android:paddingLeft="12dp"
+                android:textSize="13sp"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
