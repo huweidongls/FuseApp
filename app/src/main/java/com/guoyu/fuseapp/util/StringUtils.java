@@ -30,6 +30,65 @@ public class StringUtils {
 	public static int sysVersion = Integer.parseInt(VERSION.SDK);
 
 	/**
+	 * 获取前n天日期、后n天日期
+	 *
+	 * @param distanceDay 前几天 如获取前7天日期则传-7即可；如果后7天则传7
+	 * @return
+	 */
+	public static String getOldDate(int distanceDay) {
+		SimpleDateFormat dft = new SimpleDateFormat("yyyy-MM-dd");
+		Date beginDate = new Date();
+		Calendar date = Calendar.getInstance();
+		date.setTime(beginDate);
+		date.set(Calendar.DATE, date.get(Calendar.DATE) + distanceDay);
+		Date endDate = null;
+		try {
+			endDate = dft.parse(dft.format(date.getTime()));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return dft.format(endDate);
+	}
+
+	/**
+	 * 获取前n天日期、后n天日期
+	 *
+	 * @param distanceDay 前几天 如获取前7天日期则传-7即可；如果后7天则传7
+	 * @return
+	 */
+	public static int getOldWeek(int distanceDay) {
+		SimpleDateFormat dft = new SimpleDateFormat("yyyy-MM-dd");
+		Date beginDate = new Date();
+		Calendar date = Calendar.getInstance();
+		date.setTime(beginDate);
+		date.set(Calendar.DATE, date.get(Calendar.DATE) + distanceDay);
+		Date endDate = null;
+		try {
+			endDate = dft.parse(dft.format(date.getTime()));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		date.setTime(endDate);
+		return date.get(Calendar.DAY_OF_WEEK);
+	}
+
+	public static int getOldDay(int distanceDay) {
+		SimpleDateFormat dft = new SimpleDateFormat("yyyy-MM-dd");
+		Date beginDate = new Date();
+		Calendar date = Calendar.getInstance();
+		date.setTime(beginDate);
+		date.set(Calendar.DATE, date.get(Calendar.DATE) + distanceDay);
+		Date endDate = null;
+		try {
+			endDate = dft.parse(dft.format(date.getTime()));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		date.setTime(endDate);
+		return date.get(Calendar.DAY_OF_MONTH);
+	}
+
+	/**
 	 * InputStream to byte[]
 	 * 
 	 * @param ips

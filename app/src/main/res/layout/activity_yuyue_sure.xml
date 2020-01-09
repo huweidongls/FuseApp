@@ -1,9 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/line"
     tools:context="com.guoyu.fuseapp.page.YuyueSureActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        style="@style/rl_top_bar">
+
+        <RelativeLayout
+            android:id="@+id/rl_back"
+            android:layout_width="40dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                style="@style/iv_top_back" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:text="确认预约信息"
+            style="@style/tv_top_title" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:background="@color/white_ffffff"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp"
+            android:text="联系人"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="35dp"
+            android:layout_marginLeft="35dp"
+            android:textColor="@color/black_333333"
+            android:textSize="14sp"
+            android:hint="请输入联系人姓名"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <View
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:background="@color/white_ffffff"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp"
+            android:text="手机号"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:inputType="number"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="35dp"
+            android:layout_marginLeft="35dp"
+            android:textColor="@color/black_333333"
+            android:textSize="14sp"
+            android:hint="请输入手机号"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <View
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:background="@color/white_ffffff"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp"
+            android:text="身份证"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="35dp"
+            android:layout_marginLeft="35dp"
+            android:textColor="@color/black_333333"
+            android:textSize="14sp"
+            android:hint="请输入身份证号"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black_333333"
+        android:textSize="13sp"
+        android:text="注：窗口工作人员等候时间为5分钟，如超时未能及时办理 需重新排队办理"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:background="#D62424"
+        android:textColor="@color/white_ffffff"
+        android:textSize="18sp"
+        android:text="立即预约"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+</LinearLayout>
