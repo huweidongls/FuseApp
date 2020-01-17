@@ -50,12 +50,12 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
+                    android:id="@+id/tv_time"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/black_333333"
                     android:textSize="15sp"
-                    android:text="2020-01-09 8:30-9:30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -68,7 +68,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_centerVertical="true"
@@ -80,13 +80,17 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
+                    android:gravity="end"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="120dp"
+                    android:id="@+id/tv_dating"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/black_333333"
                     android:textSize="15sp"
-                    android:text="尖山区政务服务中心"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </RelativeLayout>
@@ -99,7 +103,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_centerVertical="true"
@@ -111,13 +115,17 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
+                    android:gravity="end"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="120dp"
+                    android:id="@+id/tv_bumen"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/black_333333"
                     android:textSize="15sp"
-                    android:text="尖山区人社局"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </RelativeLayout>
@@ -130,7 +138,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_centerVertical="true"
@@ -142,13 +150,17 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
+                    android:gravity="end"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:id="@+id/tv_yewu"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/black_333333"
                     android:textSize="15sp"
-                    android:text="一卡通业务"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </RelativeLayout>
@@ -161,7 +173,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_centerVertical="true"
@@ -173,13 +185,17 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
+                    android:gravity="end"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/tv_shixiang"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/black_333333"
                     android:textSize="15sp"
-                    android:text="食品营业许可"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </RelativeLayout>
@@ -203,12 +219,12 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
+                    android:id="@+id/tv_name"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/black_333333"
                     android:textSize="15sp"
-                    android:text="张鹏"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -234,12 +250,12 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
+                    android:id="@+id/tv_idcard"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/black_333333"
                     android:textSize="15sp"
-                    android:text="123456199802129876"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -265,12 +281,12 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
+                    android:id="@+id/tv_phone"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/black_333333"
                     android:textSize="15sp"
-                    android:text="12345678901"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 

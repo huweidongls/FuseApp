@@ -1,18 +1,30 @@
 package com.guoyu.fuseapp.page;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.guoyu.fuseapp.R;
+import com.guoyu.fuseapp.adapter.YuyueTimeAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
+import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListManageBean;
+import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.StringUtils;
+import com.guoyu.fuseapp.util.ViseUtil;
+import com.guoyu.fuseapp.util.WeiboDialogUtils;
 
 import java.util.Calendar;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,18 +66,38 @@ public class YuyueTimeActivity extends BaseActivity {
     TextView tvDay5;
     @BindView(R.id.tv_select_time)
     TextView tvSelectTime;
+    @BindView(R.id.rv)
+    RecyclerView recyclerView;
 
     private Calendar c;
+
+    private String id = "";
+
+    private YuyueTimeAdapter adapter;
+    private List<AppBookingBusinessqueryListManageBean.DataBean> mList;
+
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yuyue_time);
 
+        id = getIntent().getStringExtra("id");
         c = Calendar.getInstance();
         ButterKnife.bind(YuyueTimeActivity.this);
         initData();
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        onSelect(rl1);
+        String time = StringUtils.getOldDate(0);
+        int week = StringUtils.getOldWeek(0);
+        tvSelectTime.setText(time+"("+getWeek(week)+")");
+        setData(time);
     }
 
     private void initData() {
@@ -74,6 +106,7 @@ public class YuyueTimeActivity extends BaseActivity {
         int week1 = c.get(Calendar.DAY_OF_WEEK);
         String time = StringUtils.getOldDate(0);
         tvSelectTime.setText(time+"("+getWeek(week1)+")");
+        setData(time);
 
         tvWeek1.setText(getWeek(week1));
         tvDay1.setText(formatTimeUnit(day1));
@@ -94,6 +127,31 @@ public class YuyueTimeActivity extends BaseActivity {
         tvWeek5.setText(getWeek(week5));
         tvDay5.setText(formatTimeUnit(day5));
 
+    }
+
+    private void setData(String time){
+        dialog = WeiboDialogUtils.createLoadingDialog(context, "请等待...");
+        Map<String, String> map = new LinkedHashMap<>();
+        map.put("yearMonth", time);
+        map.put("detailsId", id);
+        ViseUtil.Get(context, NetUrl.AppBookingBusinessqueryListManage, map, dialog, new ViseUtil.ViseListener() {
+            @Override
+            public void onReturn(String s) {
+                Gson gson = new Gson();
+                AppBookingBusinessqueryListManageBean bean = gson.fromJson(s, AppBookingBusinessqueryListManageBean.class);
+                mList = bean.getData();
+                adapter = new YuyueTimeAdapter(mList);
+                LinearLayoutManager manager = new LinearLayoutManager(context){
+                    @Override
+                    public boolean canScrollVertically() {
+                        return false;
+                    }
+                };
+                manager.setOrientation(LinearLayoutManager.VERTICAL);
+                recyclerView.setLayoutManager(manager);
+                recyclerView.setAdapter(adapter);
+            }
+        });
     }
 
     private String getWeek(int week){
@@ -131,7 +189,7 @@ public class YuyueTimeActivity extends BaseActivity {
         return unit < 10 ? "0" + String.valueOf(unit) : String.valueOf(unit);
     }
 
-    @OnClick({R.id.rl_back, R.id.rl1, R.id.rl2, R.id.rl3, R.id.rl4, R.id.rl5, R.id.tv_yuyue1})
+    @OnClick({R.id.rl_back, R.id.rl1, R.id.rl2, R.id.rl3, R.id.rl4, R.id.rl5})
     public void onClick(View view){
         Intent intent = new Intent();
         switch (view.getId()){
@@ -140,22 +198,38 @@ public class YuyueTimeActivity extends BaseActivity {
                 break;
             case R.id.rl1:
                 onSelect(rl1);
+                String time = StringUtils.getOldDate(0);
+                int week = StringUtils.getOldWeek(0);
+                tvSelectTime.setText(time+"("+getWeek(week)+")");
+                setData(time);
                 break;
             case R.id.rl2:
                 onSelect(rl2);
+                String time1 = StringUtils.getOldDate(1);
+                int week1 = StringUtils.getOldWeek(1);
+                tvSelectTime.setText(time1+"("+getWeek(week1)+")");
+                setData(time1);
                 break;
             case R.id.rl3:
                 onSelect(rl3);
+                String time2 = StringUtils.getOldDate(2);
+                int week2 = StringUtils.getOldWeek(2);
+                tvSelectTime.setText(time2+"("+getWeek(week2)+")");
+                setData(time2);
                 break;
             case R.id.rl4:
                 onSelect(rl4);
+                String time3 = StringUtils.getOldDate(3);
+                int week3 = StringUtils.getOldWeek(3);
+                tvSelectTime.setText(time3+"("+getWeek(week3)+")");
+                setData(time3);
                 break;
             case R.id.rl5:
                 onSelect(rl5);
-                break;
-            case R.id.tv_yuyue1:
-                intent.setClass(context, YuyueSureActivity.class);
-                startActivity(intent);
+                String time4 = StringUtils.getOldDate(4);
+                int week4 = StringUtils.getOldWeek(4);
+                tvSelectTime.setText(time4+"("+getWeek(week4)+")");
+                setData(time4);
                 break;
         }
     }

@@ -5,10 +5,10 @@ package com.guoyu.fuseapp.net;
  */
 
 public class NetUrl {
-//    public static final String BASE_URL = "http://192.168.1.102:8080/";
+    public static final String BASE_URL = "http://192.168.1.104:8080/";
 //    public static final String BASE_URL = "http://192.168.1.166:8080/";
 //    public static final String BASE_URL = "http://122.112.187.234:8888/";
-    public static final String BASE_URL = "http://39.98.188.171:8088/";
+//    public static final String BASE_URL = "http://39.98.188.171:8088/";
 //    public static final String BASE_URL = "http://112.101.203.127:9999/";
     public static final String H5BASE_URL = "http://xfsysh5.5ijiaoyu.cn/";
     //用户获取验证码
@@ -115,4 +115,20 @@ public class NetUrl {
     public static final  String StyleInfoItemqueryList = "/StyleInfoItemApp/queryListApp";
     //家政服务分类
     public static final  String HouseServiceInfoItemAppqueryListApp = "/HouseServiceInfoItemApp/queryListApp";
+    //查询全部预约大厅接口
+    public static final  String AppBookingBusinessqueryListHall = "/AppBookingBusiness/queryListHall";
+    //查询预约部门接口
+    public static final  String AppBookingBusinessqueryListDep = "/AppBookingBusiness/queryListDep";
+    //查询全部预约业务分类接口
+    public static final  String AppBookingBusinessqueryListBusiness = "/AppBookingBusiness/queryListBusiness";
+    //查询全部业务事项接口
+    public static final  String AppBookingBusinessqueryListDetail = "/AppBookingBusiness/queryListDetails";
+    //全部业务事项申请接口
+    public static final  String AppBookingBusinessqueryListManage = "/AppBookingBusiness/queryListManage";
+    //新增 业务事项申请
+    public static final  String AppBookingBusinesstoUpdate = "/AppBookingBusiness/toUpdate";
+    //查询我的预约接口
+    public static final  String AppBookingBusinessqueryListMes = "/AppBookingBusiness/queryListMes";
+    //预约信息详情
+    public static final  String AppBookingBusinessgetOneMes = "/AppBookingBusiness/getOneMes";
 }

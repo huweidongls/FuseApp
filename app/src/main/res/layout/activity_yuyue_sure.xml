@@ -43,6 +43,7 @@
             android:layout_height="wrap_content" />
 
         <EditText
+            android:id="@+id/et_name"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="35dp"
             android:layout_marginLeft="35dp"
@@ -76,7 +77,8 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:inputType="number"
+            android:id="@+id/et_phone"
+            android:inputType="phone"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="35dp"
             android:layout_marginLeft="35dp"
@@ -110,6 +112,7 @@
             android:layout_height="wrap_content" />
 
         <EditText
+            android:id="@+id/et_idcard"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="35dp"
             android:layout_marginLeft="35dp"
@@ -133,6 +136,7 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:id="@+id/btn_yuyue"
         android:background="#D62424"
         android:textColor="@color/white_ffffff"
         android:textSize="18sp"

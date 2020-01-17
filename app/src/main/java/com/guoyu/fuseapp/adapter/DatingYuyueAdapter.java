@@ -6,8 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
+import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListHallBean;
 import com.guoyu.fuseapp.page.YuyueBumenActivity;
 
 import java.util.List;
@@ -19,9 +21,9 @@ import java.util.List;
 public class DatingYuyueAdapter extends RecyclerView.Adapter<DatingYuyueAdapter.ViewHolder> {
 
     private Context context;
-    private List<String> data;
+    private List<AppBookingBusinessqueryListHallBean.DataBean> data;
 
-    public DatingYuyueAdapter(List<String> data) {
+    public DatingYuyueAdapter(List<AppBookingBusinessqueryListHallBean.DataBean> data) {
         this.data = data;
     }
 
@@ -34,12 +36,15 @@ public class DatingYuyueAdapter extends RecyclerView.Adapter<DatingYuyueAdapter.
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        holder.tvTitle.setText(data.get(position).getHallName());
+        holder.tvAddress.setText(data.get(position).getHallAdd());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(context, YuyueBumenActivity.class);
+                intent.putExtra("id", data.get(position).getId()+"");
                 context.startActivity(intent);
             }
         });
@@ -52,8 +57,13 @@ public class DatingYuyueAdapter extends RecyclerView.Adapter<DatingYuyueAdapter.
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
+        private TextView tvTitle;
+        private TextView tvAddress;
+
         public ViewHolder(View itemView) {
             super(itemView);
+            tvTitle = itemView.findViewById(R.id.tv_title);
+            tvAddress = itemView.findViewById(R.id.tv_address);
         }
     }
 

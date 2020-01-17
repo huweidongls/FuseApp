@@ -6,8 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
+import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListDepBean;
 import com.guoyu.fuseapp.page.YuyueYewuActivity;
 
 import java.util.List;
@@ -19,9 +21,9 @@ import java.util.List;
 public class YuyueBumenAdapter extends RecyclerView.Adapter<YuyueBumenAdapter.ViewHolder> {
 
     private Context context;
-    private List<String> data;
+    private List<AppBookingBusinessqueryListDepBean.DataBean> data;
 
-    public YuyueBumenAdapter(List<String> data) {
+    public YuyueBumenAdapter(List<AppBookingBusinessqueryListDepBean.DataBean> data) {
         this.data = data;
     }
 
@@ -34,12 +36,14 @@ public class YuyueBumenAdapter extends RecyclerView.Adapter<YuyueBumenAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        holder.tv.setText(data.get(position).getDepName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(context, YuyueYewuActivity.class);
+                intent.putExtra("id", data.get(position).getId()+"");
                 context.startActivity(intent);
             }
         });
@@ -52,8 +56,11 @@ public class YuyueBumenAdapter extends RecyclerView.Adapter<YuyueBumenAdapter.Vi
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
+        private TextView tv;
+
         public ViewHolder(View itemView) {
             super(itemView);
+            tv = itemView.findViewById(R.id.tv);
         }
     }
 

@@ -6,8 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
+import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListMesBean;
 import com.guoyu.fuseapp.page.MyYuyueDetailsActivity;
 
 import java.util.List;
@@ -19,9 +21,9 @@ import java.util.List;
 public class MyYuyueAdapter extends RecyclerView.Adapter<MyYuyueAdapter.ViewHolder> {
 
     private Context context;
-    private List<String> data;
+    private List<AppBookingBusinessqueryListMesBean.DataBean> data;
 
-    public MyYuyueAdapter(List<String> data) {
+    public MyYuyueAdapter(List<AppBookingBusinessqueryListMesBean.DataBean> data) {
         this.data = data;
     }
 
@@ -34,12 +36,16 @@ public class MyYuyueAdapter extends RecyclerView.Adapter<MyYuyueAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        holder.tvName.setText(data.get(position).getBusinessUserName());
+        holder.tvBus.setText(data.get(position).getDetailsName());
+        holder.tvTime.setText(data.get(position).getBusinessDate());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(context, MyYuyueDetailsActivity.class);
+                intent.putExtra("id", data.get(position).getId()+"");
                 context.startActivity(intent);
             }
         });
@@ -52,8 +58,15 @@ public class MyYuyueAdapter extends RecyclerView.Adapter<MyYuyueAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
+        private TextView tvName;
+        private TextView tvBus;
+        private TextView tvTime;
+
         public ViewHolder(View itemView) {
             super(itemView);
+            tvName = itemView.findViewById(R.id.tv_name);
+            tvBus = itemView.findViewById(R.id.tv_bus);
+            tvTime = itemView.findViewById(R.id.tv_time);
         }
     }
 

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center_vertical"
+                android:src="#D62424"
+                android:layout_width="6dp"
+                android:layout_height="6dp" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_marginLeft="6dp"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp"
+                android:text="08：30 - 09：30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_keyong"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp"
+                android:text="可用：2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_yuyue"
+                android:background="@drawable/bg_d62424_4dp_bord"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#D62424"
+                android:textSize="14sp"
+                android:text="预约"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</LinearLayout>
