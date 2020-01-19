@@ -5,7 +5,7 @@ package com.guoyu.fuseapp.net;
  */
 
 public class NetUrl {
-    public static final String BASE_URL = "http://192.168.1.104:8080/";
+    public static final String BASE_URL = "http://192.168.1.116:8080/";
 //    public static final String BASE_URL = "http://192.168.1.166:8080/";
 //    public static final String BASE_URL = "http://122.112.187.234:8888/";
 //    public static final String BASE_URL = "http://39.98.188.171:8088/";
@@ -131,4 +131,6 @@ public class NetUrl {
     public static final  String AppBookingBusinessqueryListMes = "/AppBookingBusiness/queryListMes";
     //预约信息详情
     public static final  String AppBookingBusinessgetOneMes = "/AppBookingBusiness/getOneMes";
+    //应用中心列表
+    public static final  String AppCenterqueryList = "/AppCenter/queryList";
 }
