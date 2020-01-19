@@ -179,7 +179,8 @@
         <activity android:name=".page.YuyueSureActivity" />
         <activity android:name=".page.PolicyInteractionActivity" />
         <activity android:name=".page.PolicyInteractionDetailsActivity" />
-        <activity android:name=".page.AppCenterActivity"></activity>
+        <activity android:name=".page.AppCenterActivity" />
+        <activity android:name=".page.PolicyInterSercheActivity"></activity>
     </application>
 
 </manifest>

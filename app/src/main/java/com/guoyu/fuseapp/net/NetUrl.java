@@ -133,4 +133,12 @@ public class NetUrl {
     public static final  String AppBookingBusinessgetOneMes = "/AppBookingBusiness/getOneMes";
     //应用中心列表
     public static final  String AppCenterqueryList = "/AppCenter/queryList";
+    //zjhd
+    public static final  String AppGovernEnterInteractionqueryList = "/AppGovernEnterInteraction/queryList";
+    //详情
+    public static final String AppGovernEnterInteractiongetOne = "/AppGovernEnterInteraction/getOne";
+    //评论
+    public static final String AppGovernEnterInteractiontoUpdate = "/AppGovernEnterInteraction/toUpdate";
+    //点赞
+    public static final String AppGovernEnterInteractionlikeNum= "/AppGovernEnterInteraction/likeNum";
 }

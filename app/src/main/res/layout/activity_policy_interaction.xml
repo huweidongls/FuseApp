@@ -23,6 +23,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_search"
         android:layout_width="match_parent"
         android:layout_height="32dp"
         android:layout_marginLeft="15dp"
@@ -38,7 +39,7 @@
             android:layout_marginLeft="10dp"
             android:src="@mipmap/seach3x" />
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -97,7 +98,7 @@
                 android:id="@+id/tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="政策咨询"
+                android:text="政策发布"
                 android:textColor="#333333"
                 android:textSize="14sp" />
 
@@ -122,7 +123,7 @@
                 android:id="@+id/tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="政策咨询"
+                android:text="企业培训"
                 android:textColor="#333333"
                 android:textSize="14sp" />
 
@@ -141,24 +142,14 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#CDCED1" />
-
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white_ffffff" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_ffffff"
-        android:visibility="gone" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_ffffff"
-        android:visibility="gone" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>

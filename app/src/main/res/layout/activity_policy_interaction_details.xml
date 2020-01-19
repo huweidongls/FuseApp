@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.guoyu.fuseapp.page.PolicyInteractionDetailsActivity">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
     <RelativeLayout style="@style/rl_top_bar"
         >
         <RelativeLayout
@@ -25,9 +17,19 @@
         <TextView
             style="@style/tv_top_title"
             android:layout_centerInParent="true"
-            android:text="政策互动" />
+            android:text="政企互动" />
     </RelativeLayout>
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
@@ -38,6 +40,7 @@
         android:text="双鸭山市财政厅 双鸭山市物价监督管理局 关于减免养老和医疗机构行政事业性收费 有关问题烦人通知"
         />
     <TextView
+        android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"
@@ -47,7 +50,8 @@
         android:text="双鸭山市财政厅 01月08日 08；16"
         />
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="13sp"
         android:textColor="#333333"
@@ -71,32 +75,65 @@
         android:layout_marginLeft="15dp"
         android:text="热门评论"
         />
-    <android.support.v7.widget.RecyclerView
+    <RelativeLayout
+        android:descendantFocusability="blocksDescendants"
         android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_height="wrap_content"
-        android:background="@color/white_ffffff"
-        android:id="@+id/rv"
-        />
-        <RelativeLayout
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#EEEEEE"
-            >
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginRight="17dp"
-                android:hint="编辑评论参与互动哦"
-                android:textColor="#999999"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/textview_border"
-                android:layout_marginLeft="17dp"
-                android:paddingLeft="12dp"
-                android:textSize="13sp"
-                />
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white_ffffff"
+            android:id="@+id/rv"
+            />
+    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/empty_order_bloacks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_img"
+                android:layout_width="166dp"
+                android:layout_height="109dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/empty3x" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_img"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="18dp"
+                android:text="暂无相关数据!"
+                android:textColor="#000000"
+                android:textSize="17sp" />
         </RelativeLayout>
     </LinearLayout>
     </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#EEEEEE"
+        android:layout_gravity="bottom"
+        >
+        <EditText
+            android:id="@+id/et_comment"
+            android:singleLine="true"
+            android:imeOptions="actionSend"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginRight="17dp"
+            android:hint="编辑评论参与互动哦"
+            android:textColor="#999999"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/textview_border"
+            android:layout_marginLeft="17dp"
+            android:paddingLeft="12dp"
+            android:textSize="13sp"
+            />
+    </RelativeLayout>
 </LinearLayout>
