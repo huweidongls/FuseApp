@@ -156,6 +156,7 @@ public class PolicyInteractionActivity extends AppCompatActivity {
                         manager.setOrientation(LinearLayoutManager.VERTICAL);
                         recyclerView1.setLayoutManager(manager);
                         recyclerView1.setAdapter(adapter);
+                        page = 2;
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -236,6 +237,7 @@ public class PolicyInteractionActivity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(s);
                     if (jsonObject.optString("status").equals("200")){
                         Gson gson = new Gson();
+                        page2=2;
                         PolicyInteractionBean bean = gson.fromJson(s,PolicyInteractionBean.class);
                         mList2 = bean.getData().getGovernEnterInteraction().getInteraction();
                         adapter = new PolicyInteractionAdapter(mList2);
@@ -321,6 +323,7 @@ public class PolicyInteractionActivity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(s);
                     if (jsonObject.optString("status").equals("200")){
                         Gson gson = new Gson();
+                        page3=2;
                         PolicyInteractionBean bean = gson.fromJson(s,PolicyInteractionBean.class);
                         mList3 = bean.getData().getGovernEnterInteraction().getInteraction();
                         adapter = new PolicyInteractionAdapter(mList3);

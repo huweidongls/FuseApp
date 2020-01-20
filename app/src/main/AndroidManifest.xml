@@ -178,7 +178,9 @@
         <activity android:name=".page.YuyueTimeActivity" />
         <activity android:name=".page.YuyueSureActivity" />
         <activity android:name=".page.PolicyInteractionActivity" />
-        <activity android:name=".page.PolicyInteractionDetailsActivity" />
+        <activity android:name=".page.PolicyInteractionDetailsActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            />
         <activity android:name=".page.AppCenterActivity" />
         <activity android:name=".page.PolicyInterSercheActivity"></activity>
     </application>

@@ -80,8 +80,6 @@ public class PolicyInteractionDetailsActivity extends AppCompatActivity {
                     //自己需要的操作
                     String search = et_comment.getText().toString();
                     if(!TextUtils.isEmpty(search)){
-                        //ToastUtil.showShort(context,"454545545");
-                        //et_comment(search);
                         submit(search);
                     }
                 }
