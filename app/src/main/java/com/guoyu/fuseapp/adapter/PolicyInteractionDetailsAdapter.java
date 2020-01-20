@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -41,12 +42,19 @@ public class PolicyInteractionDetailsAdapter extends RecyclerView.Adapter<Policy
 
     @Override
     public void onBindViewHolder(final PolicyInteractionDetailsAdapter.ViewHolder holder, final int position) {
+        if(data.get(position).getIsZan() == 0){
+            Glide.with(context).load(R.mipmap.icon004).into(holder.iv_good);
+        }else if(data.get(position).getIsZan() == 1){
+            Glide.with(context).load(R.mipmap.zan).into(holder.iv_good);
+        }
         holder.tv_time.setText(StringUtils.friendly_time(data.get(position).getCreateDate()));
         holder.tv_tel.setText(data.get(position).getCommentUserName());
         holder.tv_content.setText(data.get(position).getCommentContent());
         holder.tv_looknum.setText(data.get(position).getLikeNum()+"");
-        Glide.with(context).load(NetUrl.BASE_URL+data.get(position).getCommentUserPic()).into(holder.iv_img);
-        holder.iv_good.setOnClickListener(new View.OnClickListener() {
+        if(data.get(position).getCommentUserPic() != null){
+            Glide.with(context).load(NetUrl.BASE_URL+data.get(position).getCommentUserPic().split(",")[0]).into(holder.iv_img);
+        }
+        holder.llZan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(data.get(position).getIsZan() == 0){
@@ -57,7 +65,6 @@ public class PolicyInteractionDetailsAdapter extends RecyclerView.Adapter<Policy
                         public void onReturn(String s) {
                             data.get(position).setLikeNum(data.get(position).getLikeNum()+1);
                             data.get(position).setIsZan(1);
-                            Glide.with(context).load(R.mipmap.zan).into(holder.iv_good);
                             ToastUtil.showShort(context,"点赞成功!");
                             notifyDataSetChanged();
                         }
@@ -79,6 +86,7 @@ public class PolicyInteractionDetailsAdapter extends RecyclerView.Adapter<Policy
         private TextView tv_content;
         private TextView tv_looknum;
         private ImageView iv_good;
+        private LinearLayout llZan;
         public ViewHolder(View itemView) {
             super(itemView);
             iv_img = itemView.findViewById(R.id.iv_img);
@@ -87,6 +95,7 @@ public class PolicyInteractionDetailsAdapter extends RecyclerView.Adapter<Policy
             tv_content = itemView.findViewById(R.id.tv_content);
             tv_looknum = itemView.findViewById(R.id.tv_looknum);
             iv_good = itemView.findViewById(R.id.iv_good);
+            llZan = itemView.findViewById(R.id.ll_zan);
         }
     }
 }

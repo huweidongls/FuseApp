@@ -21,6 +21,7 @@ import com.guoyu.fuseapp.adapter.PolicyInteractionDetailsAdapter;
 import com.guoyu.fuseapp.bean.PolicyInteractionDetailsBean;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.HtmlFromUtils;
+import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.ToastUtil;
 import com.guoyu.fuseapp.util.ViseUtil;
@@ -107,6 +108,7 @@ public class PolicyInteractionDetailsActivity extends AppCompatActivity {
                                 Gson gson = new Gson();
                                 PolicyInteractionDetailsBean bean = gson.fromJson(s,PolicyInteractionDetailsBean.class);
                                 mList = bean.getData().getComments();
+                                et_comment.setText(null);
                                 if(mList.size()>0){
                                     empty_order_bloacks.setVisibility(View.GONE);
                                     recyclerView.setVisibility(View.VISIBLE);
