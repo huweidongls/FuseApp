@@ -85,6 +85,7 @@ public class YuyueSureActivity extends BaseActivity {
             map.put("businessUserIdnumber", idcard);
             map.put("businessUserPhone", phone);
             map.put("businessDate", bean.getOrderYearMonth()+" "+bean.getOrderStartTime()+"-"+bean.getOrderEndTime());
+            map.put("businessQd", "1");
             ViseUtil.Post(context, NetUrl.AppBookingBusinesstoUpdate, map, dialog, new ViseUtil.ViseListener() {
                 @Override
                 public void onReturn(String s) {
