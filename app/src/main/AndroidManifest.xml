@@ -178,11 +178,13 @@
         <activity android:name=".page.YuyueTimeActivity" />
         <activity android:name=".page.YuyueSureActivity" />
         <activity android:name=".page.PolicyInteractionActivity" />
-        <activity android:name=".page.PolicyInteractionDetailsActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden"
-            />
+        <activity
+            android:name=".page.PolicyInteractionDetailsActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".page.AppCenterActivity" />
-        <activity android:name=".page.PolicyInterSercheActivity"></activity>
+        <activity android:name=".page.PolicyInterSercheActivity" />
+        <activity android:name=".page.YuyueGgActivity" />
+        <activity android:name=".page.YuyueGgDetailsActivity"/>
     </application>
 
 </manifest>

@@ -20,7 +20,9 @@ import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.StringUtils;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.guoyu.fuseapp.util.WeiboDialogUtils;
+import com.guoyu.fuseapp.widget.ScrollTextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -68,6 +70,8 @@ public class YuyueTimeActivity extends BaseActivity {
     TextView tvSelectTime;
     @BindView(R.id.rv)
     RecyclerView recyclerView;
+    @BindView(R.id.tv_gg)
+    ScrollTextView tvGg;
 
     private Calendar c;
 
@@ -87,6 +91,28 @@ public class YuyueTimeActivity extends BaseActivity {
         c = Calendar.getInstance();
         ButterKnife.bind(YuyueTimeActivity.this);
         initData();
+        initGg();
+
+    }
+
+    private void initGg() {
+
+        List<String> list = new ArrayList<>();
+        list.add("111");
+        list.add("222");
+        list.add("333");
+        list.add("444");
+        list.add("555");
+        tvGg.setList(list);
+        tvGg.startScroll();
+        tvGg.setOnSelectListener(new ScrollTextView.OnSelectListener() {
+            @Override
+            public void onItemClick(int pos) {
+                Intent intent = new Intent();
+                intent.setClass(context, YuyueGgActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
