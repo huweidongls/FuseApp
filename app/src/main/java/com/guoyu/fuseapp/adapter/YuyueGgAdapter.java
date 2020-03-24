@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
+import com.guoyu.fuseapp.bean.AppointmentNoticeAppqueryListBean;
 import com.guoyu.fuseapp.page.YuyueGgDetailsActivity;
 
 import java.util.List;
@@ -20,9 +21,9 @@ import java.util.List;
 public class YuyueGgAdapter extends RecyclerView.Adapter<YuyueGgAdapter.ViewHolder> {
 
     private Context context;
-    private List<String> data;
+    private List<AppointmentNoticeAppqueryListBean.DataBean> data;
 
-    public YuyueGgAdapter(List<String> data) {
+    public YuyueGgAdapter(List<AppointmentNoticeAppqueryListBean.DataBean> data) {
         this.data = data;
     }
 
@@ -35,14 +36,15 @@ public class YuyueGgAdapter extends RecyclerView.Adapter<YuyueGgAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
 
-        holder.tv.setText(data.get(position));
+        holder.tv.setText(data.get(position).getTitle());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(context, YuyueGgDetailsActivity.class);
+                intent.putExtra("id", data.get(position).getId()+"");
                 context.startActivity(intent);
             }
         });

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.adapter.YuyueTimeAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListManageBean;
+import com.guoyu.fuseapp.bean.AppointmentNoticeAppqueryListlimint5Bean;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.StringUtils;
 import com.guoyu.fuseapp.util.ViseUtil;
@@ -72,6 +74,10 @@ public class YuyueTimeActivity extends BaseActivity {
     RecyclerView recyclerView;
     @BindView(R.id.tv_gg)
     ScrollTextView tvGg;
+    @BindView(R.id.ll_gg)
+    LinearLayout llGg;
+    @BindView(R.id.view)
+    View view;
 
     private Calendar c;
 
@@ -97,20 +103,32 @@ public class YuyueTimeActivity extends BaseActivity {
 
     private void initGg() {
 
-        List<String> list = new ArrayList<>();
-        list.add("111");
-        list.add("222");
-        list.add("333");
-        list.add("444");
-        list.add("555");
-        tvGg.setList(list);
-        tvGg.startScroll();
-        tvGg.setOnSelectListener(new ScrollTextView.OnSelectListener() {
+        ViseUtil.Get(context, NetUrl.AppointmentNoticeAppqueryListlimint5, null, new ViseUtil.ViseListener() {
             @Override
-            public void onItemClick(int pos) {
-                Intent intent = new Intent();
-                intent.setClass(context, YuyueGgActivity.class);
-                startActivity(intent);
+            public void onReturn(String s) {
+                Gson gson = new Gson();
+                AppointmentNoticeAppqueryListlimint5Bean bean = gson.fromJson(s, AppointmentNoticeAppqueryListlimint5Bean.class);
+                if(bean.getData().size()>0){
+                    llGg.setVisibility(View.VISIBLE);
+                    view.setVisibility(View.VISIBLE);
+                    List<String> list = new ArrayList<>();
+                    for (AppointmentNoticeAppqueryListlimint5Bean.DataBean bean1 : bean.getData()){
+                        list.add(bean1.getTitle());
+                    }
+                    tvGg.setList(list);
+                    tvGg.startScroll();
+                    tvGg.setOnSelectListener(new ScrollTextView.OnSelectListener() {
+                        @Override
+                        public void onItemClick(int pos) {
+                            Intent intent = new Intent();
+                            intent.setClass(context, YuyueGgActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }else {
+                    llGg.setVisibility(View.GONE);
+                    view.setVisibility(View.GONE);
+                }
             }
         });
 

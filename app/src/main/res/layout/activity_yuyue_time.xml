@@ -28,6 +28,8 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_gg"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp">
@@ -53,6 +55,8 @@
     </LinearLayout>
 
     <View
+        android:visibility="gone"
+        android:id="@+id/view"
         android:background="@color/line"
         android:layout_width="match_parent"
         android:layout_height="5dp"/>
