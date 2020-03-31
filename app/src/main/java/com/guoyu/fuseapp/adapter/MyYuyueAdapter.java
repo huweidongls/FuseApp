@@ -40,6 +40,12 @@ public class MyYuyueAdapter extends RecyclerView.Adapter<MyYuyueAdapter.ViewHold
         holder.tvName.setText(data.get(position).getBusinessUserName());
         holder.tvBus.setText(data.get(position).getDetailsName());
         holder.tvTime.setText(data.get(position).getBusinessDate());
+        int e = data.get(position).getEmploy();
+        if(e == 0){
+            holder.tvType.setText("待办");
+        }else {
+            holder.tvType.setText("已完结");
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,12 +67,14 @@ public class MyYuyueAdapter extends RecyclerView.Adapter<MyYuyueAdapter.ViewHold
         private TextView tvName;
         private TextView tvBus;
         private TextView tvTime;
+        private TextView tvType;
 
         public ViewHolder(View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_name);
             tvBus = itemView.findViewById(R.id.tv_bus);
             tvTime = itemView.findViewById(R.id.tv_time);
+            tvType = itemView.findViewById(R.id.tv_type);
         }
     }
 

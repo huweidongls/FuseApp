@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.FileProvider;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -39,6 +41,7 @@ import com.vise.xsnow.http.callback.ACallback;
 import com.vise.xsnow.http.mode.DownProgress;
 import com.vise.xsnow.permission.OnPermissionCallback;
 import com.vise.xsnow.permission.PermissionManager;
+import com.yinglan.alphatabs.AlphaTabsIndicator;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -51,38 +54,42 @@ public class MainActivity extends BaseActivity {
 
     private Context context = MainActivity.this;
 
-    @BindView(R.id.menu_1)
-    ImageButton ib1;
-    @BindView(R.id.menu_2)
-    ImageButton ib2;
-    @BindView(R.id.menu_3)
-    ImageButton ib3;
-    @BindView(R.id.menu_4)
-    ImageButton ib4;
-    @BindView(R.id.menu1)
-    RelativeLayout rl1;
-    @BindView(R.id.menu2)
-    RelativeLayout rl2;
-    @BindView(R.id.menu3)
-    RelativeLayout rl3;
-    @BindView(R.id.menu4)
-    RelativeLayout rl4;
-    @BindView(R.id.tv1)
-    TextView tv1;
-    @BindView(R.id.tv2)
-    TextView tv2;
-    @BindView(R.id.tv3)
-    TextView tv3;
-    @BindView(R.id.tv4)
-    TextView tv4;
+//    @BindView(R.id.menu_1)
+//    ImageButton ib1;
+//    @BindView(R.id.menu_2)
+//    ImageButton ib2;
+//    @BindView(R.id.menu_3)
+//    ImageButton ib3;
+//    @BindView(R.id.menu_4)
+//    ImageButton ib4;
+//    @BindView(R.id.menu1)
+//    RelativeLayout rl1;
+//    @BindView(R.id.menu2)
+//    RelativeLayout rl2;
+//    @BindView(R.id.menu3)
+//    RelativeLayout rl3;
+//    @BindView(R.id.menu4)
+//    RelativeLayout rl4;
+//    @BindView(R.id.tv1)
+//    TextView tv1;
+//    @BindView(R.id.tv2)
+//    TextView tv2;
+//    @BindView(R.id.tv3)
+//    TextView tv3;
+//    @BindView(R.id.tv4)
+//    TextView tv4;
+    @BindView(R.id.mViewPager)
+    ViewPager mViewPger;
+    @BindView(R.id.alphaIndicator)
+    AlphaTabsIndicator alphaTabsIndicator;
 
     private long exitTime = 0;
 
     private List<Fragment> fragmentList = new ArrayList<>();
-    private MenuOnClickListener listener = new MenuOnClickListener();
+//    private MenuOnClickListener listener = new MenuOnClickListener();
 
-    FragmentManager fragmentManager = getSupportFragmentManager();
-    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//    FragmentManager fragmentManager = getSupportFragmentManager();
+//    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,147 +211,207 @@ public class MainActivity extends BaseActivity {
      */
     private void init() {
 
-        ib1.setOnClickListener(listener);
-        ib2.setOnClickListener(listener);
-        ib3.setOnClickListener(listener);
-        ib4.setOnClickListener(listener);
+//        ib1.setOnClickListener(listener);
+//        ib2.setOnClickListener(listener);
+//        ib3.setOnClickListener(listener);
+//        ib4.setOnClickListener(listener);
+//
+//        rl1.setOnClickListener(listener);
+//        rl2.setOnClickListener(listener);
+//        rl3.setOnClickListener(listener);
+//        rl4.setOnClickListener(listener);
+//        Fragment fragment1 = new Fragment1();
+//        Fragment fragment2 = new Fragment2();
+//        Fragment fragment3 = new Fragment3();
+//        Fragment fragment4 = new Fragment4();
+//
+//        fragmentList.add(fragment1);
+//        fragmentList.add(fragment2);
+//        fragmentList.add(fragment3);
+//        fragmentList.add(fragment4);
 
-        rl1.setOnClickListener(listener);
-        rl2.setOnClickListener(listener);
-        rl3.setOnClickListener(listener);
-        rl4.setOnClickListener(listener);
+//        fragmentTransaction.add(R.id.fl_container, fragment1);
+//        fragmentTransaction.add(R.id.fl_container, fragment2);
+//        fragmentTransaction.add(R.id.fl_container, fragment3);
+//        fragmentTransaction.add(R.id.fl_container, fragment4);
+//
+//        fragmentTransaction.show(fragment1).hide(fragment2).hide(fragment3).hide(fragment4);
+//        fragmentTransaction.commit();
+//
+//        selectButton(ib1);
+//        selectText(tv1);
+
+        MainAdapter mainAdapter = new MainAdapter(getSupportFragmentManager());
+        mViewPger.setOffscreenPageLimit(4);
+        mViewPger.setAdapter(mainAdapter);
+        mViewPger.addOnPageChangeListener(mainAdapter);
+
+        alphaTabsIndicator.setViewPager(mViewPger);
+
+//        alphaTabsIndicator.getTabView(0).showNumber(6);
+//        alphaTabsIndicator.getTabView(1).showNumber(888);
+//        alphaTabsIndicator.getTabView(2).showNumber(88);
+//        alphaTabsIndicator.getTabView(3).showPoint();
+
+    }
+
+    private class MainAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
+
+        private List<Fragment> fragments = new ArrayList<>();
         Fragment fragment1 = new Fragment1();
         Fragment fragment2 = new Fragment2();
         Fragment fragment3 = new Fragment3();
         Fragment fragment4 = new Fragment4();
 
-        fragmentList.add(fragment1);
-        fragmentList.add(fragment2);
-        fragmentList.add(fragment3);
-        fragmentList.add(fragment4);
-
-        fragmentTransaction.add(R.id.fl_container, fragment1);
-        fragmentTransaction.add(R.id.fl_container, fragment2);
-        fragmentTransaction.add(R.id.fl_container, fragment3);
-        fragmentTransaction.add(R.id.fl_container, fragment4);
-
-        fragmentTransaction.show(fragment1).hide(fragment2).hide(fragment3).hide(fragment4);
-        fragmentTransaction.commit();
-
-        selectButton(ib1);
-        selectText(tv1);
-
-    }
-
-    public void selectFragment(int i){
-        switch (i){
-            case 0:
-                selectButton(ib1);
-                switchFragment(0);
-                break;
-            case 1:
-                selectButton(ib2);
-                switchFragment(1);
-                break;
-            case 2:
-                selectButton(ib3);
-                switchFragment(2);
-                break;
-            case 3:
-                selectButton(ib4);
-                switchFragment(3);
-                break;
+        public MainAdapter(FragmentManager fm) {
+            super(fm);
+            fragments.add(fragment1);
+            fragments.add(fragment2);
+            fragments.add(fragment3);
+            fragments.add(fragment4);
         }
-    }
-
-    private class MenuOnClickListener implements View.OnClickListener {
 
         @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.menu_1:
-                    selectButton(ib1);
-                    selectText(tv1);
-                    switchFragment(0);
-                    break;
-                case R.id.menu_2:
-                    selectButton(ib2);
-                    selectText(tv2);
-                    switchFragment(1);
-                    break;
-                case R.id.menu_3:
-                    selectButton(ib3);
-                    selectText(tv3);
-                    switchFragment(2);
-                    break;
-                case R.id.menu_4:
-                    selectButton(ib4);
-                    selectText(tv4);
-                    switchFragment(3);
-                    break;
-                case R.id.menu1:
-                    selectText(tv1);
-                    selectButton(ib1);
-                    switchFragment(0);
-                    break;
-                case R.id.menu2:
-                    selectButton(ib2);
-                    selectText(tv2);
-                    switchFragment(1);
-                    break;
-                case R.id.menu3:
-                    selectButton(ib3);
-                    selectText(tv3);
-                    switchFragment(2);
-                    break;
-                case R.id.menu4:
-                    selectButton(ib4);
-                    selectText(tv4);
-                    switchFragment(3);
-                    break;
-            }
+        public Fragment getItem(int position) {
+            return fragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragments.size();
+        }
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+//            if (0 == position) {
+//                alphaTabsIndicator.getTabView(0).showNumber(alphaTabsIndicator.getTabView(0).getBadgeNumber() - 1);
+//            } else if (2 == position) {
+//                alphaTabsIndicator.getCurrentItemView().removeShow();
+//            } else if (3 == position) {
+//                alphaTabsIndicator.removeAllBadge();
+//            }
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
 
         }
     }
 
-    /**
-     * 选择隐藏与显示的Fragment
-     *
-     * @param index 显示的Frgament的角标
-     */
-    public void switchFragment(int index) {
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        for (int i = 0; i < fragmentList.size(); i++) {
-            if (index == i) {
-                fragmentTransaction.show(fragmentList.get(index));
-            } else {
-                fragmentTransaction.hide(fragmentList.get(i));
-            }
-        }
-        fragmentTransaction.commitAllowingStateLoss();
-    }
+//    public void selectFragment(int i){
+//        switch (i){
+//            case 0:
+//                selectButton(ib1);
+//                switchFragment(0);
+//                break;
+//            case 1:
+//                selectButton(ib2);
+//                switchFragment(1);
+//                break;
+//            case 2:
+//                selectButton(ib3);
+//                switchFragment(2);
+//                break;
+//            case 3:
+//                selectButton(ib4);
+//                switchFragment(3);
+//                break;
+//        }
+//    }
 
-    public void selectText(View v) {
-        tv1.setSelected(false);
-        tv2.setSelected(false);
-        tv3.setSelected(false);
-        tv4.setSelected(false);
-        v.setSelected(true);
-    }
+//    private class MenuOnClickListener implements View.OnClickListener {
+//
+//        @Override
+//        public void onClick(View v) {
+//            switch (v.getId()) {
+//                case R.id.menu_1:
+//                    selectButton(ib1);
+//                    selectText(tv1);
+//                    switchFragment(0);
+//                    break;
+//                case R.id.menu_2:
+//                    selectButton(ib2);
+//                    selectText(tv2);
+//                    switchFragment(1);
+//                    break;
+//                case R.id.menu_3:
+//                    selectButton(ib3);
+//                    selectText(tv3);
+//                    switchFragment(2);
+//                    break;
+//                case R.id.menu_4:
+//                    selectButton(ib4);
+//                    selectText(tv4);
+//                    switchFragment(3);
+//                    break;
+//                case R.id.menu1:
+//                    selectText(tv1);
+//                    selectButton(ib1);
+//                    switchFragment(0);
+//                    break;
+//                case R.id.menu2:
+//                    selectButton(ib2);
+//                    selectText(tv2);
+//                    switchFragment(1);
+//                    break;
+//                case R.id.menu3:
+//                    selectButton(ib3);
+//                    selectText(tv3);
+//                    switchFragment(2);
+//                    break;
+//                case R.id.menu4:
+//                    selectButton(ib4);
+//                    selectText(tv4);
+//                    switchFragment(3);
+//                    break;
+//            }
+//
+//        }
+//    }
 
-    /**
-     * 控制底部菜单按钮的选中
-     *
-     * @param v
-     */
-    public void selectButton(View v) {
-        ib1.setSelected(false);
-        ib2.setSelected(false);
-        ib3.setSelected(false);
-        ib4.setSelected(false);
-        v.setSelected(true);
-    }
+//    /**
+//     * 选择隐藏与显示的Fragment
+//     *
+//     * @param index 显示的Frgament的角标
+//     */
+//    public void switchFragment(int index) {
+//        fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+//        for (int i = 0; i < fragmentList.size(); i++) {
+//            if (index == i) {
+//                fragmentTransaction.show(fragmentList.get(index));
+//            } else {
+//                fragmentTransaction.hide(fragmentList.get(i));
+//            }
+//        }
+//        fragmentTransaction.commitAllowingStateLoss();
+//    }
+//
+//    public void selectText(View v) {
+//        tv1.setSelected(false);
+//        tv2.setSelected(false);
+//        tv3.setSelected(false);
+//        tv4.setSelected(false);
+//        v.setSelected(true);
+//    }
+//
+//    /**
+//     * 控制底部菜单按钮的选中
+//     *
+//     * @param v
+//     */
+//    public void selectButton(View v) {
+//        ib1.setSelected(false);
+//        ib2.setSelected(false);
+//        ib3.setSelected(false);
+//        ib4.setSelected(false);
+//        v.setSelected(true);
+//    }
 
     @Override
     public void onBackPressed() {

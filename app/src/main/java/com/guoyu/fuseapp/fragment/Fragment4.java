@@ -22,6 +22,7 @@ import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.page.ComplaintConsultationActivity;
 import com.guoyu.fuseapp.page.LoginActivity;
 import com.guoyu.fuseapp.page.MemberSetupActivity;
+import com.guoyu.fuseapp.page.MyYuyueActivity;
 import com.guoyu.fuseapp.page.PersonInformationActivity;
 import com.guoyu.fuseapp.page.RealNameActivity;
 import com.guoyu.fuseapp.page.RegisterActivity;
@@ -125,10 +126,20 @@ public class Fragment4 extends BaseFragment {
 
     }
 
-    @OnClick({R.id.lzixun, R.id.ll_register, R.id.ll_real, R.id.ll_person, R.id.tv_set, R.id.rl_login,R.id.iv_head, R.id.ll_forgot})
+    @OnClick({R.id.lzixun, R.id.ll_register, R.id.ll_real, R.id.ll_person, R.id.tv_set, R.id.rl_login,R.id.iv_head, R.id.ll_forgot,
+    R.id.ll_yuyue})
     public void onClick(View view) {
         Intent intent = new Intent();
         switch (view.getId()){
+            case R.id.ll_yuyue:
+                if(SpUtils.getUserId(getContext()).equals("0")){
+                    intent.setClass(getContext(), LoginActivity.class);
+                    startActivity(intent);
+                }else {
+                    intent.setClass(getContext(), MyYuyueActivity.class);
+                    startActivity(intent);
+                }
+                break;
             case R.id.lzixun:
                 if(SpUtils.getUserId(getContext()).equals("0")){
                     intent.setClass(getContext(), LoginActivity.class);

@@ -44,6 +44,15 @@ public class AppBookingBusinessqueryListMesBean {
         private String detailsName;
         private String businessUserName;
         private String businessDate;
+        private int employ;
+
+        public int getEmploy() {
+            return employ;
+        }
+
+        public void setEmploy(int employ) {
+            this.employ = employ;
+        }
 
         public int getId() {
             return id;

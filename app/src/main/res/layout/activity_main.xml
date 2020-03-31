@@ -1,144 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.guoyu.fuseapp.page.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/fl_container"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/view"></FrameLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <View
-        android:id="@+id/view"
-        android:layout_above="@+id/system_ll_button"
-        android:background="@color/line"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1dp"
+        android:background="@color/line" />
 
-    <LinearLayout
-        android:id="@+id/system_ll_button"
+    <com.yinglan.alphatabs.AlphaTabsIndicator
+        android:id="@+id/alphaIndicator"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:background="#ffffff"
         android:orientation="horizontal">
 
-        <RelativeLayout
-            android:id="@+id/menu1"
-            android:layout_width="wrap_content"
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/footer_btn001"
+            app:tabIconSelected="@mipmap/footer_btn001_red"
+            app:tabText="首页"
+            app:tabTextSize="13sp"
+            app:textColorNormal="#777777"
+            app:textColorSelected="#D62424" />
 
-            <ImageButton
-                android:layout_marginTop="10dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/menu_1"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:background="@drawable/select1"
-                android:scaleType="centerCrop" />
-
-            <TextView
-                android:id="@+id/tv1"
-                android:textColor="@drawable/select_text_color"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:textSize="11sp"
-                android:layout_below="@+id/menu_1"
-                android:text="首页"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/menu2"
-            android:layout_width="wrap_content"
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/footer_btn002"
+            app:tabIconSelected="@mipmap/footer_btn002_red"
+            app:tabText="城市微观"
+            app:tabTextSize="13sp"
+            app:textColorNormal="#777777"
+            app:textColorSelected="#D62424" />
 
-            <ImageButton
-                android:layout_marginTop="10dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/menu_2"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:background="@drawable/select2"
-                android:scaleType="centerCrop" />
-
-            <TextView
-                android:id="@+id/tv2"
-                android:textColor="@drawable/select_text_color"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:textSize="11sp"
-                android:layout_below="@+id/menu_2"
-                android:text="城市微观"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/menu3"
-            android:layout_width="wrap_content"
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/footer_btn003"
+            app:tabIconSelected="@mipmap/footer_btn003_red"
+            app:tabText="城市风采"
+            app:tabTextSize="13sp"
+            app:textColorNormal="#777777"
+            app:textColorSelected="#D62424" />
 
-            <ImageButton
-                android:layout_marginTop="10dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/menu_3"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:background="@drawable/select3"
-                android:scaleType="centerCrop" />
 
-            <TextView
-                android:id="@+id/tv3"
-                android:textColor="@drawable/select_text_color"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:textSize="11sp"
-                android:layout_below="@+id/menu_3"
-                android:text="城市风采"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/menu4"
-            android:layout_width="wrap_content"
+        <com.yinglan.alphatabs.AlphaTabView
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:tabIconNormal="@mipmap/footer_btn004"
+            app:tabIconSelected="@mipmap/footer_btn004_red"
+            app:tabText="我的"
+            app:tabTextSize="11sp"
+            app:textColorNormal="#777777"
+            app:textColorSelected="#D62424" />
+    </com.yinglan.alphatabs.AlphaTabsIndicator>
 
-            <ImageButton
-                android:layout_marginTop="10dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/menu_4"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:background="@drawable/select4"
-                android:scaleType="centerCrop" />
+    <!--<FrameLayout-->
+        <!--android:id="@+id/fl_container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@+id/view"></FrameLayout>-->
 
-            <TextView
-                android:id="@+id/tv4"
-                android:textColor="@drawable/select_text_color"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:textSize="11sp"
-                android:layout_below="@+id/menu_4"
-                android:text="我的"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+    <!--<View-->
+        <!--android:id="@+id/view"-->
+        <!--android:layout_above="@+id/system_ll_button"-->
+        <!--android:background="@color/line"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"/>-->
 
-        </RelativeLayout>
+    <!--<LinearLayout-->
+        <!--android:id="@+id/system_ll_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:background="#ffffff"-->
+        <!--android:orientation="horizontal">-->
 
-    </LinearLayout>
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/menu1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1">-->
 
-</RelativeLayout>
+            <!--<ImageButton-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:id="@+id/menu_1"-->
+                <!--android:layout_width="16dp"-->
+                <!--android:layout_height="16dp"-->
+                <!--android:background="@drawable/select1"-->
+                <!--android:scaleType="centerCrop" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv1"-->
+                <!--android:textColor="@drawable/select_text_color"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:textSize="11sp"-->
+                <!--android:layout_below="@+id/menu_1"-->
+                <!--android:text="首页"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/menu2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1">-->
+
+            <!--<ImageButton-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:id="@+id/menu_2"-->
+                <!--android:layout_width="16dp"-->
+                <!--android:layout_height="16dp"-->
+                <!--android:background="@drawable/select2"-->
+                <!--android:scaleType="centerCrop" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv2"-->
+                <!--android:textColor="@drawable/select_text_color"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:textSize="11sp"-->
+                <!--android:layout_below="@+id/menu_2"-->
+                <!--android:text="城市微观"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/menu3"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1">-->
+
+            <!--<ImageButton-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:id="@+id/menu_3"-->
+                <!--android:layout_width="16dp"-->
+                <!--android:layout_height="16dp"-->
+                <!--android:background="@drawable/select3"-->
+                <!--android:scaleType="centerCrop" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv3"-->
+                <!--android:textColor="@drawable/select_text_color"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:textSize="11sp"-->
+                <!--android:layout_below="@+id/menu_3"-->
+                <!--android:text="城市风采"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/menu4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1">-->
+
+            <!--<ImageButton-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:id="@+id/menu_4"-->
+                <!--android:layout_width="16dp"-->
+                <!--android:layout_height="16dp"-->
+                <!--android:background="@drawable/select4"-->
+                <!--android:scaleType="centerCrop" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv4"-->
+                <!--android:textColor="@drawable/select_text_color"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:textSize="11sp"-->
+                <!--android:layout_below="@+id/menu_4"-->
+                <!--android:text="我的"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+        <!--</RelativeLayout>-->
+
+    <!--</LinearLayout>-->
+
+</LinearLayout>
