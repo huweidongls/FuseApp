@@ -137,7 +137,7 @@
 
     <Button
         android:id="@+id/btn_yuyue"
-        android:background="#D62424"
+        android:background="@color/theme"
         android:textColor="@color/white_ffffff"
         android:textSize="18sp"
         android:text="立即预约"

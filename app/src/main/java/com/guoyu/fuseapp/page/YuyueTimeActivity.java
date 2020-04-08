@@ -72,12 +72,6 @@ public class YuyueTimeActivity extends BaseActivity {
     TextView tvSelectTime;
     @BindView(R.id.rv)
     RecyclerView recyclerView;
-    @BindView(R.id.tv_gg)
-    ScrollTextView tvGg;
-    @BindView(R.id.ll_gg)
-    LinearLayout llGg;
-    @BindView(R.id.view)
-    View view;
 
     private Calendar c;
 
@@ -97,40 +91,6 @@ public class YuyueTimeActivity extends BaseActivity {
         c = Calendar.getInstance();
         ButterKnife.bind(YuyueTimeActivity.this);
         initData();
-        initGg();
-
-    }
-
-    private void initGg() {
-
-        ViseUtil.Get(context, NetUrl.AppointmentNoticeAppqueryListlimint5, null, new ViseUtil.ViseListener() {
-            @Override
-            public void onReturn(String s) {
-                Gson gson = new Gson();
-                AppointmentNoticeAppqueryListlimint5Bean bean = gson.fromJson(s, AppointmentNoticeAppqueryListlimint5Bean.class);
-                if(bean.getData().size()>0){
-                    llGg.setVisibility(View.VISIBLE);
-                    view.setVisibility(View.VISIBLE);
-                    List<String> list = new ArrayList<>();
-                    for (AppointmentNoticeAppqueryListlimint5Bean.DataBean bean1 : bean.getData()){
-                        list.add(bean1.getTitle());
-                    }
-                    tvGg.setList(list);
-                    tvGg.startScroll();
-                    tvGg.setOnSelectListener(new ScrollTextView.OnSelectListener() {
-                        @Override
-                        public void onItemClick(int pos) {
-                            Intent intent = new Intent();
-                            intent.setClass(context, YuyueGgActivity.class);
-                            startActivity(intent);
-                        }
-                    });
-                }else {
-                    llGg.setVisibility(View.GONE);
-                    view.setVisibility(View.GONE);
-                }
-            }
-        });
 
     }
 

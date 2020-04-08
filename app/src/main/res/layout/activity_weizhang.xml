@@ -107,7 +107,7 @@
         android:textColor="@color/white_ffffff"
         android:textSize="18sp"
         android:text="查询"
-        android:background="#D62424"
+        android:background="@color/theme"
         android:layout_marginTop="26dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"

@@ -27,40 +27,6 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/ll_gg"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-
-        <TextView
-            android:textColor="@color/black_333333"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_gravity="center_vertical"
-            android:text="公告："
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <com.guoyu.fuseapp.widget.ScrollTextView
-            android:layout_marginRight="20dp"
-            android:layout_gravity="center_vertical"
-            android:id="@+id/tv_gg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </com.guoyu.fuseapp.widget.ScrollTextView>
-
-    </LinearLayout>
-
-    <View
-        android:visibility="gone"
-        android:id="@+id/view"
-        android:background="@color/line"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

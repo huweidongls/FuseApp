@@ -99,7 +99,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="46dp"
-        android:background="#D62424"
+        android:background="@color/theme"
         android:text="提交验证码"
         android:textColor="#FFFFFF"
         android:textSize="17sp" />

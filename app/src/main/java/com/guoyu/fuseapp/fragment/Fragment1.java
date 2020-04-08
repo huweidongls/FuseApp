@@ -18,18 +18,21 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.guoyu.fuseapp.R;
+import com.guoyu.fuseapp.adapter.ConvenienceNoticeAdapter;
 import com.guoyu.fuseapp.adapter.IndexAdapter;
 import com.guoyu.fuseapp.adapter.IndexGongnengAdapter;
 import com.guoyu.fuseapp.base.BaseFragment;
 import com.guoyu.fuseapp.bean.AppCitizenIndexfindConvenienceNoticeBean;
 import com.guoyu.fuseapp.bean.AppCitizenIndexfindConvenienceQueryBean;
 import com.guoyu.fuseapp.bean.BannerBean;
+import com.guoyu.fuseapp.bean.ConvenienceNoticeBean;
 import com.guoyu.fuseapp.bean.IndexBean;
 import com.guoyu.fuseapp.bean.IndexGongnengBean;
 import com.guoyu.fuseapp.bean.IndexZwznBean;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.page.CommunityServiceActivity;
 import com.guoyu.fuseapp.page.GobernmentContentActivity;
+import com.guoyu.fuseapp.page.GovernmentListActivity;
 import com.guoyu.fuseapp.page.LoginActivity;
 import com.guoyu.fuseapp.page.ModuleWebViewActivity;
 import com.guoyu.fuseapp.page.SearchActivity;
@@ -59,53 +62,50 @@ import butterknife.OnClick;
 
 public class Fragment1 extends BaseFragment {
 
-    @BindView(R.id.banner)
-    Banner banner;
     @BindView(R.id.rv_gongneng)
     RecyclerView rvGongneng;
     @BindView(R.id.tv_zw1)
     ScrollTextView tvZw1;
     @BindView(R.id.tv_zw2)
     ScrollTextView tvZw2;
-    @BindView(R.id.view1)
-    View view1;
-    @BindView(R.id.view2)
-    View view2;
-    @BindView(R.id.view3)
-    View view3;
-    @BindView(R.id.tv1)
-    TextView tv1;
-    @BindView(R.id.tv2)
-    TextView tv2;
-    @BindView(R.id.tv3)
-    TextView tv3;
+//    @BindView(R.id.view1)
+//    View view1;
+//    @BindView(R.id.view2)
+//    View view2;
+//    @BindView(R.id.view3)
+//    View view3;
+//    @BindView(R.id.tv1)
+//    TextView tv1;
+//    @BindView(R.id.tv2)
+//    TextView tv2;
+//    @BindView(R.id.tv3)
+//    TextView tv3;
     @BindView(R.id.rv1)
     RecyclerView rv1;
-    @BindView(R.id.rv2)
-    RecyclerView rv2;
-    @BindView(R.id.rv3)
-    RecyclerView rv3;
     @BindView(R.id.iv1)
     ImageView iv1;
     @BindView(R.id.iv2)
     ImageView iv2;
-    @BindView(R.id.tv_xiaoqu_name)
-    TextView tvXiaoquName;
+//    @BindView(R.id.tv_xiaoqu_name)
+//    TextView tvXiaoquName;
     @BindView(R.id.refresh)
     SmartRefreshLayout smartRefreshLayout;
 
     private IndexGongnengAdapter gongnengAdapter;
     private List<IndexGongnengBean.DataBean> mList;
-    private IndexAdapter indexAdapter1;
-    private IndexAdapter indexAdapter2;
-    private IndexAdapter indexAdapter3;
-    private List<IndexBean.DataBean> mList1;
-    private List<IndexBean.DataBean> mList2;
-    private List<IndexBean.DataBean> mList3;
+//    private IndexAdapter indexAdapter1;
+//    private IndexAdapter indexAdapter2;
+//    private IndexAdapter indexAdapter3;
+//    private List<IndexBean.DataBean> mList1;
+//    private List<IndexBean.DataBean> mList2;
+//    private List<IndexBean.DataBean> mList3;
+//
+//    private String fun1 = "";
+//    private String fun2 = "";
+//    private String fun3 = "";
 
-    private String fun1 = "";
-    private String fun2 = "";
-    private String fun3 = "";
+    private ConvenienceNoticeAdapter adapter1;
+    private List<ConvenienceNoticeBean.DataBean> mList1;
 
     @Nullable
     @Override
@@ -114,7 +114,6 @@ public class Fragment1 extends BaseFragment {
 
         ButterKnife.bind(this, view);
         initRefresh();
-        initBanner();
         initGongneng();
         initData();
 
@@ -131,7 +130,6 @@ public class Fragment1 extends BaseFragment {
         smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                initBanner();
                 initGongneng();
                 initData();
                 refreshLayout.finishRefresh(1000);
@@ -148,7 +146,6 @@ public class Fragment1 extends BaseFragment {
         ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindAllInfo, null, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
-                Logger.e("sss", s);
                 Gson gson = new Gson();
                 IndexGongnengBean bean = gson.fromJson(s, IndexGongnengBean.class);
                 mList = bean.getData();gongnengAdapter = new IndexGongnengAdapter(mList);
@@ -165,30 +162,10 @@ public class Fragment1 extends BaseFragment {
 
     }
 
-    /**
-     * 轮播图
-     */
-    private void initBanner() {
-
-        ViseUtil.Post(getContext(), NetUrl.AppBannerInfoqueryList, null, new ViseUtil.ViseListener() {
-            @Override
-            public void onReturn(String s) {
-                Gson gson = new Gson();
-                BannerBean bean = gson.fromJson(s, BannerBean.class);
-                List<String> list = new ArrayList<>();
-                for (BannerBean.DataBean bean1 : bean.getData()){
-                    list.add(NetUrl.BASE_URL+bean1.getBannerPic());
-                }
-                init(banner, list);
-            }
-        });
-        
-    }
-
     private void initData() {
 
         //加载所属社区名称
-        tvXiaoquName.setText(SpUtils.getShequName(getContext()));
+//        tvXiaoquName.setText(SpUtils.getShequName(getContext()));
         //政务指南
         ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindNewGovernment, null, new ViseUtil.ViseListener() {
             @Override
@@ -332,137 +309,181 @@ public class Fragment1 extends BaseFragment {
         });
 
         //便民查询
-        ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindConvenienceQuery, null, new ViseUtil.ViseListener() {
+        Map<String, String> map = new LinkedHashMap<>();
+        map.put("pageSize", "0");
+        map.put("pageNum", "0");
+        map.put("title", "");
+        ViseUtil.Post(getContext(), NetUrl.AppConvenienceNoticequeryList, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
+                Logger.e("123123", s);
                 Gson gson = new Gson();
-                AppCitizenIndexfindConvenienceQueryBean queryBean = gson.fromJson(s, AppCitizenIndexfindConvenienceQueryBean.class);
-                List<AppCitizenIndexfindConvenienceQueryBean.DataBean> list = queryBean.getData();
-                if(list.size()>2){
-                    tv1.setText(list.get(0).getFunName());
-                    tv2.setText(list.get(1).getFunName());
-                    tv3.setText(list.get(2).getFunName());
-                    fun1 = list.get(0).getRelationTable();
-                    fun2 = list.get(1).getRelationTable();
-                    fun3 = list.get(2).getRelationTable();
-                    Map<String, String> map = new LinkedHashMap<>();
-                    map.put("relationTable", fun1);
-                    ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindByFunCode, map, new ViseUtil.ViseListener() {
-                        @Override
-                        public void onReturn(String s) {
-                            Gson gson1 = new Gson();
-                            IndexBean bean = gson1.fromJson(s, IndexBean.class);
-                            mList1 = bean.getData();
-                            indexAdapter1 = new IndexAdapter(mList1);
-                            LinearLayoutManager manager = new LinearLayoutManager(getContext()){
-                                @Override
-                                public boolean canScrollVertically() {
-                                    return false;
-                                }
-                            };
-                            manager.setOrientation(LinearLayoutManager.VERTICAL);
-                            rv1.setLayoutManager(manager);
-                            rv1.setAdapter(indexAdapter1);
-                        }
-                    });
-                    Map<String, String> map1 = new LinkedHashMap<>();
-                    map1.put("relationTable", fun2);
-                    ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindByFunCode, map1, new ViseUtil.ViseListener() {
-                        @Override
-                        public void onReturn(String s) {
-                            Gson gson1 = new Gson();
-                            IndexBean bean = gson1.fromJson(s, IndexBean.class);
-                            mList2 = bean.getData();
-                            indexAdapter2 = new IndexAdapter(mList2);
-                            LinearLayoutManager manager = new LinearLayoutManager(getContext()){
-                                @Override
-                                public boolean canScrollVertically() {
-                                    return false;
-                                }
-                            };
-                            manager.setOrientation(LinearLayoutManager.VERTICAL);
-                            rv2.setLayoutManager(manager);
-                            rv2.setAdapter(indexAdapter2);
-                        }
-                    });
-                    Map<String, String> map2 = new LinkedHashMap<>();
-                    map2.put("relationTable", fun3);
-                    ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindByFunCode, map2, new ViseUtil.ViseListener() {
-                        @Override
-                        public void onReturn(String s) {
-                            Gson gson1 = new Gson();
-                            IndexBean bean = gson1.fromJson(s, IndexBean.class);
-                            mList3 = bean.getData();
-                            indexAdapter3 = new IndexAdapter(mList3);
-                            LinearLayoutManager manager = new LinearLayoutManager(getContext()){
-                                @Override
-                                public boolean canScrollVertically() {
-                                    return false;
-                                }
-                            };
-                            manager.setOrientation(LinearLayoutManager.VERTICAL);
-                            rv3.setLayoutManager(manager);
-                            rv3.setAdapter(indexAdapter3);
-                        }
-                    });
-                }
+                ConvenienceNoticeBean bean = gson.fromJson(s, ConvenienceNoticeBean.class);
+                mList1 = bean.getData();
+                adapter1 = new ConvenienceNoticeAdapter(mList1, "便民通知", "BMTZ");
+                LinearLayoutManager manager = new LinearLayoutManager(getContext());
+                manager.setOrientation(LinearLayoutManager.VERTICAL);
+                rv1.setLayoutManager(manager);
+                rv1.setAdapter(adapter1);
             }
         });
 
+//        ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindConvenienceQuery, null, new ViseUtil.ViseListener() {
+//            @Override
+//            public void onReturn(String s) {
+//                Gson gson = new Gson();
+//                AppCitizenIndexfindConvenienceQueryBean queryBean = gson.fromJson(s, AppCitizenIndexfindConvenienceQueryBean.class);
+//                List<AppCitizenIndexfindConvenienceQueryBean.DataBean> list = queryBean.getData();
+//                if(list.size()>2){
+//                    tv1.setText(list.get(0).getFunName());
+//                    tv2.setText(list.get(1).getFunName());
+//                    tv3.setText(list.get(2).getFunName());
+//                    fun1 = list.get(0).getRelationTable();
+//                    fun2 = list.get(1).getRelationTable();
+//                    fun3 = list.get(2).getRelationTable();
+//                    Map<String, String> map = new LinkedHashMap<>();
+//                    map.put("relationTable", fun1);
+//                    ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindByFunCode, map, new ViseUtil.ViseListener() {
+//                        @Override
+//                        public void onReturn(String s) {
+//                            Logger.e("123123", s);
+//                            Gson gson1 = new Gson();
+//                            IndexBean bean = gson1.fromJson(s, IndexBean.class);
+//                            mList1 = bean.getData();
+//                            indexAdapter1 = new IndexAdapter(mList1);
+//                            LinearLayoutManager manager = new LinearLayoutManager(getContext()){
+//                                @Override
+//                                public boolean canScrollVertically() {
+//                                    return false;
+//                                }
+//                            };
+//                            manager.setOrientation(LinearLayoutManager.VERTICAL);
+//                            rv1.setLayoutManager(manager);
+//                            rv1.setAdapter(indexAdapter1);
+//                        }
+//                    });
+//                    Map<String, String> map1 = new LinkedHashMap<>();
+//                    map1.put("relationTable", fun2);
+//                    ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindByFunCode, map1, new ViseUtil.ViseListener() {
+//                        @Override
+//                        public void onReturn(String s) {
+//                            Gson gson1 = new Gson();
+//                            IndexBean bean = gson1.fromJson(s, IndexBean.class);
+//                            mList2 = bean.getData();
+//                            indexAdapter2 = new IndexAdapter(mList2);
+//                            LinearLayoutManager manager = new LinearLayoutManager(getContext()){
+//                                @Override
+//                                public boolean canScrollVertically() {
+//                                    return false;
+//                                }
+//                            };
+//                            manager.setOrientation(LinearLayoutManager.VERTICAL);
+//                            rv2.setLayoutManager(manager);
+//                            rv2.setAdapter(indexAdapter2);
+//                        }
+//                    });
+//                    Map<String, String> map2 = new LinkedHashMap<>();
+//                    map2.put("relationTable", fun3);
+//                    ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindByFunCode, map2, new ViseUtil.ViseListener() {
+//                        @Override
+//                        public void onReturn(String s) {
+//                            Gson gson1 = new Gson();
+//                            IndexBean bean = gson1.fromJson(s, IndexBean.class);
+//                            mList3 = bean.getData();
+//                            indexAdapter3 = new IndexAdapter(mList3);
+//                            LinearLayoutManager manager = new LinearLayoutManager(getContext()){
+//                                @Override
+//                                public boolean canScrollVertically() {
+//                                    return false;
+//                                }
+//                            };
+//                            manager.setOrientation(LinearLayoutManager.VERTICAL);
+//                            rv3.setLayoutManager(manager);
+//                            rv3.setAdapter(indexAdapter3);
+//                        }
+//                    });
+//                }
+//            }
+//        });
+
     }
 
-    @OnClick({R.id.rl1, R.id.rl2, R.id.rl3, R.id.rl_search, R.id.ll_shequ})
+    @OnClick({R.id.rl_search, R.id.rl_top1, R.id.rl_top2, R.id.rl_top3, R.id.rl_top4})
     public void onClick(View view){
         Intent intent = new Intent();
         switch (view.getId()){
-            case R.id.rl1:
-                tv1.setTextColor(getResources().getColor(R.color.theme));
-                tv2.setTextColor(Color.parseColor("#000000"));
-                tv3.setTextColor(Color.parseColor("#000000"));
-                view1.setVisibility(View.VISIBLE);
-                view2.setVisibility(View.GONE);
-                view3.setVisibility(View.GONE);
-                rv1.setVisibility(View.VISIBLE);
-                rv2.setVisibility(View.GONE);
-                rv3.setVisibility(View.GONE);
+            case R.id.rl_top1:
+                intent.setClass(getContext(), GovernmentListActivity.class);
+                intent.putExtra("funcode", "ZWZN");
+                intent.putExtra("title", "政务指南");
+                startActivity(intent);
                 break;
-            case R.id.rl2:
-                tv1.setTextColor(Color.parseColor("#000000"));
-                tv2.setTextColor(getResources().getColor(R.color.theme));
-                tv3.setTextColor(Color.parseColor("#000000"));
-                view1.setVisibility(View.GONE);
-                view2.setVisibility(View.VISIBLE);
-                view3.setVisibility(View.GONE);
-                rv1.setVisibility(View.GONE);
-                rv2.setVisibility(View.VISIBLE);
-                rv3.setVisibility(View.GONE);
+            case R.id.rl_top2:
+                intent.setClass(getContext(), ModuleWebViewActivity.class);
+                intent.putExtra("funcode", "YLBJ");
+                intent.putExtra("url", "http://xfsysh5.5ijiaoyu.cn/pages/yiliao.html");
+                startActivity(intent);
                 break;
-            case R.id.rl3:
-                tv1.setTextColor(Color.parseColor("#000000"));
-                tv2.setTextColor(Color.parseColor("#000000"));
-                tv3.setTextColor(getResources().getColor(R.color.theme));
-                view1.setVisibility(View.GONE);
-                view2.setVisibility(View.GONE);
-                view3.setVisibility(View.VISIBLE);
-                rv1.setVisibility(View.GONE);
-                rv2.setVisibility(View.GONE);
-                rv3.setVisibility(View.VISIBLE);
+            case R.id.rl_top3:
+                intent.setClass(getContext(), ModuleWebViewActivity.class);
+                intent.putExtra("funcode", "XKZY");
+                intent.putExtra("url", "http://xfsysh5.5ijiaoyu.cn/pages/jyo_pages/jyo_list.html");
+                startActivity(intent);
                 break;
+            case R.id.rl_top4:
+                intent.setClass(getContext(), ModuleWebViewActivity.class);
+                intent.putExtra("funcode", "ZPFW");
+                intent.putExtra("url", "http://xfsysh5.5ijiaoyu.cn/pages/zp_list.html");
+                startActivity(intent);
+                break;
+//            case R.id.rl1:
+//                tv1.setTextColor(getResources().getColor(R.color.theme));
+//                tv2.setTextColor(Color.parseColor("#000000"));
+//                tv3.setTextColor(Color.parseColor("#000000"));
+//                view1.setVisibility(View.VISIBLE);
+//                view2.setVisibility(View.GONE);
+//                view3.setVisibility(View.GONE);
+//                rv1.setVisibility(View.VISIBLE);
+//                rv2.setVisibility(View.GONE);
+//                rv3.setVisibility(View.GONE);
+//                break;
+//            case R.id.rl2:
+//                tv1.setTextColor(Color.parseColor("#000000"));
+//                tv2.setTextColor(getResources().getColor(R.color.theme));
+//                tv3.setTextColor(Color.parseColor("#000000"));
+//                view1.setVisibility(View.GONE);
+//                view2.setVisibility(View.VISIBLE);
+//                view3.setVisibility(View.GONE);
+//                rv1.setVisibility(View.GONE);
+//                rv2.setVisibility(View.VISIBLE);
+//                rv3.setVisibility(View.GONE);
+//                break;
+//            case R.id.rl3:
+//                tv1.setTextColor(Color.parseColor("#000000"));
+//                tv2.setTextColor(Color.parseColor("#000000"));
+//                tv3.setTextColor(getResources().getColor(R.color.theme));
+//                view1.setVisibility(View.GONE);
+//                view2.setVisibility(View.GONE);
+//                view3.setVisibility(View.VISIBLE);
+//                rv1.setVisibility(View.GONE);
+//                rv2.setVisibility(View.GONE);
+//                rv3.setVisibility(View.VISIBLE);
+//                break;
             case R.id.rl_search:
                 intent.setClass(getContext(), SearchActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.ll_shequ:
-                if(SpUtils.getUserId(getContext()).equals("0")){
-                    intent.setClass(getContext(), LoginActivity.class);
-                    startActivity(intent);
-                }else {
-                    intent.setClass(getContext(), CommunityServiceActivity.class);
-                    intent.putExtra("title", "社区服务");
-                    intent.putExtra("funcode", "SQFW");
-                    startActivity(intent);
-                }
-                break;
+//            case R.id.ll_shequ:
+//                if(SpUtils.getUserId(getContext()).equals("0")){
+//                    intent.setClass(getContext(), LoginActivity.class);
+//                    startActivity(intent);
+//                }else {
+//                    intent.setClass(getContext(), CommunityServiceActivity.class);
+//                    intent.putExtra("title", "社区服务");
+//                    intent.putExtra("funcode", "SQFW");
+//                    startActivity(intent);
+//                }
+//                break;
         }
     }
 

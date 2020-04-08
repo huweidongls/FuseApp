@@ -167,7 +167,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="24dp"
-        android:background="#D62424"
+        android:background="@color/theme"
         android:text="确定"
         android:textColor="#FFFFFF"
         android:textSize="17sp" />

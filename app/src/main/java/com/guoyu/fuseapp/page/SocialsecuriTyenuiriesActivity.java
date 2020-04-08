@@ -59,7 +59,7 @@ public class SocialsecuriTyenuiriesActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.ll_zhanghu:
-                tvZhanghu.setTextColor(Color.parseColor("#D62424"));
+                tvZhanghu.setTextColor(getResources().getColor(R.color.theme));
                 viewZhanghu.setVisibility(View.VISIBLE);
                 tvJiaofei.setTextColor(Color.parseColor("#000000"));
                 viewJiaofei.setVisibility(View.GONE);
@@ -69,7 +69,7 @@ public class SocialsecuriTyenuiriesActivity extends BaseActivity {
             case R.id.ll_jiaofei:
                 tvZhanghu.setTextColor(Color.parseColor("#000000"));
                 viewZhanghu.setVisibility(View.GONE);
-                tvJiaofei.setTextColor(Color.parseColor("#D62424"));
+                tvJiaofei.setTextColor(getResources().getColor(R.color.theme));
                 viewJiaofei.setVisibility(View.VISIBLE);
                 zhanghu.setVisibility(View.GONE);
                 jiaofei.setVisibility(View.VISIBLE);

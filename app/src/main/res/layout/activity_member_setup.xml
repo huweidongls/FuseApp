@@ -109,7 +109,7 @@
         android:layout_margin="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#D62424"
+        android:background="@color/theme"
         android:text="退出登录"
         android:textColor="#FFFFFF"
         android:textSize="17sp" />

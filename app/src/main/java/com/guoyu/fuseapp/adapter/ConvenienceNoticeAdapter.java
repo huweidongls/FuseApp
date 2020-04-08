@@ -46,6 +46,7 @@ public class ConvenienceNoticeAdapter extends RecyclerView.Adapter<ConvenienceNo
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.tv.setText(data.get(position).getTitle());
         GlideUtils.into(context, NetUrl.BASE_URL+data.get(position).getAppimg(), holder.iv);
+        holder.tvTime.setText(data.get(position).getCreateDate());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,11 +69,13 @@ public class ConvenienceNoticeAdapter extends RecyclerView.Adapter<ConvenienceNo
 
         private TextView tv;
         private ImageView iv;
+        private TextView tvTime;
 
         public ViewHolder(View itemView) {
             super(itemView);
             tv = itemView.findViewById(R.id.tv);
             iv = itemView.findViewById(R.id.iv);
+            tvTime = itemView.findViewById(R.id.tv_time);
         }
     }
 

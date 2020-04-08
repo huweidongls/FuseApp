@@ -17,7 +17,7 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_gravity="center_vertical"
-                android:src="#D62424"
+                android:src="@color/theme"
                 android:layout_width="6dp"
                 android:layout_height="6dp" />
 
@@ -57,7 +57,7 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:layout_marginLeft="20dp"
-                android:textColor="#D62424"
+                android:textColor="@color/theme"
                 android:textSize="14sp"
                 android:text="预约"
                 android:layout_width="wrap_content"

@@ -102,7 +102,6 @@ public class Fragment4 extends BaseFragment {
             ViseUtil.Get(getContext(), NetUrl.CitizenUsergetOne, map, new ViseUtil.ViseListener() {
                 @Override
                 public void onReturn(String s) {
-                    Logger.e("123123", s);
                     Gson gson = new Gson();
                     UserGetOneBean bean = gson.fromJson(s, UserGetOneBean.class);
                     if(bean.getData().getUserPic() != null){

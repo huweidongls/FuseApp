@@ -28,50 +28,50 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:padding="5dp"
+            android:padding="8dp"
             app:tabIconNormal="@mipmap/footer_btn001"
             app:tabIconSelected="@mipmap/footer_btn001_red"
             app:tabText="首页"
-            app:tabTextSize="13sp"
-            app:textColorNormal="#777777"
-            app:textColorSelected="#D62424" />
+            app:tabTextSize="10sp"
+            app:textColorNormal="#666666"
+            app:textColorSelected="#1E8EE4" />
 
         <com.yinglan.alphatabs.AlphaTabView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:padding="5dp"
+            android:padding="8dp"
             app:tabIconNormal="@mipmap/footer_btn002"
             app:tabIconSelected="@mipmap/footer_btn002_red"
             app:tabText="城市微观"
-            app:tabTextSize="13sp"
-            app:textColorNormal="#777777"
-            app:textColorSelected="#D62424" />
+            app:tabTextSize="10sp"
+            app:textColorNormal="#666666"
+            app:textColorSelected="#1E8EE4" />
 
         <com.yinglan.alphatabs.AlphaTabView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:padding="5dp"
+            android:padding="8dp"
             app:tabIconNormal="@mipmap/footer_btn003"
             app:tabIconSelected="@mipmap/footer_btn003_red"
             app:tabText="城市风采"
-            app:tabTextSize="13sp"
-            app:textColorNormal="#777777"
-            app:textColorSelected="#D62424" />
+            app:tabTextSize="10sp"
+            app:textColorNormal="#666666"
+            app:textColorSelected="#1E8EE4" />
 
 
         <com.yinglan.alphatabs.AlphaTabView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:padding="5dp"
+            android:padding="8dp"
             app:tabIconNormal="@mipmap/footer_btn004"
             app:tabIconSelected="@mipmap/footer_btn004_red"
             app:tabText="我的"
-            app:tabTextSize="11sp"
-            app:textColorNormal="#777777"
-            app:textColorSelected="#D62424" />
+            app:tabTextSize="10sp"
+            app:textColorNormal="#666666"
+            app:textColorSelected="#1E8EE4" />
     </com.yinglan.alphatabs.AlphaTabsIndicator>
 
     <!--<FrameLayout-->

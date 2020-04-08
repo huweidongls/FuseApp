@@ -132,7 +132,6 @@ public class MainActivity extends BaseActivity {
         ViseUtil.Get(context, NetUrl.AppVersionInfonewVersion, null, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
-                Log.e("123123", s);
                 Gson gson = new Gson();
                 final VersionBean bean = gson.fromJson(s, VersionBean.class);
                 if(bean.getData().getVersioncode()>versionCode){

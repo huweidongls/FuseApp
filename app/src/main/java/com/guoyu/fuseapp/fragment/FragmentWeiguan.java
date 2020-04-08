@@ -161,7 +161,6 @@ public class FragmentWeiguan extends BaseFragment {
         ViseUtil.Get(getContext(), NetUrl.AppMiniCityInfoqueryList, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
-                Logger.e("123123", s);
                 Gson gson = new Gson();
                 WeiguanListBean bean = gson.fromJson(s, WeiguanListBean.class);
                 mList = bean.getData();

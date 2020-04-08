@@ -50,13 +50,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="49dp"
                         android:text="账户信息"
-                        android:textColor="#D62424"
+                        android:textColor="@color/theme"
                         android:textSize="15sp" />
 
                     <View
                         android:id="@+id/view_zhanghu"
                         android:layout_gravity="center_horizontal"
-                        android:background="#D62424"
+                        android:background="@color/theme"
                         android:layout_width="25dp"
                         android:layout_height="1dp"/>
 

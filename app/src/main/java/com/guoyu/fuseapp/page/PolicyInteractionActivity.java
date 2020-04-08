@@ -281,7 +281,7 @@ public class PolicyInteractionActivity extends AppCompatActivity {
             case R.id.rl1:
                 typeId = "1";
                 initData(1);
-                tv1.setTextColor(Color.parseColor("#D62424"));
+                tv1.setTextColor(getResources().getColor(R.color.theme));
                 view1.setVisibility(View.VISIBLE);
                 tv2.setTextColor(Color.parseColor("#333333"));
                 view2.setVisibility(View.GONE);
@@ -293,7 +293,7 @@ public class PolicyInteractionActivity extends AppCompatActivity {
                 initData2();
                 tv1.setTextColor(Color.parseColor("#333333"));
                 view1.setVisibility(View.GONE);
-                tv2.setTextColor(Color.parseColor("#D62424"));
+                tv2.setTextColor(getResources().getColor(R.color.theme));
                 view2.setVisibility(View.VISIBLE);
                 tv3.setTextColor(Color.parseColor("#333333"));
                 view3.setVisibility(View.GONE);
@@ -305,7 +305,7 @@ public class PolicyInteractionActivity extends AppCompatActivity {
                 view1.setVisibility(View.GONE);
                 tv2.setTextColor(Color.parseColor("#333333"));
                 view2.setVisibility(View.GONE);
-                tv3.setTextColor(Color.parseColor("#D62424"));
+                tv3.setTextColor(getResources().getColor(R.color.theme));
                 view3.setVisibility(View.VISIBLE);
                 break;
         }

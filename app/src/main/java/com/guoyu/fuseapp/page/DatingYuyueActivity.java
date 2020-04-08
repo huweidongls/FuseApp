@@ -7,14 +7,17 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.google.gson.Gson;
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.adapter.DatingYuyueAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListHallBean;
+import com.guoyu.fuseapp.bean.AppointmentNoticeAppqueryListlimint5Bean;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.ViseUtil;
+import com.guoyu.fuseapp.widget.ScrollTextView;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -39,6 +42,12 @@ public class DatingYuyueActivity extends BaseActivity {
     RecyclerView recyclerView;
     @BindView(R.id.refresh)
     SmartRefreshLayout smartRefreshLayout;
+    @BindView(R.id.tv_gg)
+    ScrollTextView tvGg;
+    @BindView(R.id.ll_gg)
+    LinearLayout llGg;
+    @BindView(R.id.view)
+    View view;
 
     private DatingYuyueAdapter adapter;
     private List<AppBookingBusinessqueryListHallBean.DataBean> mList;
@@ -52,6 +61,40 @@ public class DatingYuyueActivity extends BaseActivity {
 
         ButterKnife.bind(DatingYuyueActivity.this);
         initData();
+        initGg();
+
+    }
+
+    private void initGg() {
+
+        ViseUtil.Get(context, NetUrl.AppointmentNoticeAppqueryListlimint5, null, new ViseUtil.ViseListener() {
+            @Override
+            public void onReturn(String s) {
+                Gson gson = new Gson();
+                AppointmentNoticeAppqueryListlimint5Bean bean = gson.fromJson(s, AppointmentNoticeAppqueryListlimint5Bean.class);
+                if(bean.getData().size()>0){
+                    llGg.setVisibility(View.VISIBLE);
+                    view.setVisibility(View.VISIBLE);
+                    List<String> list = new ArrayList<>();
+                    for (AppointmentNoticeAppqueryListlimint5Bean.DataBean bean1 : bean.getData()){
+                        list.add(bean1.getTitle());
+                    }
+                    tvGg.setList(list);
+                    tvGg.startScroll();
+                    tvGg.setOnSelectListener(new ScrollTextView.OnSelectListener() {
+                        @Override
+                        public void onItemClick(int pos) {
+                            Intent intent = new Intent();
+                            intent.setClass(context, YuyueGgActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }else {
+                    llGg.setVisibility(View.GONE);
+                    view.setVisibility(View.GONE);
+                }
+            }
+        });
 
     }
 
