@@ -26,6 +26,7 @@ import com.guoyu.fuseapp.page.JiazhengListActivity;
 import com.guoyu.fuseapp.page.ModuleWebViewActivity;
 import com.guoyu.fuseapp.page.SafeListActivity;
 import com.guoyu.fuseapp.page.SearchActivity;
+import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.guoyu.fuseapp.widget.ScrollTextView;
 import com.scwang.smartrefresh.header.MaterialHeader;
@@ -302,6 +303,7 @@ public class Fragment1 extends BaseFragment {
         ViseUtil.Post(getContext(), NetUrl.AppConvenienceNoticequeryList, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
+                Logger.e("123123", s);
                 Gson gson = new Gson();
                 ConvenienceNoticeBean bean = gson.fromJson(s, ConvenienceNoticeBean.class);
                 mList1 = bean.getData();
