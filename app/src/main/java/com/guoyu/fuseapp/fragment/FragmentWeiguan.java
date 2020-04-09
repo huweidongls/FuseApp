@@ -16,7 +16,6 @@ import com.guoyu.fuseapp.adapter.WeiguanAdapter;
 import com.guoyu.fuseapp.base.BaseFragment;
 import com.guoyu.fuseapp.bean.WeiguanListBean;
 import com.guoyu.fuseapp.net.NetUrl;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.scwang.smartrefresh.header.MaterialHeader;

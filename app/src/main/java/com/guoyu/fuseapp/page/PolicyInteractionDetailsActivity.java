@@ -2,8 +2,8 @@ package com.guoyu.fuseapp.page;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -11,7 +11,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -21,16 +20,11 @@ import com.guoyu.fuseapp.adapter.PolicyInteractionDetailsAdapter;
 import com.guoyu.fuseapp.bean.PolicyInteractionDetailsBean;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.HtmlFromUtils;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.ToastUtil;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.guoyu.fuseapp.util.WeiboDialogUtils;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;

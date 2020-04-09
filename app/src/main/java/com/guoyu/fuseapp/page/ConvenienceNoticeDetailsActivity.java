@@ -15,7 +15,6 @@ import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.FindNumBean;
 import com.guoyu.fuseapp.bean.NoticegetOneBean;
 import com.guoyu.fuseapp.net.NetUrl;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.zzhoujay.richtext.ImageHolder;
 import com.zzhoujay.richtext.RichText;
@@ -72,7 +71,6 @@ public class ConvenienceNoticeDetailsActivity extends BaseActivity {
         ViseUtil.Get(context, NetUrl.AppConvenienceNoticegetOne, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
-                Logger.e("123123", s);
                 Gson gson = new Gson();
                 NoticegetOneBean bean = gson.fromJson(s, NoticegetOneBean.class);
                 RichText.from(bean.getData().getContent()).bind(this)

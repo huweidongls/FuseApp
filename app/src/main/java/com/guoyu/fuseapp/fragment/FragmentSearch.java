@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +13,8 @@ import com.guoyu.fuseapp.adapter.TyAdapter;
 import com.guoyu.fuseapp.adapter.XgyyAdapter;
 import com.guoyu.fuseapp.base.BaseFragment;
 import com.guoyu.fuseapp.bean.SearchBean;
-import com.guoyu.fuseapp.util.Logger;
-import com.guoyu.fuseapp.util.ToastUtil;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

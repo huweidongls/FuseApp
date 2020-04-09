@@ -4,20 +4,17 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.ShequBean;
 import com.guoyu.fuseapp.bean.UserGetOneBean;
 import com.guoyu.fuseapp.net.NetUrl;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.StringUtils;
 import com.guoyu.fuseapp.util.ToastUtil;
@@ -33,8 +30,6 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static com.vise.xsnow.http.ViseHttp.getContext;
 
 /**
  * Created by Administrator on 2019/10/9.
@@ -94,7 +89,6 @@ public class PersonInformationActivity extends BaseActivity {
         ViseUtil.Get(context, NetUrl.CitizenUsergetOne, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
-                Logger.e("123123", s);
                 Gson gson = new Gson();
                 UserGetOneBean bean = gson.fromJson(s, UserGetOneBean.class);
                 int status = bean.getData().getStatus();
@@ -202,7 +196,6 @@ public class PersonInformationActivity extends BaseActivity {
             ViseUtil.Post(context, NetUrl.CitizenUserupdate, map, dialog, new ViseUtil.ViseListener() {
                 @Override
                 public void onReturn(String s) {
-                    Logger.e("123123", s);
                     try {
                         Gson gson = new Gson();
                         ShequBean shequBean = gson.fromJson(s, ShequBean.class);

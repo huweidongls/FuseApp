@@ -26,15 +26,10 @@ import com.guoyu.fuseapp.page.MyYuyueActivity;
 import com.guoyu.fuseapp.page.PersonInformationActivity;
 import com.guoyu.fuseapp.page.RealNameActivity;
 import com.guoyu.fuseapp.page.RegisterActivity;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.ToastUtil;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.guoyu.fuseapp.util.WeiboDialogUtils;
-import com.guoyu.fuseapp.wxapi.OnResponseListener;
-import com.guoyu.fuseapp.wxapi.WXShare;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.vise.xsnow.http.ViseHttp;
 import com.vise.xsnow.http.callback.ACallback;
 

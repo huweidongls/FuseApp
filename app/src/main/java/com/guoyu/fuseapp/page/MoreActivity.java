@@ -15,6 +15,7 @@ import com.guoyu.fuseapp.adapter.MoreGongnengAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.MoreGongnengBean;
 import com.guoyu.fuseapp.net.NetUrl;
+import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.ViseUtil;
 
 import java.util.List;
@@ -50,6 +51,7 @@ public class MoreActivity extends BaseActivity {
         ViseUtil.Post(context, NetUrl.AppCitizenIndexfindAllInfoMore, null, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
+                Logger.e("123123", s);
                 Gson gson = new Gson();
                 MoreGongnengBean bean = gson.fromJson(s, MoreGongnengBean.class);
                 mList = bean.getData();

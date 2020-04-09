@@ -5,19 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.WindowManager;
 
 import com.google.gson.Gson;
 import com.guoyu.fuseapp.bean.UnionidBean;
-import com.guoyu.fuseapp.bean.WxLoginBean;
 import com.guoyu.fuseapp.dialog.DialogWxType;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.page.LoginActivity;
 import com.guoyu.fuseapp.page.RegisterActivity;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.ToastUtil;
-import com.guoyu.fuseapp.util.ViseUtil;
 import com.guoyu.fuseapp.util.WeiboDialogUtils;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
@@ -97,7 +93,6 @@ public class WXEntryActivity extends AppCompatActivity implements IWXAPIEventHan
 
     private void getAccessToken(String code) {
 
-        Logger.e("123123", code);
         dialog = WeiboDialogUtils.createLoadingDialog(context, "请等待...");
         Map<String, String> map = new LinkedHashMap<>();
         map.put("code", code);
@@ -106,7 +101,6 @@ public class WXEntryActivity extends AppCompatActivity implements IWXAPIEventHan
                 .request(new ACallback<String>() {
                     @Override
                     public void onSuccess(String data) {
-                        Logger.e("123123", data);
                         try {
                             final JSONObject jsonObject = new JSONObject(data);
                             if(jsonObject.optString("status").equals("200")){

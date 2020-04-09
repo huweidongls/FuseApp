@@ -16,7 +16,6 @@ import com.guoyu.fuseapp.bean.FindNumBean;
 import com.guoyu.fuseapp.bean.JiazhengDetailsBean;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.GlideUtils;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.StringUtils;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.zzhoujay.richtext.ImageHolder;
@@ -98,7 +97,6 @@ public class JiazhengDetailsActivity extends BaseActivity {
         });
 
         Map<String, String> map1 = new LinkedHashMap<>();
-        Logger.e("123123", id+funCode);
         map1.put("businessId", id);
         map1.put("funCode", funCode);
         ViseUtil.Get(context, NetUrl.AppShareListPraiseTimesfindNum, map1, new ViseUtil.ViseListener() {

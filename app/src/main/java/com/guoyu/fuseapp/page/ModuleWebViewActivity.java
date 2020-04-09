@@ -25,7 +25,6 @@ import com.guoyu.fuseapp.dialog.DialogCustom;
 import com.guoyu.fuseapp.dialog.DialogMapType;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.Gps;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.PositionUtil;
 import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.StringUtils;
@@ -103,7 +102,6 @@ public class ModuleWebViewActivity extends BaseActivity {
             rlLoc.setVisibility(View.VISIBLE);
         }
 
-        Logger.e("123123", url);
         webview.getSettings().setJavaScriptEnabled(true);
         webview.getSettings().setUseWideViewPort(true);
         webview.getSettings().setLoadWithOverviewMode(true);
@@ -254,7 +252,6 @@ public class ModuleWebViewActivity extends BaseActivity {
          */
         @JavascriptInterface
         public void share(final String url, final String title, final String subtitle, final String pic) {
-            Logger.e("123123", url+title+subtitle+pic);
             DialogCustom dialogCustom = new DialogCustom(context, "打开微信", new DialogCustom.OnYesListener() {
                 @Override
                 public void onYes() {

@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,20 +18,14 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.guoyu.fuseapp.R;
-import com.guoyu.fuseapp.adapter.GovernmentListAdapter;
 import com.guoyu.fuseapp.adapter.StylisticServiceListAdapter;
 import com.guoyu.fuseapp.adapter.Wenti1Adapter;
 import com.guoyu.fuseapp.base.BaseActivity;
-import com.guoyu.fuseapp.bean.GovernmentListBean;
 import com.guoyu.fuseapp.bean.StyleInfoItemqueryListBean;
 import com.guoyu.fuseapp.bean.StylisticServiceListBean;
 import com.guoyu.fuseapp.net.NetUrl;
-import com.guoyu.fuseapp.util.DensityTool;
-import com.guoyu.fuseapp.util.GlideUtils;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.StringUtils;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.guoyu.fuseapp.util.WeiboDialogUtils;
@@ -43,9 +36,6 @@ import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -204,7 +194,6 @@ public class StylisticServiceActivity extends BaseActivity {
         ViseUtil.Post(context, NetUrl.AppStyleInfoqueryList, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
-                Logger.e("123123", s);
                 WeiboDialogUtils.closeDialog(dialog);
                 Gson gson = new Gson();
                 StylisticServiceListBean bean = gson.fromJson(s, StylisticServiceListBean.class);

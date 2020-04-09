@@ -13,14 +13,10 @@ import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.adapter.CreditDetailsAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.CreditBean;
-import com.guoyu.fuseapp.util.Logger;
-import com.guoyu.fuseapp.util.ViseUtil;
 import com.vise.xsnow.http.ViseHttp;
 import com.vise.xsnow.http.callback.ACallback;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,7 +62,6 @@ public class CreditDetailsActivity extends BaseActivity {
                 .request(new ACallback<String>() {
                     @Override
                     public void onSuccess(String data) {
-                        Logger.e("123123", data);
                         Gson gson = new Gson();
                         CreditBean bean = gson.fromJson(data, CreditBean.class);
                         if(bean.getRows().size()>0){
@@ -86,7 +81,6 @@ public class CreditDetailsActivity extends BaseActivity {
 
                     @Override
                     public void onFail(int errCode, String errMsg) {
-                        Logger.e("123123", errMsg);
                     }
                 });
 

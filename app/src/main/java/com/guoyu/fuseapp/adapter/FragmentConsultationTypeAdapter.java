@@ -3,7 +3,6 @@ package com.guoyu.fuseapp.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,6 @@ import com.bumptech.glide.Glide;
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.bean.ConsultationTypeBean;
 import com.guoyu.fuseapp.page.ComplaintDetailsActivity;
-import com.guoyu.fuseapp.page.RegisterActivity;
-import com.guoyu.fuseapp.util.Logger;
 
 import java.util.List;
 
@@ -50,7 +47,6 @@ public class FragmentConsultationTypeAdapter extends RecyclerView.Adapter<Fragme
         if (data.get(position).getStatusid() == 2) {//已反馈
             holder.tvRight.setVisibility(View.VISIBLE);
             Glide.with(context).load(R.mipmap.icon0113x).into(holder.iv_img);
-            Logger.e("123123", data.get(position).getFeeMemo());
             holder.feeMemo.setText(data.get(position).getFeeMemo());
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {

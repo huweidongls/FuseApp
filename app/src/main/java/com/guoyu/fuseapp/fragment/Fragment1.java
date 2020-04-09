@@ -1,51 +1,37 @@
 package com.guoyu.fuseapp.fragment;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.adapter.ConvenienceNoticeAdapter;
-import com.guoyu.fuseapp.adapter.IndexAdapter;
 import com.guoyu.fuseapp.adapter.IndexGongnengAdapter;
 import com.guoyu.fuseapp.base.BaseFragment;
-import com.guoyu.fuseapp.bean.AppCitizenIndexfindConvenienceNoticeBean;
-import com.guoyu.fuseapp.bean.AppCitizenIndexfindConvenienceQueryBean;
-import com.guoyu.fuseapp.bean.BannerBean;
 import com.guoyu.fuseapp.bean.ConvenienceNoticeBean;
-import com.guoyu.fuseapp.bean.IndexBean;
 import com.guoyu.fuseapp.bean.IndexGongnengBean;
 import com.guoyu.fuseapp.bean.IndexZwznBean;
 import com.guoyu.fuseapp.net.NetUrl;
-import com.guoyu.fuseapp.page.CommunityServiceActivity;
 import com.guoyu.fuseapp.page.GobernmentContentActivity;
 import com.guoyu.fuseapp.page.GovernmentListActivity;
-import com.guoyu.fuseapp.page.LoginActivity;
+import com.guoyu.fuseapp.page.JiazhengListActivity;
 import com.guoyu.fuseapp.page.ModuleWebViewActivity;
+import com.guoyu.fuseapp.page.SafeListActivity;
 import com.guoyu.fuseapp.page.SearchActivity;
-import com.guoyu.fuseapp.util.GlideUtils;
-import com.guoyu.fuseapp.util.Logger;
-import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.guoyu.fuseapp.widget.ScrollTextView;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.youth.banner.Banner;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -82,10 +68,10 @@ public class Fragment1 extends BaseFragment {
 //    TextView tv3;
     @BindView(R.id.rv1)
     RecyclerView rv1;
-    @BindView(R.id.iv1)
-    ImageView iv1;
-    @BindView(R.id.iv2)
-    ImageView iv2;
+//    @BindView(R.id.iv1)
+//    ImageView iv1;
+//    @BindView(R.id.iv2)
+//    ImageView iv2;
 //    @BindView(R.id.tv_xiaoqu_name)
 //    TextView tvXiaoquName;
     @BindView(R.id.refresh)
@@ -214,99 +200,99 @@ public class Fragment1 extends BaseFragment {
         });
 
         //便民服务
-        ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindConvenienceNotice, null, new ViseUtil.ViseListener() {
-            @Override
-            public void onReturn(String s) {
-                Gson gson = new Gson();
-                final AppCitizenIndexfindConvenienceNoticeBean bean = gson.fromJson(s, AppCitizenIndexfindConvenienceNoticeBean.class);
-                if(bean.getData().size()>1){
-                    GlideUtils.into(getContext(), NetUrl.BASE_URL+bean.getData().get(0).getShowPic(), iv1);
-                    GlideUtils.into(getContext(), NetUrl.BASE_URL+bean.getData().get(1).getShowPic(), iv2);
-                    iv1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            AppCitizenIndexfindConvenienceNoticeBean.DataBean a = bean.getData().get(0);
-                            Intent intent = new Intent();
-                            if(a.getUnregSee() == 0){
-                                if(SpUtils.getUserId(getContext()).equals("0")){
-                                    intent.setClass(getContext(), LoginActivity.class);
-                                    startActivity(intent);
-                                }else if(a.getUrl() == null){
-                                    try {
-                                        intent.setClass(getContext(), Class.forName(a.getAndroidUrl()));
-                                        intent.putExtra("title", a.getFunName());
-                                        startActivity(intent);
-                                    } catch (ClassNotFoundException e) {
-                                        e.printStackTrace();
-                                    }
-                                }else {
-                                    intent.setClass(getContext(), ModuleWebViewActivity.class);
-                                    intent.putExtra("title", a.getFunName());
-                                    intent.putExtra("url", a.getUrl());
-                                    startActivity(intent);
-                                }
-                            }else {
-                                if(a.getUrl() == null){
-                                    try {
-                                        intent.setClass(getContext(), Class.forName(a.getAndroidUrl()));
-                                        intent.putExtra("title", a.getFunName());
-                                        startActivity(intent);
-                                    } catch (ClassNotFoundException e) {
-                                        e.printStackTrace();
-                                    }
-                                }else {
-                                    intent.setClass(getContext(), ModuleWebViewActivity.class);
-                                    intent.putExtra("title", a.getFunName());
-                                    intent.putExtra("url", a.getUrl());
-                                    startActivity(intent);
-                                }
-                            }
-                        }
-                    });
-                    iv2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            AppCitizenIndexfindConvenienceNoticeBean.DataBean b = bean.getData().get(1);
-                            Intent intent = new Intent();
-                            if(b.getUnregSee() == 0){
-                                if(SpUtils.getUserId(getContext()).equals("0")){
-                                    intent.setClass(getContext(), LoginActivity.class);
-                                    startActivity(intent);
-                                }else if(b.getUrl() == null){
-                                    try {
-                                        intent.setClass(getContext(), Class.forName(b.getAndroidUrl()));
-                                        intent.putExtra("title", b.getFunName());
-                                        startActivity(intent);
-                                    } catch (ClassNotFoundException e) {
-                                        e.printStackTrace();
-                                    }
-                                }else {
-                                    intent.setClass(getContext(), ModuleWebViewActivity.class);
-                                    intent.putExtra("title", b.getFunName());
-                                    intent.putExtra("url", b.getUrl());
-                                    startActivity(intent);
-                                }
-                            }else {
-                                if(b.getUrl() == null){
-                                    try {
-                                        intent.setClass(getContext(), Class.forName(b.getAndroidUrl()));
-                                        intent.putExtra("title", b.getFunName());
-                                        startActivity(intent);
-                                    } catch (ClassNotFoundException e) {
-                                        e.printStackTrace();
-                                    }
-                                }else {
-                                    intent.setClass(getContext(), ModuleWebViewActivity.class);
-                                    intent.putExtra("title", b.getFunName());
-                                    intent.putExtra("url", b.getUrl());
-                                    startActivity(intent);
-                                }
-                            }
-                        }
-                    });
-                }
-            }
-        });
+//        ViseUtil.Post(getContext(), NetUrl.AppCitizenIndexfindConvenienceNotice, null, new ViseUtil.ViseListener() {
+//            @Override
+//            public void onReturn(String s) {
+//                Gson gson = new Gson();
+//                final AppCitizenIndexfindConvenienceNoticeBean bean = gson.fromJson(s, AppCitizenIndexfindConvenienceNoticeBean.class);
+//                if(bean.getData().size()>1){
+//                    GlideUtils.into(getContext(), NetUrl.BASE_URL+bean.getData().get(0).getShowPic(), iv1);
+//                    GlideUtils.into(getContext(), NetUrl.BASE_URL+bean.getData().get(1).getShowPic(), iv2);
+//                    iv1.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            AppCitizenIndexfindConvenienceNoticeBean.DataBean a = bean.getData().get(0);
+//                            Intent intent = new Intent();
+//                            if(a.getUnregSee() == 0){
+//                                if(SpUtils.getUserId(getContext()).equals("0")){
+//                                    intent.setClass(getContext(), LoginActivity.class);
+//                                    startActivity(intent);
+//                                }else if(a.getUrl() == null){
+//                                    try {
+//                                        intent.setClass(getContext(), Class.forName(a.getAndroidUrl()));
+//                                        intent.putExtra("title", a.getFunName());
+//                                        startActivity(intent);
+//                                    } catch (ClassNotFoundException e) {
+//                                        e.printStackTrace();
+//                                    }
+//                                }else {
+//                                    intent.setClass(getContext(), ModuleWebViewActivity.class);
+//                                    intent.putExtra("title", a.getFunName());
+//                                    intent.putExtra("url", a.getUrl());
+//                                    startActivity(intent);
+//                                }
+//                            }else {
+//                                if(a.getUrl() == null){
+//                                    try {
+//                                        intent.setClass(getContext(), Class.forName(a.getAndroidUrl()));
+//                                        intent.putExtra("title", a.getFunName());
+//                                        startActivity(intent);
+//                                    } catch (ClassNotFoundException e) {
+//                                        e.printStackTrace();
+//                                    }
+//                                }else {
+//                                    intent.setClass(getContext(), ModuleWebViewActivity.class);
+//                                    intent.putExtra("title", a.getFunName());
+//                                    intent.putExtra("url", a.getUrl());
+//                                    startActivity(intent);
+//                                }
+//                            }
+//                        }
+//                    });
+//                    iv2.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            AppCitizenIndexfindConvenienceNoticeBean.DataBean b = bean.getData().get(1);
+//                            Intent intent = new Intent();
+//                            if(b.getUnregSee() == 0){
+//                                if(SpUtils.getUserId(getContext()).equals("0")){
+//                                    intent.setClass(getContext(), LoginActivity.class);
+//                                    startActivity(intent);
+//                                }else if(b.getUrl() == null){
+//                                    try {
+//                                        intent.setClass(getContext(), Class.forName(b.getAndroidUrl()));
+//                                        intent.putExtra("title", b.getFunName());
+//                                        startActivity(intent);
+//                                    } catch (ClassNotFoundException e) {
+//                                        e.printStackTrace();
+//                                    }
+//                                }else {
+//                                    intent.setClass(getContext(), ModuleWebViewActivity.class);
+//                                    intent.putExtra("title", b.getFunName());
+//                                    intent.putExtra("url", b.getUrl());
+//                                    startActivity(intent);
+//                                }
+//                            }else {
+//                                if(b.getUrl() == null){
+//                                    try {
+//                                        intent.setClass(getContext(), Class.forName(b.getAndroidUrl()));
+//                                        intent.putExtra("title", b.getFunName());
+//                                        startActivity(intent);
+//                                    } catch (ClassNotFoundException e) {
+//                                        e.printStackTrace();
+//                                    }
+//                                }else {
+//                                    intent.setClass(getContext(), ModuleWebViewActivity.class);
+//                                    intent.putExtra("title", b.getFunName());
+//                                    intent.putExtra("url", b.getUrl());
+//                                    startActivity(intent);
+//                                }
+//                            }
+//                        }
+//                    });
+//                }
+//            }
+//        });
 
         //便民查询
         Map<String, String> map = new LinkedHashMap<>();
@@ -316,12 +302,16 @@ public class Fragment1 extends BaseFragment {
         ViseUtil.Post(getContext(), NetUrl.AppConvenienceNoticequeryList, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
-                Logger.e("123123", s);
                 Gson gson = new Gson();
                 ConvenienceNoticeBean bean = gson.fromJson(s, ConvenienceNoticeBean.class);
                 mList1 = bean.getData();
                 adapter1 = new ConvenienceNoticeAdapter(mList1, "便民通知", "BMTZ");
-                LinearLayoutManager manager = new LinearLayoutManager(getContext());
+                LinearLayoutManager manager = new LinearLayoutManager(getContext()){
+                    @Override
+                    public boolean canScrollVertically() {
+                        return false;
+                    }
+                };
                 manager.setOrientation(LinearLayoutManager.VERTICAL);
                 rv1.setLayoutManager(manager);
                 rv1.setAdapter(adapter1);
@@ -408,10 +398,34 @@ public class Fragment1 extends BaseFragment {
 
     }
 
-    @OnClick({R.id.rl_search, R.id.rl_top1, R.id.rl_top2, R.id.rl_top3, R.id.rl_top4})
+    @OnClick({R.id.rl_search, R.id.rl_top1, R.id.rl_top2, R.id.rl_top3, R.id.rl_top4, R.id.f1, R.id.f2, R.id.f3, R.id.f4})
     public void onClick(View view){
         Intent intent = new Intent();
         switch (view.getId()){
+            case R.id.f1:
+                intent.setClass(getContext(), ModuleWebViewActivity.class);
+                intent.putExtra("funcode", "YLFW");
+                intent.putExtra("url", NetUrl.H5BASE_URL+"pages/yl_home.html");
+                startActivity(intent);
+                break;
+            case R.id.f2:
+                intent.setClass(getContext(), ModuleWebViewActivity.class);
+                intent.putExtra("funcode", "MSFW");
+                intent.putExtra("url", NetUrl.H5BASE_URL+"pages/ms_list.html");
+                startActivity(intent);
+                break;
+            case R.id.f3:
+                intent.setClass(getContext(), SafeListActivity.class);
+                intent.putExtra("funcode", "AQFU");
+                intent.putExtra("title", "安全服务");
+                startActivity(intent);
+                break;
+            case R.id.f4:
+                intent.setClass(getContext(), JiazhengListActivity.class);
+                intent.putExtra("funcode", "JZFW");
+                intent.putExtra("title", "家政服务");
+                startActivity(intent);
+                break;
             case R.id.rl_top1:
                 intent.setClass(getContext(), GovernmentListActivity.class);
                 intent.putExtra("funcode", "ZWZN");
@@ -421,19 +435,19 @@ public class Fragment1 extends BaseFragment {
             case R.id.rl_top2:
                 intent.setClass(getContext(), ModuleWebViewActivity.class);
                 intent.putExtra("funcode", "YLBJ");
-                intent.putExtra("url", "http://xfsysh5.5ijiaoyu.cn/pages/yiliao.html");
+                intent.putExtra("url", NetUrl.H5BASE_URL+"pages/yiliao.html");
                 startActivity(intent);
                 break;
             case R.id.rl_top3:
                 intent.setClass(getContext(), ModuleWebViewActivity.class);
                 intent.putExtra("funcode", "XKZY");
-                intent.putExtra("url", "http://xfsysh5.5ijiaoyu.cn/pages/jyo_pages/jyo_list.html");
+                intent.putExtra("url", NetUrl.H5BASE_URL+"pages/jyo_pages/jyo_list.html");
                 startActivity(intent);
                 break;
             case R.id.rl_top4:
                 intent.setClass(getContext(), ModuleWebViewActivity.class);
                 intent.putExtra("funcode", "ZPFW");
-                intent.putExtra("url", "http://xfsysh5.5ijiaoyu.cn/pages/zp_list.html");
+                intent.putExtra("url", NetUrl.H5BASE_URL+"pages/zp_list.html");
                 startActivity(intent);
                 break;
 //            case R.id.rl1:

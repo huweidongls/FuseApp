@@ -16,7 +16,6 @@ import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.LoginBean;
 import com.guoyu.fuseapp.net.NetUrl;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.StringUtils;
 import com.guoyu.fuseapp.util.ToastUtil;
@@ -111,7 +110,6 @@ public class LoginActivity extends BaseActivity {
                             .request(new ACallback<String>() {
                                 @Override
                                 public void onSuccess(String data) {
-                                    Logger.e("123123", data);
                                     try {
                                         JSONObject jsonObject = new JSONObject(data);
                                         if (jsonObject.optString("status").equals("200")) {

@@ -13,10 +13,8 @@ import com.guoyu.fuseapp.adapter.ConvenienceNoticeAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.ConvenienceNoticeBean;
 import com.guoyu.fuseapp.net.NetUrl;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.ViseUtil;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,7 +60,6 @@ public class ConvenienceNoticeActivity extends BaseActivity {
         ViseUtil.Post(context, NetUrl.AppConvenienceNoticequeryList, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
-                Logger.e("123123", s);
                 Gson gson = new Gson();
                 ConvenienceNoticeBean bean = gson.fromJson(s, ConvenienceNoticeBean.class);
                 mList = bean.getData();
