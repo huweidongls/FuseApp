@@ -38,7 +38,7 @@
             android:layout_height="2dp"
             android:layout_below="@+id/tv_t"
             android:layout_centerHorizontal="true"
-            android:background="#F03E3F"/>
+            android:background="@color/theme"/>
     </RelativeLayout>
 
     <TextView

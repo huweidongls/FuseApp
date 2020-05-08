@@ -82,7 +82,7 @@
                         android:id="@+id/view_jiaofei"
                         android:visibility="gone"
                         android:layout_gravity="center_horizontal"
-                        android:background="#D62424"
+                        android:background="@color/theme"
                         android:layout_width="25dp"
                         android:layout_height="1dp"/>
 

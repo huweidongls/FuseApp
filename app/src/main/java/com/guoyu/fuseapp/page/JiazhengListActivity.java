@@ -262,7 +262,7 @@ public class JiazhengListActivity extends BaseActivity {
                 });
                 break;
             case R.id.rl1:
-                tv11.setTextColor(Color.parseColor("#D62424"));
+                tv11.setTextColor(getResources().getColor(R.color.theme));
                 show1();
                 break;
             case R.id.rl2:

@@ -16,7 +16,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
             android:textSize="15sp"
-            android:textColor="#D62424"
+            android:textColor="@color/theme"
             android:text="全部时间"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

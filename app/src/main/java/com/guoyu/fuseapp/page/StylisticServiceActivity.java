@@ -228,15 +228,15 @@ public class StylisticServiceActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.rl1:
-                tv11.setTextColor(Color.parseColor("#D62424"));
+                tv11.setTextColor(getResources().getColor(R.color.theme));
                 show1();
                 break;
 //            case R.id.rl2:
-//                tv22.setTextColor(Color.parseColor("#D62424"));
+//                tv22.setTextColor(getResources().getColor(R.color.theme));
 //                show2();
 //                break;
             case R.id.rl3:
-                tv33.setTextColor(Color.parseColor("#D62424"));
+                tv33.setTextColor(getResources().getColor(R.color.theme));
                 show3();
                 break;
         }
@@ -386,7 +386,7 @@ public class StylisticServiceActivity extends BaseActivity {
         final ImageView iv4 = view.findViewById(R.id.iv4);
 
         if(type3.equals("0")){
-            tv1.setTextColor(Color.parseColor("#D62424"));
+            tv1.setTextColor(getResources().getColor(R.color.theme));
             tv2.setTextColor(Color.parseColor("#333333"));
             tv3.setTextColor(Color.parseColor("#333333"));
             tv4.setTextColor(Color.parseColor("#333333"));
@@ -396,7 +396,7 @@ public class StylisticServiceActivity extends BaseActivity {
             iv4.setVisibility(View.GONE);
         }else if(type3.equals("1")){
             tv1.setTextColor(Color.parseColor("#333333"));
-            tv2.setTextColor(Color.parseColor("#D62424"));
+            tv2.setTextColor(getResources().getColor(R.color.theme));
             tv3.setTextColor(Color.parseColor("#333333"));
             tv4.setTextColor(Color.parseColor("#333333"));
             iv1.setVisibility(View.GONE);
@@ -406,7 +406,7 @@ public class StylisticServiceActivity extends BaseActivity {
         }else if(type3.equals("2")){
             tv1.setTextColor(Color.parseColor("#333333"));
             tv2.setTextColor(Color.parseColor("#333333"));
-            tv3.setTextColor(Color.parseColor("#D62424"));
+            tv3.setTextColor(getResources().getColor(R.color.theme));
             tv4.setTextColor(Color.parseColor("#333333"));
             iv1.setVisibility(View.GONE);
             iv2.setVisibility(View.GONE);
@@ -416,7 +416,7 @@ public class StylisticServiceActivity extends BaseActivity {
             tv1.setTextColor(Color.parseColor("#333333"));
             tv2.setTextColor(Color.parseColor("#333333"));
             tv3.setTextColor(Color.parseColor("#333333"));
-            tv4.setTextColor(Color.parseColor("#D62424"));
+            tv4.setTextColor(getResources().getColor(R.color.theme));
             iv1.setVisibility(View.GONE);
             iv2.setVisibility(View.GONE);
             iv3.setVisibility(View.GONE);

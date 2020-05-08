@@ -9,8 +9,9 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:adjustViewBounds="true"
             android:layout_width="match_parent"
-            android:layout_height="264dp"
+            android:layout_height="wrap_content"
             android:scaleType="fitXY"
             android:src="@mipmap/login_bg3x" />
         <!--<ImageView
@@ -125,7 +126,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="50dp"
-        android:background="#D62424"
+        android:background="@color/theme"
         android:text="登录"
         android:textColor="#FFFFFF"
         android:textSize="17sp" />
