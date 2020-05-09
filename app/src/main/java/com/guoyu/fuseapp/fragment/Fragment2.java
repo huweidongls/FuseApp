@@ -111,7 +111,7 @@ public class Fragment2 extends BaseFragment {
                 simplePagerTitleView.setPadding(70, 0, 70, 0);
 //                simplePagerTitleView.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                 simplePagerTitleView.setNormalColor(Color.parseColor("#000000"));
-                simplePagerTitleView.setSelectedColor(Color.parseColor("#D62424"));
+                simplePagerTitleView.setSelectedColor(getActivity().getResources().getColor(R.color.theme));
                 simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -124,7 +124,7 @@ public class Fragment2 extends BaseFragment {
             @Override
             public IPagerIndicator getIndicator(Context context) {
                 LinePagerIndicator indicator = new LinePagerIndicator(context);
-                indicator.setColors(Color.parseColor("#D62424"));
+                indicator.setColors(getActivity().getResources().getColor(R.color.theme));
                 return indicator;
             }
         });
