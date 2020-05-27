@@ -6,9 +6,9 @@ package com.guoyu.fuseapp.net;
 
 public class NetUrl {
 //    public static final String BASE_URL = "http://192.168.1.116:8080/";
-//    public static final String BASE_URL = "http://192.168.1.102:8080/";
+    public static final String BASE_URL = "http://192.168.1.102:8080/";
 //    public static final String BASE_URL = "http://39.98.188.171:8088/";
-    public static final String BASE_URL = "http://112.101.203.127:9999/";
+//    public static final String BASE_URL = "http://112.101.203.127:9999/";
     public static final String H5BASE_URL = "http://xfsysh5.5ijiaoyu.cn/";
     //用户获取验证码
     public static final String registerPhone = "/CitizenUser/registerPhone";
@@ -146,4 +146,14 @@ public class NetUrl {
     public static final String AppointmentNoticeAppqueryList= "/AppointmentNoticeApp/queryList";
     //通过预约公告ID查询详情
     public static final String AppointmentNoticeAppgetOne= "/AppointmentNoticeApp/getOne";
+    //查询全部大厅或部门
+    public static final String AppAppointmentqueryList= "/AppAppointment/queryList";
+    //根据部门ID查询数据
+    public static final String AppAppointmentgetOneByTime= "/AppAppointment/getOneByTime";
+    //用户新增预约信息
+    public static final String AppAppointmentinsertInformationApp= "/AppAppointment/insertInformationApp";
+    //查询我的预约信息
+    public static final String AppAppointmentgetByAppointmentApp= "/AppAppointment/getByAppointmentApp";
+    //取消预约
+    public static final String AppAppointmentdeleteById= "/AppAppointment/deleteById";
 }

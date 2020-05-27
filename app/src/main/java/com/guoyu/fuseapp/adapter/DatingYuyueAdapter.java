@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
-import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListHallBean;
+import com.guoyu.fuseapp.bean.AppAppointmentqueryListBean;
 import com.guoyu.fuseapp.page.YuyueBumenActivity;
 
 import java.util.List;
@@ -21,9 +21,9 @@ import java.util.List;
 public class DatingYuyueAdapter extends RecyclerView.Adapter<DatingYuyueAdapter.ViewHolder> {
 
     private Context context;
-    private List<AppBookingBusinessqueryListHallBean.DataBean> data;
+    private List<AppAppointmentqueryListBean.DataBean> data;
 
-    public DatingYuyueAdapter(List<AppBookingBusinessqueryListHallBean.DataBean> data) {
+    public DatingYuyueAdapter(List<AppAppointmentqueryListBean.DataBean> data) {
         this.data = data;
     }
 
@@ -37,8 +37,8 @@ public class DatingYuyueAdapter extends RecyclerView.Adapter<DatingYuyueAdapter.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.tvTitle.setText(data.get(position).getHallName());
-        holder.tvAddress.setText(data.get(position).getHallAdd());
+        holder.tvTitle.setText(data.get(position).getAreaName());
+        holder.tvAddress.setText(data.get(position).getAddress());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

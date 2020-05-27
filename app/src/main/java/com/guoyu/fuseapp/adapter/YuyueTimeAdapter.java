@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
-import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListManageBean;
+import com.guoyu.fuseapp.bean.AppAppointmentgetOneByTimeBean;
 import com.guoyu.fuseapp.page.YuyueSureActivity;
 import com.guoyu.fuseapp.util.ToastUtil;
 
@@ -23,9 +23,9 @@ import java.util.List;
 public class YuyueTimeAdapter extends RecyclerView.Adapter<YuyueTimeAdapter.ViewHolder> {
 
     private Context context;
-    private List<AppBookingBusinessqueryListManageBean.DataBean> data;
+    private List<AppAppointmentgetOneByTimeBean.DataBean> data;
 
-    public YuyueTimeAdapter(List<AppBookingBusinessqueryListManageBean.DataBean> data) {
+    public YuyueTimeAdapter(List<AppAppointmentgetOneByTimeBean.DataBean> data) {
         this.data = data;
     }
 
@@ -39,14 +39,17 @@ public class YuyueTimeAdapter extends RecyclerView.Adapter<YuyueTimeAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.tvTime.setText(data.get(position).getOrderStartTime()+"-"+data.get(position).getOrderEndTime());
-        final int count = data.get(position).getOrderCount();
+//        holder.tvTime.setText(data.get(position).getOrderStartTime()+"-"+data.get(position).getOrderEndTime());
+        holder.tvTime.setText(data.get(position).getTimeSlot());
+        final int count = data.get(position).getNum();
         if(count>0){
-            holder.tvYuyue.setTextColor(Color.parseColor("#D62424"));
+            holder.tvYuyue.setTextColor(Color.parseColor("#1E8EE4"));
             holder.tvYuyue.setBackgroundResource(R.drawable.bg_d62424_4dp_bord);
+            holder.tvYuyue.setText("预约");
         }else {
             holder.tvYuyue.setTextColor(Color.parseColor("#5F5F5F"));
             holder.tvYuyue.setBackgroundResource(R.drawable.bg_5f5f5f_4dp_bord);
+            holder.tvYuyue.setText("已约满");
         }
         holder.tvKeyong.setText("可用："+count);
         holder.tvYuyue.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +61,7 @@ public class YuyueTimeAdapter extends RecyclerView.Adapter<YuyueTimeAdapter.View
                     intent.putExtra("bean", data.get(position));
                     context.startActivity(intent);
                 }else{
-                    ToastUtil.showShort(context, "暂无可用");
+                    ToastUtil.showShort(context, "已约满");
                 }
             }
         });

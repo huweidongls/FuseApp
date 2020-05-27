@@ -9,7 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
-import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListDepBean;
+import com.guoyu.fuseapp.bean.AppAppointmentqueryListBean;
+import com.guoyu.fuseapp.page.YuyueTimeActivity;
 import com.guoyu.fuseapp.page.YuyueYewuActivity;
 
 import java.util.List;
@@ -21,9 +22,9 @@ import java.util.List;
 public class YuyueBumenAdapter extends RecyclerView.Adapter<YuyueBumenAdapter.ViewHolder> {
 
     private Context context;
-    private List<AppBookingBusinessqueryListDepBean.DataBean> data;
+    private List<AppAppointmentqueryListBean.DataBean> data;
 
-    public YuyueBumenAdapter(List<AppBookingBusinessqueryListDepBean.DataBean> data) {
+    public YuyueBumenAdapter(List<AppAppointmentqueryListBean.DataBean> data) {
         this.data = data;
     }
 
@@ -37,12 +38,16 @@ public class YuyueBumenAdapter extends RecyclerView.Adapter<YuyueBumenAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.tv.setText(data.get(position).getDepName());
+        holder.tv.setText(data.get(position).getAreaName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(context, YuyueYewuActivity.class);
+//                intent.putExtra("id", data.get(position).getId()+"");
+//                context.startActivity(intent);
                 Intent intent = new Intent();
-                intent.setClass(context, YuyueYewuActivity.class);
+                intent.setClass(context, YuyueTimeActivity.class);
                 intent.putExtra("id", data.get(position).getId()+"");
                 context.startActivity(intent);
             }

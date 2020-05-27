@@ -2,14 +2,15 @@ package com.guoyu.fuseapp.page;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.base.BaseActivity;
+import com.guoyu.fuseapp.bean.AppAppointmentgetOneByTimeBean;
 import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListManageBean;
-import com.guoyu.fuseapp.dialog.DialogCustom;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.StringUtils;
@@ -35,7 +36,7 @@ public class YuyueSureActivity extends BaseActivity {
     @BindView(R.id.et_idcard)
     EditText etIdcard;
 
-    private AppBookingBusinessqueryListManageBean.DataBean bean;
+    private AppAppointmentgetOneByTimeBean.DataBean bean;
 
     private Dialog dialog;
 
@@ -44,7 +45,7 @@ public class YuyueSureActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yuyue_sure);
 
-        bean = (AppBookingBusinessqueryListManageBean.DataBean) getIntent().getSerializableExtra("bean");
+        bean = (AppAppointmentgetOneByTimeBean.DataBean) getIntent().getSerializableExtra("bean");
         ButterKnife.bind(YuyueSureActivity.this);
 
     }
@@ -75,24 +76,43 @@ public class YuyueSureActivity extends BaseActivity {
         }else {
             dialog = WeiboDialogUtils.createLoadingDialog(context, "请等待...");
             Map<String, String> map = new LinkedHashMap<>();
-            map.put("hallName", bean.getHallName());
-            map.put("depName", bean.getDepName());
-            map.put("busName", bean.getBusinessName());
-            map.put("detailsName", bean.getDetailsName());
-            map.put("manageId", bean.getId()+"");
-            map.put("businessUserId", SpUtils.getUserId(context));
-            map.put("businessUserName", name);
-            map.put("businessUserIdnumber", idcard);
-            map.put("businessUserPhone", phone);
-            map.put("businessDate", bean.getOrderYearMonth()+" "+bean.getOrderStartTime()+"-"+bean.getOrderEndTime());
-            map.put("businessQd", "1");
-            ViseUtil.Post(context, NetUrl.AppBookingBusinesstoUpdate, map, dialog, new ViseUtil.ViseListener() {
+            map.put("userId", SpUtils.getUserId(context));
+            map.put("username", name);
+            map.put("idCard", idcard);
+            map.put("phone", phone);
+            map.put("hallId", bean.getHallId()+"");
+            map.put("nyrTime", bean.getNyrTime());
+            map.put("timeId", bean.getTimeId()+"");
+            ViseUtil.Post(context, NetUrl.AppAppointmentinsertInformationApp, map, dialog, new ViseUtil.ViseListener() {
                 @Override
                 public void onReturn(String s) {
-                    ToastUtil.showShort(context, "预约成功");
+                    Intent intent = new Intent();
+                    intent.setClass(context, YuyueSuccessActivity.class);
+                    intent.putExtra("nyrTime", bean.getNyrTime());
+                    intent.putExtra("time", bean.getTimeSlot());
+                    startActivity(intent);
                     finish();
                 }
             });
+//            Map<String, String> map = new LinkedHashMap<>();
+//            map.put("hallName", bean.getHallName());
+//            map.put("depName", bean.getDepName());
+//            map.put("busName", bean.getBusinessName());
+//            map.put("detailsName", bean.getDetailsName());
+//            map.put("manageId", bean.getId()+"");
+//            map.put("businessUserId", SpUtils.getUserId(context));
+//            map.put("businessUserName", name);
+//            map.put("businessUserIdnumber", idcard);
+//            map.put("businessUserPhone", phone);
+//            map.put("businessDate", bean.getOrderYearMonth()+" "+bean.getOrderStartTime()+"-"+bean.getOrderEndTime());
+//            map.put("businessQd", "1");
+//            ViseUtil.Post(context, NetUrl.AppBookingBusinesstoUpdate, map, dialog, new ViseUtil.ViseListener() {
+//                @Override
+//                public void onReturn(String s) {
+//                    ToastUtil.showShort(context, "预约成功");
+//                    finish();
+//                }
+//            });
         }
 
     }

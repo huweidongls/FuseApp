@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,15 +15,13 @@ import com.google.gson.Gson;
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.adapter.YuyueTimeAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
-import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListManageBean;
-import com.guoyu.fuseapp.bean.AppointmentNoticeAppqueryListlimint5Bean;
+import com.guoyu.fuseapp.bean.AppAppointmentgetOneByTimeBean;
 import com.guoyu.fuseapp.net.NetUrl;
+import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.StringUtils;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.guoyu.fuseapp.util.WeiboDialogUtils;
-import com.guoyu.fuseapp.widget.ScrollTextView;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -78,7 +75,7 @@ public class YuyueTimeActivity extends BaseActivity {
     private String id = "";
 
     private YuyueTimeAdapter adapter;
-    private List<AppBookingBusinessqueryListManageBean.DataBean> mList;
+    private List<AppAppointmentgetOneByTimeBean.DataBean> mList;
 
     private Dialog dialog;
 
@@ -136,13 +133,13 @@ public class YuyueTimeActivity extends BaseActivity {
     private void setData(String time){
         dialog = WeiboDialogUtils.createLoadingDialog(context, "请等待...");
         Map<String, String> map = new LinkedHashMap<>();
-        map.put("yearMonth", time);
-        map.put("detailsId", id);
-        ViseUtil.Get(context, NetUrl.AppBookingBusinessqueryListManage, map, dialog, new ViseUtil.ViseListener() {
+        map.put("nyrTime", time);
+        map.put("id", id);
+        ViseUtil.Get(context, NetUrl.AppAppointmentgetOneByTime, map, dialog, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
                 Gson gson = new Gson();
-                AppBookingBusinessqueryListManageBean bean = gson.fromJson(s, AppBookingBusinessqueryListManageBean.class);
+                AppAppointmentgetOneByTimeBean bean = gson.fromJson(s, AppAppointmentgetOneByTimeBean.class);
                 mList = bean.getData();
                 adapter = new YuyueTimeAdapter(mList);
                 LinearLayoutManager manager = new LinearLayoutManager(context){
@@ -156,6 +153,27 @@ public class YuyueTimeActivity extends BaseActivity {
                 recyclerView.setAdapter(adapter);
             }
         });
+//        Map<String, String> map = new LinkedHashMap<>();
+//        map.put("yearMonth", time);
+//        map.put("detailsId", id);
+//        ViseUtil.Get(context, NetUrl.AppBookingBusinessqueryListManage, map, dialog, new ViseUtil.ViseListener() {
+//            @Override
+//            public void onReturn(String s) {
+//                Gson gson = new Gson();
+//                AppBookingBusinessqueryListManageBean bean = gson.fromJson(s, AppBookingBusinessqueryListManageBean.class);
+//                mList = bean.getData();
+//                adapter = new YuyueTimeAdapter(mList);
+//                LinearLayoutManager manager = new LinearLayoutManager(context){
+//                    @Override
+//                    public boolean canScrollVertically() {
+//                        return false;
+//                    }
+//                };
+//                manager.setOrientation(LinearLayoutManager.VERTICAL);
+//                recyclerView.setLayoutManager(manager);
+//                recyclerView.setAdapter(adapter);
+//            }
+//        });
     }
 
     private String getWeek(int week){

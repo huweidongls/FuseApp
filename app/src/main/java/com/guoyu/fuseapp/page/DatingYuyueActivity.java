@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.adapter.DatingYuyueAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
+import com.guoyu.fuseapp.bean.AppAppointmentqueryListBean;
 import com.guoyu.fuseapp.bean.AppBookingBusinessqueryListHallBean;
 import com.guoyu.fuseapp.bean.AppointmentNoticeAppqueryListlimint5Bean;
 import com.guoyu.fuseapp.net.NetUrl;
@@ -50,7 +51,7 @@ public class DatingYuyueActivity extends BaseActivity {
     View view;
 
     private DatingYuyueAdapter adapter;
-    private List<AppBookingBusinessqueryListHallBean.DataBean> mList;
+    private List<AppAppointmentqueryListBean.DataBean> mList;
 
     private int page = 1;
 
@@ -101,14 +102,32 @@ public class DatingYuyueActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
+//        Map<String, String> map = new LinkedHashMap<>();
+//        map.put("pageSize", "10");
+//        map.put("pageNum", "1");
+//        ViseUtil.Get(context, NetUrl.AppBookingBusinessqueryListHall, map, new ViseUtil.ViseListener() {
+//            @Override
+//            public void onReturn(String s) {
+//                Gson gson = new Gson();
+//                AppBookingBusinessqueryListHallBean bean = gson.fromJson(s, AppBookingBusinessqueryListHallBean.class);
+//                mList = bean.getData();
+//                adapter = new DatingYuyueAdapter(mList);
+//                LinearLayoutManager manager = new LinearLayoutManager(context);
+//                manager.setOrientation(LinearLayoutManager.VERTICAL);
+//                recyclerView.setLayoutManager(manager);
+//                recyclerView.setAdapter(adapter);
+//                page = 2;
+//            }
+//        });
         Map<String, String> map = new LinkedHashMap<>();
         map.put("pageSize", "10");
         map.put("pageNum", "1");
-        ViseUtil.Get(context, NetUrl.AppBookingBusinessqueryListHall, map, new ViseUtil.ViseListener() {
+        map.put("pid", "0");
+        ViseUtil.Get(context, NetUrl.AppAppointmentqueryList, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
                 Gson gson = new Gson();
-                AppBookingBusinessqueryListHallBean bean = gson.fromJson(s, AppBookingBusinessqueryListHallBean.class);
+                AppAppointmentqueryListBean bean = gson.fromJson(s, AppAppointmentqueryListBean.class);
                 mList = bean.getData();
                 adapter = new DatingYuyueAdapter(mList);
                 LinearLayoutManager manager = new LinearLayoutManager(context);
@@ -130,11 +149,12 @@ public class DatingYuyueActivity extends BaseActivity {
                 Map<String, String> map = new LinkedHashMap<>();
                 map.put("pageSize", "10");
                 map.put("pageNum", "1");
-                ViseUtil.Get(context, NetUrl.AppBookingBusinessqueryListHall, map, refreshLayout, 0, new ViseUtil.ViseListener() {
+                map.put("pid", "0");
+                ViseUtil.Get(context, NetUrl.AppAppointmentqueryList, map, refreshLayout, 0, new ViseUtil.ViseListener() {
                     @Override
                     public void onReturn(String s) {
                         Gson gson = new Gson();
-                        AppBookingBusinessqueryListHallBean bean = gson.fromJson(s, AppBookingBusinessqueryListHallBean.class);
+                        AppAppointmentqueryListBean bean = gson.fromJson(s, AppAppointmentqueryListBean.class);
                         mList.clear();
                         mList.addAll(bean.getData());
                         adapter.notifyDataSetChanged();
@@ -149,11 +169,12 @@ public class DatingYuyueActivity extends BaseActivity {
                 Map<String, String> map = new LinkedHashMap<>();
                 map.put("pageSize", "10");
                 map.put("pageNum", page+"");
-                ViseUtil.Get(context, NetUrl.AppBookingBusinessqueryListHall, map, refreshLayout, 1, new ViseUtil.ViseListener() {
+                map.put("pid", "0");
+                ViseUtil.Get(context, NetUrl.AppAppointmentqueryList, map, refreshLayout, 1, new ViseUtil.ViseListener() {
                     @Override
                     public void onReturn(String s) {
                         Gson gson = new Gson();
-                        AppBookingBusinessqueryListHallBean bean = gson.fromJson(s, AppBookingBusinessqueryListHallBean.class);
+                        AppAppointmentqueryListBean bean = gson.fromJson(s, AppAppointmentqueryListBean.class);
                         mList.addAll(bean.getData());
                         adapter.notifyDataSetChanged();
                         page = page+1;

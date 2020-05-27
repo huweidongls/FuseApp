@@ -54,13 +54,11 @@
                 android:background="@drawable/bg_d62424_4dp_bord"
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/theme"
                 android:textSize="14sp"
                 android:text="预约"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="28dp" />
 
         </LinearLayout>

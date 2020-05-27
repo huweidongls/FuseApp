@@ -184,7 +184,8 @@
         <activity android:name=".page.AppCenterActivity" />
         <activity android:name=".page.PolicyInterSercheActivity" />
         <activity android:name=".page.YuyueGgActivity" />
-        <activity android:name=".page.YuyueGgDetailsActivity"/>
+        <activity android:name=".page.YuyueGgDetailsActivity" />
+        <activity android:name=".page.YuyueSuccessActivity"></activity>
     </application>
 
 </manifest>
