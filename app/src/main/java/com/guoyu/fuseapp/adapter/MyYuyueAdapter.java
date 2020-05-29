@@ -54,15 +54,15 @@ public class MyYuyueAdapter extends RecyclerView.Adapter<MyYuyueAdapter.ViewHold
 //        }else {
 //            holder.tvType.setText("已完结");
 //        }
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(context, MyYuyueDetailsActivity.class);
-                intent.putExtra("id", data.get(position).getId()+"");
-                context.startActivity(intent);
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(context, MyYuyueDetailsActivity.class);
+//                intent.putExtra("id", data.get(position).getId()+"");
+//                context.startActivity(intent);
+//            }
+//        });
         holder.btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
