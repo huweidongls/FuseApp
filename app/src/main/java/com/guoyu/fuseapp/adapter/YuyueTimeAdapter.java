@@ -23,9 +23,9 @@ import java.util.List;
 public class YuyueTimeAdapter extends RecyclerView.Adapter<YuyueTimeAdapter.ViewHolder> {
 
     private Context context;
-    private List<AppAppointmentgetOneByTimeBean.DataBean> data;
+    private List<AppAppointmentgetOneByTimeBean.DataBean.ListBean> data;
 
-    public YuyueTimeAdapter(List<AppAppointmentgetOneByTimeBean.DataBean> data) {
+    public YuyueTimeAdapter(List<AppAppointmentgetOneByTimeBean.DataBean.ListBean> data) {
         this.data = data;
     }
 

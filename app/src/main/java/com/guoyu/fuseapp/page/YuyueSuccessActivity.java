@@ -36,7 +36,7 @@ public class YuyueSuccessActivity extends BaseActivity {
 
     private void initData() {
 
-        tv.setText("恭喜您预约成功，请于"+nyrTime+" "+time+"，到中心1楼综合导服区，领取预约号码。");
+        tv.setText("恭喜您预约成功，请于"+nyrTime+" "+time+"，到中心1楼综合导服区，带齐相关资料，领取预约号码。");
 
     }
 

@@ -16,6 +16,7 @@ import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.adapter.YuyueTimeAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.AppAppointmentgetOneByTimeBean;
+import com.guoyu.fuseapp.dialog.DialogYuyueTishi;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.StringUtils;
@@ -75,9 +76,11 @@ public class YuyueTimeActivity extends BaseActivity {
     private String id = "";
 
     private YuyueTimeAdapter adapter;
-    private List<AppAppointmentgetOneByTimeBean.DataBean> mList;
+    private List<AppAppointmentgetOneByTimeBean.DataBean.ListBean> mList;
 
     private Dialog dialog;
+
+    private boolean isFirst = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,36 +98,51 @@ public class YuyueTimeActivity extends BaseActivity {
     protected void onStart() {
         super.onStart();
         onSelect(rl1);
-        String time = StringUtils.getOldDate(0);
-        int week = StringUtils.getOldWeek(0);
+        String time = StringUtils.getOldDate(1);
+        int week = StringUtils.getOldWeek(1);
         tvSelectTime.setText(time+"("+getWeek(week)+")");
         setData(time);
     }
 
     private void initData() {
 
-        int day1 = c.get(Calendar.DAY_OF_MONTH);
-        int week1 = c.get(Calendar.DAY_OF_WEEK);
-        String time = StringUtils.getOldDate(0);
-        tvSelectTime.setText(time+"("+getWeek(week1)+")");
-        setData(time);
+//        String time = StringUtils.getOldDate(1);
+//        tvSelectTime.setText(time+"("+getWeek(week1)+")");
+//        setData(time);
 
+        int day1 = StringUtils.getOldDay(1);
+        int week1 = StringUtils.getOldWeek(1);
+//        if(week1 == 1||week1 == 7){
+//            rl1.setBackgroundResource(R.color.line);
+//        }
         tvWeek1.setText(getWeek(week1));
         tvDay1.setText(formatTimeUnit(day1));
-        int day2 = StringUtils.getOldDay(1);
-        int week2 = StringUtils.getOldWeek(1);
+        int day2 = StringUtils.getOldDay(2);
+        int week2 = StringUtils.getOldWeek(2);
+//        if(week2 == 1||week2 == 7){
+//            rl2.setBackgroundResource(R.color.line);
+//        }
         tvWeek2.setText(getWeek(week2));
         tvDay2.setText(formatTimeUnit(day2));
-        int day3 = StringUtils.getOldDay(2);
-        int week3 = StringUtils.getOldWeek(2);
+        int day3 = StringUtils.getOldDay(3);
+        int week3 = StringUtils.getOldWeek(3);
+//        if(week3 == 1||week3 == 7){
+//            rl3.setBackgroundResource(R.color.line);
+//        }
         tvWeek3.setText(getWeek(week3));
         tvDay3.setText(formatTimeUnit(day3));
-        int day4 = StringUtils.getOldDay(3);
-        int week4 = StringUtils.getOldWeek(3);
+        int day4 = StringUtils.getOldDay(4);
+        int week4 = StringUtils.getOldWeek(4);
+//        if(week4 == 1||week4 == 7){
+//            rl4.setBackgroundResource(R.color.line);
+//        }
         tvWeek4.setText(getWeek(week4));
         tvDay4.setText(formatTimeUnit(day4));
-        int day5 = StringUtils.getOldDay(4);
-        int week5 = StringUtils.getOldWeek(4);
+        int day5 = StringUtils.getOldDay(5);
+        int week5 = StringUtils.getOldWeek(5);
+//        if(week5 == 1||week5 == 7){
+//            rl5.setBackgroundResource(R.color.line);
+//        }
         tvWeek5.setText(getWeek(week5));
         tvDay5.setText(formatTimeUnit(day5));
 
@@ -140,7 +158,15 @@ public class YuyueTimeActivity extends BaseActivity {
             public void onReturn(String s) {
                 Gson gson = new Gson();
                 AppAppointmentgetOneByTimeBean bean = gson.fromJson(s, AppAppointmentgetOneByTimeBean.class);
-                mList = bean.getData();
+
+                if(isFirst){
+                    isFirst = false;
+                    DialogYuyueTishi dialogYuyueTishi = new DialogYuyueTishi(context, bean.getData().getAppointmentHall().getAreaTitle(),
+                            bean.getData().getAppointmentHall().getAreaContent());
+                    dialogYuyueTishi.show();
+                }
+
+                mList = bean.getData().getList();
                 adapter = new YuyueTimeAdapter(mList);
                 LinearLayoutManager manager = new LinearLayoutManager(context){
                     @Override
@@ -219,49 +245,94 @@ public class YuyueTimeActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.rl1:
-                onSelect(rl1);
-                String time = StringUtils.getOldDate(0);
-                int week = StringUtils.getOldWeek(0);
-                tvSelectTime.setText(time+"("+getWeek(week)+")");
-                setData(time);
+                String time = StringUtils.getOldDate(1);
+                int week = StringUtils.getOldWeek(1);
+                if(week == 1||week == 7){
+
+                }else {
+                    tvSelectTime.setText(time+"("+getWeek(week)+")");
+                    onSelect(rl1);
+                    setData(time);
+                }
                 break;
             case R.id.rl2:
-                onSelect(rl2);
-                String time1 = StringUtils.getOldDate(1);
-                int week1 = StringUtils.getOldWeek(1);
-                tvSelectTime.setText(time1+"("+getWeek(week1)+")");
-                setData(time1);
+                String time1 = StringUtils.getOldDate(2);
+                int week1 = StringUtils.getOldWeek(2);
+                if(week1 == 1||week1 == 7){
+
+                }else {
+                    tvSelectTime.setText(time1+"("+getWeek(week1)+")");
+                    onSelect(rl2);
+                    setData(time1);
+                }
                 break;
             case R.id.rl3:
-                onSelect(rl3);
-                String time2 = StringUtils.getOldDate(2);
-                int week2 = StringUtils.getOldWeek(2);
-                tvSelectTime.setText(time2+"("+getWeek(week2)+")");
-                setData(time2);
+                String time2 = StringUtils.getOldDate(3);
+                int week2 = StringUtils.getOldWeek(3);
+                if(week2 == 1||week2 == 7){
+
+                }else {
+                    tvSelectTime.setText(time2+"("+getWeek(week2)+")");
+                    onSelect(rl3);
+                    setData(time2);
+                }
                 break;
             case R.id.rl4:
-                onSelect(rl4);
-                String time3 = StringUtils.getOldDate(3);
-                int week3 = StringUtils.getOldWeek(3);
-                tvSelectTime.setText(time3+"("+getWeek(week3)+")");
-                setData(time3);
+                String time3 = StringUtils.getOldDate(4);
+                int week3 = StringUtils.getOldWeek(4);
+                if(week3 == 1||week3 == 7){
+
+                }else {
+                    tvSelectTime.setText(time3+"("+getWeek(week3)+")");
+                    onSelect(rl4);
+                    setData(time3);
+                }
                 break;
             case R.id.rl5:
-                onSelect(rl5);
-                String time4 = StringUtils.getOldDate(4);
-                int week4 = StringUtils.getOldWeek(4);
-                tvSelectTime.setText(time4+"("+getWeek(week4)+")");
-                setData(time4);
+                String time4 = StringUtils.getOldDate(5);
+                int week4 = StringUtils.getOldWeek(5);
+                if(week4 == 1||week4 == 7){
+
+                }else {
+                    tvSelectTime.setText(time4+"("+getWeek(week4)+")");
+                    onSelect(rl5);
+                    setData(time4);
+                }
                 break;
         }
     }
 
     private void onSelect(View view){
-        rl1.setBackgroundResource(R.color.white_ffffff);
-        rl2.setBackgroundResource(R.color.white_ffffff);
-        rl3.setBackgroundResource(R.color.white_ffffff);
-        rl4.setBackgroundResource(R.color.white_ffffff);
-        rl5.setBackgroundResource(R.color.white_ffffff);
+        int week1 = StringUtils.getOldWeek(1);
+        int week2 = StringUtils.getOldWeek(2);
+        int week3 = StringUtils.getOldWeek(3);
+        int week4 = StringUtils.getOldWeek(4);
+        int week5 = StringUtils.getOldWeek(5);
+        if(week1 == 1||week1 == 7){
+            rl1.setBackgroundResource(R.color.line);
+        }else {
+            rl1.setBackgroundResource(R.color.white_ffffff);
+        }
+        if(week2 == 1||week2 == 7){
+            rl2.setBackgroundResource(R.color.line);
+        }else {
+            rl2.setBackgroundResource(R.color.white_ffffff);
+        }
+        if(week3 == 1||week3 == 7){
+            rl3.setBackgroundResource(R.color.line);
+        }else {
+            rl3.setBackgroundResource(R.color.white_ffffff);
+        }
+        if(week4 == 1||week4 == 7){
+            rl4.setBackgroundResource(R.color.line);
+        }else {
+            rl4.setBackgroundResource(R.color.white_ffffff);
+        }
+        if(week5 == 1||week5 == 7){
+            rl5.setBackgroundResource(R.color.line);
+        }else {
+            rl5.setBackgroundResource(R.color.white_ffffff);
+        }
         tvWeek1.setTextColor(Color.parseColor("#5F5F5F"));
         tvWeek2.setTextColor(Color.parseColor("#5F5F5F"));
         tvWeek3.setTextColor(Color.parseColor("#5F5F5F"));

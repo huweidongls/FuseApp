@@ -11,11 +11,11 @@ public class AppAppointmentgetOneByTimeBean implements Serializable {
 
     /**
      * status : 200
-     * data : [{"id":10000,"hallId":2,"timeId":1,"nyrTime":"2020-05-27","num":10,"createTime":"2020-05-27 16:42:10","updateName":"leng.mo","timeSlot":"8:30-9:30"},{"id":10001,"hallId":2,"timeId":2,"nyrTime":"2020-05-27","num":10,"createTime":"2020-05-27 16:42:10","updateName":"leng.mo","timeSlot":"9:30-10:30"},{"id":10002,"hallId":2,"timeId":3,"nyrTime":"2020-05-27","num":10,"createTime":"2020-05-27 16:42:10","updateName":"leng.mo","timeSlot":"10:30-11:30"},{"id":10003,"hallId":2,"timeId":4,"nyrTime":"2020-05-27","num":10,"createTime":"2020-05-27 16:42:10","updateName":"leng.mo","timeSlot":"13:30-14:30"},{"id":10004,"hallId":2,"timeId":5,"nyrTime":"2020-05-27","num":10,"createTime":"2020-05-27 16:42:10","updateName":"leng.mo","timeSlot":"14:30-15:30"},{"id":10005,"hallId":2,"timeId":6,"nyrTime":"2020-05-27","num":10,"createTime":"2020-05-27 16:42:10","updateName":"leng.mo","timeSlot":"15:30-16:30"}]
+     * data : {"appointmentHall":{"id":2,"areaName":"市市场监督管理局","pid":51,"createTime":"2020-05-26 17:21:24","createName":"admin","createId":100001,"areaTitle":"title","areaContent":"content","overContent":"chenggong"},"list":[{"id":1865,"hallId":2,"timeId":1,"nyrTime":"2020-06-22","num":10,"createTime":"2020-06-17 16:30:00","timeSlot":"8:30-9:30"},{"id":1857,"hallId":2,"timeId":1,"nyrTime":"2020-06-22","num":10,"createTime":"2020-06-17 16:30:00","timeSlot":"8:30-9:30"},{"id":1866,"hallId":2,"timeId":2,"nyrTime":"2020-06-22","num":10,"createTime":"2020-06-17 16:30:00","timeSlot":"9:30-10:30"},{"id":1858,"hallId":2,"timeId":2,"nyrTime":"2020-06-22","num":10,"createTime":"2020-06-17 16:30:00","timeSlot":"9:30-10:30"},{"id":1867,"hallId":2,"timeId":3,"nyrTime":"2020-06-22","num":10,"createTime":"2020-06-17 16:30:00","timeSlot":"10:30-11:30"}]}
      */
 
     private String status;
-    private List<DataBean> data;
+    private DataBean data;
 
     public String getStatus() {
         return status;
@@ -25,97 +25,209 @@ public class AppAppointmentgetOneByTimeBean implements Serializable {
         this.status = status;
     }
 
-    public List<DataBean> getData() {
+    public DataBean getData() {
         return data;
     }
 
-    public void setData(List<DataBean> data) {
+    public void setData(DataBean data) {
         this.data = data;
     }
 
     public static class DataBean implements Serializable {
         /**
-         * id : 10000
-         * hallId : 2
-         * timeId : 1
-         * nyrTime : 2020-05-27
-         * num : 10
-         * createTime : 2020-05-27 16:42:10
-         * updateName : leng.mo
-         * timeSlot : 8:30-9:30
+         * appointmentHall : {"id":2,"areaName":"市市场监督管理局","pid":51,"createTime":"2020-05-26 17:21:24","createName":"admin","createId":100001,"areaTitle":"title","areaContent":"content","overContent":"chenggong"}
+         * list : [{"id":1865,"hallId":2,"timeId":1,"nyrTime":"2020-06-22","num":10,"createTime":"2020-06-17 16:30:00","timeSlot":"8:30-9:30"},{"id":1857,"hallId":2,"timeId":1,"nyrTime":"2020-06-22","num":10,"createTime":"2020-06-17 16:30:00","timeSlot":"8:30-9:30"},{"id":1866,"hallId":2,"timeId":2,"nyrTime":"2020-06-22","num":10,"createTime":"2020-06-17 16:30:00","timeSlot":"9:30-10:30"},{"id":1858,"hallId":2,"timeId":2,"nyrTime":"2020-06-22","num":10,"createTime":"2020-06-17 16:30:00","timeSlot":"9:30-10:30"},{"id":1867,"hallId":2,"timeId":3,"nyrTime":"2020-06-22","num":10,"createTime":"2020-06-17 16:30:00","timeSlot":"10:30-11:30"}]
          */
 
-        private int id;
-        private int hallId;
-        private int timeId;
-        private String nyrTime;
-        private int num;
-        private String createTime;
-        private String updateName;
-        private String timeSlot;
+        private AppointmentHallBean appointmentHall;
+        private List<ListBean> list;
 
-        public int getId() {
-            return id;
+        public AppointmentHallBean getAppointmentHall() {
+            return appointmentHall;
         }
 
-        public void setId(int id) {
-            this.id = id;
+        public void setAppointmentHall(AppointmentHallBean appointmentHall) {
+            this.appointmentHall = appointmentHall;
         }
 
-        public int getHallId() {
-            return hallId;
+        public List<ListBean> getList() {
+            return list;
         }
 
-        public void setHallId(int hallId) {
-            this.hallId = hallId;
+        public void setList(List<ListBean> list) {
+            this.list = list;
         }
 
-        public int getTimeId() {
-            return timeId;
+        public static class AppointmentHallBean implements Serializable {
+            /**
+             * id : 2
+             * areaName : 市市场监督管理局
+             * pid : 51
+             * createTime : 2020-05-26 17:21:24
+             * createName : admin
+             * createId : 100001
+             * areaTitle : title
+             * areaContent : content
+             * overContent : chenggong
+             */
+
+            private int id;
+            private String areaName;
+            private int pid;
+            private String createTime;
+            private String createName;
+            private int createId;
+            private String areaTitle;
+            private String areaContent;
+            private String overContent;
+
+            public int getId() {
+                return id;
+            }
+
+            public void setId(int id) {
+                this.id = id;
+            }
+
+            public String getAreaName() {
+                return areaName;
+            }
+
+            public void setAreaName(String areaName) {
+                this.areaName = areaName;
+            }
+
+            public int getPid() {
+                return pid;
+            }
+
+            public void setPid(int pid) {
+                this.pid = pid;
+            }
+
+            public String getCreateTime() {
+                return createTime;
+            }
+
+            public void setCreateTime(String createTime) {
+                this.createTime = createTime;
+            }
+
+            public String getCreateName() {
+                return createName;
+            }
+
+            public void setCreateName(String createName) {
+                this.createName = createName;
+            }
+
+            public int getCreateId() {
+                return createId;
+            }
+
+            public void setCreateId(int createId) {
+                this.createId = createId;
+            }
+
+            public String getAreaTitle() {
+                return areaTitle;
+            }
+
+            public void setAreaTitle(String areaTitle) {
+                this.areaTitle = areaTitle;
+            }
+
+            public String getAreaContent() {
+                return areaContent;
+            }
+
+            public void setAreaContent(String areaContent) {
+                this.areaContent = areaContent;
+            }
+
+            public String getOverContent() {
+                return overContent;
+            }
+
+            public void setOverContent(String overContent) {
+                this.overContent = overContent;
+            }
         }
 
-        public void setTimeId(int timeId) {
-            this.timeId = timeId;
-        }
+        public static class ListBean implements Serializable {
+            /**
+             * id : 1865
+             * hallId : 2
+             * timeId : 1
+             * nyrTime : 2020-06-22
+             * num : 10
+             * createTime : 2020-06-17 16:30:00
+             * timeSlot : 8:30-9:30
+             */
 
-        public String getNyrTime() {
-            return nyrTime;
-        }
+            private int id;
+            private int hallId;
+            private int timeId;
+            private String nyrTime;
+            private int num;
+            private String createTime;
+            private String timeSlot;
 
-        public void setNyrTime(String nyrTime) {
-            this.nyrTime = nyrTime;
-        }
+            public int getId() {
+                return id;
+            }
 
-        public int getNum() {
-            return num;
-        }
+            public void setId(int id) {
+                this.id = id;
+            }
 
-        public void setNum(int num) {
-            this.num = num;
-        }
+            public int getHallId() {
+                return hallId;
+            }
 
-        public String getCreateTime() {
-            return createTime;
-        }
+            public void setHallId(int hallId) {
+                this.hallId = hallId;
+            }
 
-        public void setCreateTime(String createTime) {
-            this.createTime = createTime;
-        }
+            public int getTimeId() {
+                return timeId;
+            }
 
-        public String getUpdateName() {
-            return updateName;
-        }
+            public void setTimeId(int timeId) {
+                this.timeId = timeId;
+            }
 
-        public void setUpdateName(String updateName) {
-            this.updateName = updateName;
-        }
+            public String getNyrTime() {
+                return nyrTime;
+            }
 
-        public String getTimeSlot() {
-            return timeSlot;
-        }
+            public void setNyrTime(String nyrTime) {
+                this.nyrTime = nyrTime;
+            }
 
-        public void setTimeSlot(String timeSlot) {
-            this.timeSlot = timeSlot;
+            public int getNum() {
+                return num;
+            }
+
+            public void setNum(int num) {
+                this.num = num;
+            }
+
+            public String getCreateTime() {
+                return createTime;
+            }
+
+            public void setCreateTime(String createTime) {
+                this.createTime = createTime;
+            }
+
+            public String getTimeSlot() {
+                return timeSlot;
+            }
+
+            public void setTimeSlot(String timeSlot) {
+                this.timeSlot = timeSlot;
+            }
         }
     }
 }

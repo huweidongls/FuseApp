@@ -36,7 +36,7 @@ public class YuyueSureActivity extends BaseActivity {
     @BindView(R.id.et_idcard)
     EditText etIdcard;
 
-    private AppAppointmentgetOneByTimeBean.DataBean bean;
+    private AppAppointmentgetOneByTimeBean.DataBean.ListBean bean;
 
     private Dialog dialog;
 
@@ -45,7 +45,7 @@ public class YuyueSureActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yuyue_sure);
 
-        bean = (AppAppointmentgetOneByTimeBean.DataBean) getIntent().getSerializableExtra("bean");
+        bean = (AppAppointmentgetOneByTimeBean.DataBean.ListBean) getIntent().getSerializableExtra("bean");
         ButterKnife.bind(YuyueSureActivity.this);
 
     }
