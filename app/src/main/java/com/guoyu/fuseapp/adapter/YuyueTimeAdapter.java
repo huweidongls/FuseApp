@@ -24,9 +24,11 @@ public class YuyueTimeAdapter extends RecyclerView.Adapter<YuyueTimeAdapter.View
 
     private Context context;
     private List<AppAppointmentgetOneByTimeBean.DataBean.ListBean> data;
+    private String content;
 
-    public YuyueTimeAdapter(List<AppAppointmentgetOneByTimeBean.DataBean.ListBean> data) {
+    public YuyueTimeAdapter(List<AppAppointmentgetOneByTimeBean.DataBean.ListBean> data, String content) {
         this.data = data;
+        this.content = content;
     }
 
     @Override
@@ -59,6 +61,7 @@ public class YuyueTimeAdapter extends RecyclerView.Adapter<YuyueTimeAdapter.View
                     Intent intent = new Intent();
                     intent.setClass(context, YuyueSureActivity.class);
                     intent.putExtra("bean", data.get(position));
+                    intent.putExtra("content", content);
                     context.startActivity(intent);
                 }else{
                     ToastUtil.showShort(context, "已约满");

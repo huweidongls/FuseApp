@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white_ffffff"
+    android:background="@color/line"
     tools:context="com.guoyu.fuseapp.page.DatingYuyueActivity">
 
     <RelativeLayout
@@ -28,6 +28,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:background="@color/white_ffffff"
         android:visibility="gone"
         android:id="@+id/ll_gg"
         android:orientation="horizontal"
@@ -62,6 +63,7 @@
         android:layout_height="5dp"/>
 
     <RelativeLayout
+        android:background="@color/white_ffffff"
         android:layout_width="match_parent"
         android:layout_height="55dp">
 
@@ -100,6 +102,9 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

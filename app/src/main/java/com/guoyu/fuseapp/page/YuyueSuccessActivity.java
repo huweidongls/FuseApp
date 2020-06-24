@@ -21,6 +21,7 @@ public class YuyueSuccessActivity extends BaseActivity {
 
     private String nyrTime = "";
     private String time = "";
+    private String content = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class YuyueSuccessActivity extends BaseActivity {
 
         nyrTime = getIntent().getStringExtra("nyrTime");
         time = getIntent().getStringExtra("time");
+        content = getIntent().getStringExtra("content");
         ButterKnife.bind(YuyueSuccessActivity.this);
         initData();
 
@@ -36,7 +38,8 @@ public class YuyueSuccessActivity extends BaseActivity {
 
     private void initData() {
 
-        tv.setText("恭喜您预约成功，请于"+nyrTime+" "+time+"，到中心1楼综合导服区，带齐相关资料，领取预约号码。");
+//        tv.setText("恭喜您预约成功，请于"+nyrTime+" "+time+"，到中心1楼综合导服区，带齐相关资料，领取预约号码。");
+        tv.setText("恭喜您预约成功，请于"+nyrTime+" "+time+"，"+content);
 
     }
 

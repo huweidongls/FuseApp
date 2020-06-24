@@ -37,6 +37,7 @@ public class YuyueSureActivity extends BaseActivity {
     EditText etIdcard;
 
     private AppAppointmentgetOneByTimeBean.DataBean.ListBean bean;
+    private String content;
 
     private Dialog dialog;
 
@@ -46,6 +47,7 @@ public class YuyueSureActivity extends BaseActivity {
         setContentView(R.layout.activity_yuyue_sure);
 
         bean = (AppAppointmentgetOneByTimeBean.DataBean.ListBean) getIntent().getSerializableExtra("bean");
+        content = getIntent().getStringExtra("content");
         ButterKnife.bind(YuyueSureActivity.this);
 
     }
@@ -90,6 +92,7 @@ public class YuyueSureActivity extends BaseActivity {
                     intent.setClass(context, YuyueSuccessActivity.class);
                     intent.putExtra("nyrTime", bean.getNyrTime());
                     intent.putExtra("time", bean.getTimeSlot());
+                    intent.putExtra("content", content);
                     startActivity(intent);
                     finish();
                 }

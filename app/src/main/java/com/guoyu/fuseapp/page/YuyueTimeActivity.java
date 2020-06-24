@@ -167,7 +167,7 @@ public class YuyueTimeActivity extends BaseActivity {
                 }
 
                 mList = bean.getData().getList();
-                adapter = new YuyueTimeAdapter(mList);
+                adapter = new YuyueTimeAdapter(mList, bean.getData().getAppointmentHall().getOverContent());
                 LinearLayoutManager manager = new LinearLayoutManager(context){
                     @Override
                     public boolean canScrollVertically() {
