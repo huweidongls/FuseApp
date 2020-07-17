@@ -22,7 +22,7 @@
         </RelativeLayout>
 
         <TextView
-            android:text="选择预约部门"
+            android:text="预约部门列表"
             style="@style/tv_top_title" />
 
     </RelativeLayout>

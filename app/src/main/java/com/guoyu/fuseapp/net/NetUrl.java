@@ -5,10 +5,10 @@ package com.guoyu.fuseapp.net;
  */
 
 public class NetUrl {
-//    public static final String BASE_URL = "http://192.168.1.166:8080/";
+    public static final String BASE_URL = "http://192.168.1.166:8888/";
 //    public static final String BASE_URL = "http://192.168.1.102:8080/";
 //    public static final String BASE_URL = "http://39.98.188.171:8088/";
-    public static final String BASE_URL = "http://112.101.203.127:9999/";
+//    public static final String BASE_URL = "http://112.101.203.127:9999/";
     public static final String H5BASE_URL = "http://xfsysh5.5ijiaoyu.cn/";
     //用户获取验证码
     public static final String registerPhone = "/CitizenUser/registerPhone";
@@ -156,4 +156,8 @@ public class NetUrl {
     public static final String AppAppointmentgetByAppointmentApp= "/AppAppointment/getByAppointmentApp";
     //取消预约
     public static final String AppAppointmentdeleteById= "/AppAppointment/deleteById";
+    //预约承诺
+    public static final String yyCommitmentAppgetOne= "/yyCommitmentApp/getOne";
+    //预约免责声明
+    public static final String YyMzsmAppgetOne= "/YyMzsmApp/getOne";
 }
