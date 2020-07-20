@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.guoyu.fuseapp.R;
+import com.guoyu.fuseapp.adapter.YuyueHorTimeAdapter;
 import com.guoyu.fuseapp.adapter.YuyueTimeAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.AppAppointmentgetOneByTimeBean;
@@ -70,6 +71,8 @@ public class YuyueTimeActivity extends BaseActivity {
     TextView tvSelectTime;
     @BindView(R.id.rv)
     RecyclerView recyclerView;
+    @BindView(R.id.hor_rv)
+    RecyclerView HorRv;
 
     private Calendar c;
 
@@ -81,6 +84,8 @@ public class YuyueTimeActivity extends BaseActivity {
     private Dialog dialog;
 
     private boolean isFirst = true;
+
+    private YuyueHorTimeAdapter horTimeAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +110,25 @@ public class YuyueTimeActivity extends BaseActivity {
     }
 
     private void initData() {
+
+        horTimeAdapter = new YuyueHorTimeAdapter(new YuyueHorTimeAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int pos) {
+                String time = StringUtils.getOldDate(pos+1);
+                int week = StringUtils.getOldWeek(pos+1);
+                if(week == 1||week == 7){
+
+                }else {
+                    tvSelectTime.setText(time+"("+getWeek(week)+")");
+//                    onSelect(rl1);
+                    setData(time);
+                }
+            }
+        });
+        LinearLayoutManager manager = new LinearLayoutManager(context);
+        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        HorRv.setLayoutManager(manager);
+        HorRv.setAdapter(horTimeAdapter);
 
 //        String time = StringUtils.getOldDate(1);
 //        tvSelectTime.setText(time+"("+getWeek(week1)+")");
