@@ -8,7 +8,7 @@ public class YyCommitmentAppgetOneBean {
 
     /**
      * status : 200
-     * data : {"id":1,"commitment":"为疫情防控，本人同意以上信息依法提交所在辖区防疫部门统筹管理。","commitmentSize":10}
+     * data : {"id":1,"commitment":"本人郑重承诺信息123123","commitmentSize":6,"title":"免责声明标题123","content":"<p>免责声明富文本1234123<\/p>","imgurl":"upload/null/2020-07-24/223646fa46d242539f93fa8f451ca1b7.jpg"}
      */
 
     private String status;
@@ -33,13 +33,19 @@ public class YyCommitmentAppgetOneBean {
     public static class DataBean {
         /**
          * id : 1
-         * commitment : 为疫情防控，本人同意以上信息依法提交所在辖区防疫部门统筹管理。
-         * commitmentSize : 10
+         * commitment : 本人郑重承诺信息123123
+         * commitmentSize : 6
+         * title : 免责声明标题123
+         * content : <p>免责声明富文本1234123</p>
+         * imgurl : upload/null/2020-07-24/223646fa46d242539f93fa8f451ca1b7.jpg
          */
 
         private int id;
         private String commitment;
         private int commitmentSize;
+        private String title;
+        private String content;
+        private String imgurl;
 
         public int getId() {
             return id;
@@ -63,6 +69,30 @@ public class YyCommitmentAppgetOneBean {
 
         public void setCommitmentSize(int commitmentSize) {
             this.commitmentSize = commitmentSize;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
+
+        public String getImgurl() {
+            return imgurl;
+        }
+
+        public void setImgurl(String imgurl) {
+            this.imgurl = imgurl;
         }
     }
 }

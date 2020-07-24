@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
+import com.zzhoujay.richtext.ImageHolder;
+import com.zzhoujay.richtext.RichText;
 
 /**
  * Created by Administrator on 2020/6/22.
@@ -46,7 +48,11 @@ public class DialogYuyueTishi extends Dialog {
         tvClose = view.findViewById(R.id.tv_close);
 
         tvTitle.setText(title);
-        tvContent.setText(content);
+        RichText.from(content).bind(this)
+                .showBorder(false)
+                .size(ImageHolder.MATCH_PARENT, ImageHolder.WRAP_CONTENT)
+                .into(tvContent);
+//        tvContent.setText(content);
         tvClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

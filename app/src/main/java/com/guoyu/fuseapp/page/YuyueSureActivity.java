@@ -68,6 +68,9 @@ public class YuyueSureActivity extends BaseActivity {
     private boolean isIv2 = false;
     private boolean isIv3 = false;
 
+    private String mzTitle = "";
+    private String mzContent = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,15 +93,17 @@ public class YuyueSureActivity extends BaseActivity {
                 Logger.e("123123", s);
                 Gson gson = new Gson();
                 YyCommitmentAppgetOneBean bean1 = gson.fromJson(s, YyCommitmentAppgetOneBean.class);
-                int size = bean1.getData().getCommitmentSize();
-                tv11.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
-                tv12.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
-                tv2.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
-                tv3.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+//                int size = bean1.getData().getCommitmentSize();
+//                tv11.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+//                tv12.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+//                tv2.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+//                tv3.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
                 tv11.setText("我已经阅读并同意");
                 tv12.setText("免责声明");
                 tv2.setText(bean1.getData().getCommitment());
                 tv3.setText("上述信息是我本人填写，本人对信息内容的真实性和完整性负责，如果信息有误或缺失，本人愿意承担相应法律责任。本人保证遵守防疫管控的各项规定，配合并听从各项措施和要求。");
+                mzTitle = bean1.getData().getTitle();
+                mzContent = bean1.getData().getContent();
             }
         });
 
@@ -139,18 +144,9 @@ public class YuyueSureActivity extends BaseActivity {
 
     private void mianzeShow() {
 
-        Map<String, String> map = new LinkedHashMap<>();
-        map.put("id", "1");
-        ViseUtil.Get(context, NetUrl.YyMzsmAppgetOne, map, new ViseUtil.ViseListener() {
-            @Override
-            public void onReturn(String s) {
-                Gson gson = new Gson();
-                YyMzsmAppgetOneBean bean1 = gson.fromJson(s, YyMzsmAppgetOneBean.class);
-                DialogYuyueTishi dialogYuyueTishi = new DialogYuyueTishi(context, bean1.getData().getTitle(),
-                        bean1.getData().getContent());
-                dialogYuyueTishi.show();
-            }
-        });
+        DialogYuyueTishi dialogYuyueTishi = new DialogYuyueTishi(context, mzTitle,
+                mzContent);
+        dialogYuyueTishi.show();
 
     }
 
