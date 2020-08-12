@@ -39,7 +39,7 @@ public class PolicyInteractionAdapter extends RecyclerView.Adapter<PolicyInterac
     public void onBindViewHolder(PolicyInteractionAdapter.ViewHolder holder, final int position) {
         Glide.with(context).load(NetUrl.BASE_URL+data.get(position).getTitlePic()).into(holder.iv_img);
         holder.tv_title.setText(data.get(position).getTitle());
-        holder.tv_time.setText(data.get(position).getDepartmentName()+" "+data.get(position).getPublishDate());
+        holder.tv_time.setText(data.get(position).getDepartmentName()+"  "+data.get(position).getPublishDate());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

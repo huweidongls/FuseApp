@@ -20,7 +20,7 @@ import java.util.Map;
 
 public class ViseUtil {
 
-    public static void Get(final Context context, String url, Map<String, String> map, final RefreshLayout refreshLayout, final int type, final ViseListener listener){
+    public static void Get(final Context context, final String url, Map<String, String> map, final RefreshLayout refreshLayout, final int type, final ViseListener listener){
 
         ViseHttp.GET(url)
                 .addParams(map)
@@ -51,6 +51,7 @@ public class ViseUtil {
 
                     @Override
                     public void onFail(int errCode, String errMsg) {
+                        Logger.e("123123", url);
                         ToastUtil.showShort(context, "网络异常");
                         if(type == 0){
                             refreshLayout.finishRefresh(500);
@@ -62,7 +63,7 @@ public class ViseUtil {
 
     }
 
-    public static void Get(final Context context, String url, Map<String, String> map, final ViseListener listener){
+    public static void Get(final Context context, final String url, Map<String, String> map, final ViseListener listener){
 
         ViseHttp.GET(url)
                 .addParams(map)
@@ -88,13 +89,14 @@ public class ViseUtil {
 
                     @Override
                     public void onFail(int errCode, String errMsg) {
+                        Logger.e("123123", url);
                         ToastUtil.showShort(context, "网络异常");
                     }
                 });
 
     }
 
-    public static void Get(final Context context, String url, Map<String, String> map, final Dialog dialog, final ViseListener listener){
+    public static void Get(final Context context, final String url, Map<String, String> map, final Dialog dialog, final ViseListener listener){
 
         ViseHttp.GET(url)
                 .addParams(map)
@@ -121,6 +123,7 @@ public class ViseUtil {
 
                     @Override
                     public void onFail(int errCode, String errMsg) {
+                        Logger.e("123123", url);
                         ToastUtil.showShort(context, "网络异常");
                         WeiboDialogUtils.closeDialog(dialog);
                     }
@@ -128,7 +131,7 @@ public class ViseUtil {
 
     }
 
-    public static void Post(final Context context, String url, Map<String, String> map, final RefreshLayout refreshLayout, final int type, final ViseListener listener){
+    public static void Post(final Context context, final String url, Map<String, String> map, final RefreshLayout refreshLayout, final int type, final ViseListener listener){
 
         ViseHttp.POST(url)
                 .addParams(map)
@@ -158,6 +161,7 @@ public class ViseUtil {
 
                     @Override
                     public void onFail(int errCode, String errMsg) {
+                        Logger.e("123123", url);
                         ToastUtil.showShort(context, "网络异常");
                         if(type == 0){
                             refreshLayout.finishRefresh(500);
@@ -169,7 +173,7 @@ public class ViseUtil {
 
     }
 
-    public static void Post(final Context context, String url, Map<String, String> map, final ViseListener listener){
+    public static void Post(final Context context, final String url, Map<String, String> map, final ViseListener listener){
 
         ViseHttp.POST(url)
                 .addParams(map)
@@ -194,13 +198,14 @@ public class ViseUtil {
 
                     @Override
                     public void onFail(int errCode, String errMsg) {
+                        Logger.e("123123", url);
                         ToastUtil.showShort(context, "网络异常");
                     }
                 });
 
     }
 
-    public static void Post(final Context context, String url, Map<String, String> map, final Dialog dialog, final ViseListener listener){
+    public static void Post(final Context context, final String url, Map<String, String> map, final Dialog dialog, final ViseListener listener){
 
         ViseHttp.POST(url)
                 .addParams(map)
@@ -226,6 +231,7 @@ public class ViseUtil {
 
                     @Override
                     public void onFail(int errCode, String errMsg) {
+                        Logger.e("123123", url);
                         ToastUtil.showShort(context, "网络异常");
                         WeiboDialogUtils.closeDialog(dialog);
                     }

@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="19dp"
-            android:text="身份证号"
+            android:text="企业名称"
             android:textColor="#333333"
             android:textSize="14sp" />
 
@@ -50,7 +50,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="19dp"
             android:background="@null"
-            android:hint="请输入身份证号"
+            android:hint="请输入企业名称"
             android:textColorHint="#999999"
             android:textSize="12sp" />
     </LinearLayout>

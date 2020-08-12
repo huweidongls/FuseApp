@@ -53,12 +53,10 @@ public class CreditActivity extends BaseActivity {
             case R.id.btn_commit:
                 String idCard = etIdCard.getText().toString();
                 if(StringUtils.isEmpty(idCard)){
-                    ToastUtil.showShort(context, "身份证号不能为空");
-                }else if(!StringUtils.isLegalId(idCard)){
-                    ToastUtil.showShort(context, "请输入合法的身份证号");
+                    ToastUtil.showShort(context, "企业名称不能为空");
                 }else {
                     Intent intent = new Intent();
-                    intent.setClass(context, CreditDetailsActivity.class);
+                    intent.setClass(context, CreditListActivity.class);
                     intent.putExtra("id", idCard);
                     intent.putExtra("title", title);
                     startActivity(intent);

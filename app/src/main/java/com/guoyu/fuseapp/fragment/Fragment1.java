@@ -27,6 +27,7 @@ import com.guoyu.fuseapp.page.ModuleWebViewActivity;
 import com.guoyu.fuseapp.page.SafeListActivity;
 import com.guoyu.fuseapp.page.SearchActivity;
 import com.guoyu.fuseapp.util.Logger;
+import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.guoyu.fuseapp.widget.ScrollTextView;
 import com.scwang.smartrefresh.header.MaterialHeader;
@@ -99,6 +100,7 @@ public class Fragment1 extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment1, null);
 
+        Logger.e("token", "token=="+SpUtils.getToken(getContext()));
         ButterKnife.bind(this, view);
         initRefresh();
         initGongneng();

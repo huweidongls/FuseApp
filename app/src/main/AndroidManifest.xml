@@ -185,7 +185,10 @@
         <activity android:name=".page.PolicyInterSercheActivity" />
         <activity android:name=".page.YuyueGgActivity" />
         <activity android:name=".page.YuyueGgDetailsActivity" />
-        <activity android:name=".page.YuyueSuccessActivity"></activity>
+        <activity android:name=".page.YuyueSuccessActivity" />
+        <activity android:name=".page.CreditListActivity" />
+        <activity android:name=".page.CreditDetails1Activity" />
+        <activity android:name=".page.CreditDetails2Activity"></activity>
     </application>
 
 </manifest>
