@@ -85,12 +85,12 @@ public class CreditDetailsActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.btn1:
-                intent.setClass(context, CreditDetails1Activity.class);
+                intent.setClass(context, CreditList1Activity.class);
                 intent.putExtra("name", bean.getCOMP_NAME());
                 startActivity(intent);
                 break;
             case R.id.btn2:
-                intent.setClass(context, CreditDetails2Activity.class);
+                intent.setClass(context, CreditList2Activity.class);
                 intent.putExtra("name", bean.getCOMP_NAME());
                 startActivity(intent);
                 break;

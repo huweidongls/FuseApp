@@ -3,13 +3,13 @@ package com.guoyu.fuseapp.page;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.base.BaseActivity;
-import com.guoyu.fuseapp.util.Logger;
-import com.vise.xsnow.http.ViseHttp;
-import com.vise.xsnow.http.callback.ACallback;
+import com.guoyu.fuseapp.bean.CreditList2Bean;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -17,14 +17,75 @@ public class CreditDetails2Activity extends BaseActivity {
 
     private Context context = CreditDetails2Activity.this;
 
-    private String name = "";
+    @BindView(R.id.tv1)
+    TextView tv1;
+    @BindView(R.id.tv2)
+    TextView tv2;
+    @BindView(R.id.tv3)
+    TextView tv3;
+    @BindView(R.id.tv4)
+    TextView tv4;
+    @BindView(R.id.tv5)
+    TextView tv5;
+    @BindView(R.id.tv6)
+    TextView tv6;
+    @BindView(R.id.tv7)
+    TextView tv7;
+    @BindView(R.id.tv8)
+    TextView tv8;
+    @BindView(R.id.tv9)
+    TextView tv9;
+    @BindView(R.id.tv10)
+    TextView tv10;
+    @BindView(R.id.tv11)
+    TextView tv11;
+    @BindView(R.id.tv12)
+    TextView tv12;
+    @BindView(R.id.tv13)
+    TextView tv13;
+    @BindView(R.id.tv14)
+    TextView tv14;
+    @BindView(R.id.tv15)
+    TextView tv15;
+    @BindView(R.id.tv16)
+    TextView tv16;
+    @BindView(R.id.tv17)
+    TextView tv17;
+    @BindView(R.id.tv18)
+    TextView tv18;
+    @BindView(R.id.tv19)
+    TextView tv19;
+    @BindView(R.id.tv20)
+    TextView tv20;
+    @BindView(R.id.tv21)
+    TextView tv21;
+    @BindView(R.id.tv22)
+    TextView tv22;
+    @BindView(R.id.tv23)
+    TextView tv23;
+    @BindView(R.id.tv24)
+    TextView tv24;
+    @BindView(R.id.tv25)
+    TextView tv25;
+    @BindView(R.id.tv26)
+    TextView tv26;
+    @BindView(R.id.tv27)
+    TextView tv27;
+    @BindView(R.id.tv28)
+    TextView tv28;
+    @BindView(R.id.tv29)
+    TextView tv29;
+    @BindView(R.id.tv30)
+    TextView tv30;
+
+    private CreditList2Bean.RowsBean bean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit_details2);
 
-        name = getIntent().getStringExtra("name");
+        bean = (CreditList2Bean.RowsBean) getIntent().getSerializableExtra("bean");
         ButterKnife.bind(CreditDetails2Activity.this);
         initData();
 
@@ -32,20 +93,36 @@ public class CreditDetails2Activity extends BaseActivity {
 
     private void initData() {
 
-        String url = "/publicity/data_list.json?configId=_precast_pub_xzcf&conditions=%7B\"unifiedCode\":\"\",\"regCode\":\"\",\"id\":\"\",\"compName\":\""+name+"\"%7D&currentPage=1&pageSize=10";
-        ViseHttp.GET(url)
-                .baseUrl("http://www.syscredit.gov.cn/")
-                .request(new ACallback<String>() {
-                    @Override
-                    public void onSuccess(String data) {
-                        Logger.e("123123", data);
-                    }
-
-                    @Override
-                    public void onFail(int errCode, String errMsg) {
-                        Logger.e("123123", errMsg);
-                    }
-                });
+        tv1.setText(bean.getCOMP_NAME());
+        tv2.setText(bean.getCF_XDR_LB());
+        tv3.setText(bean.getCF_XDR_SHXYM());
+        tv4.setText(bean.getCF_XDR_GSZC());
+        tv5.setText(bean.getCF_XDR_ZZJG());
+        tv6.setText(bean.getCF_XDR_SWDJ());
+        tv7.setText(bean.getCF_XDR_SYDW());
+        tv8.setText(bean.getCF_XDR_SHZZ());
+        tv9.setText(bean.getCF_FRDB());
+        tv10.setText(bean.getCF_FR_ZJLX());
+        tv11.setText(bean.getCF_FR_ZJHM());
+        tv12.setText(bean.getCF_XDR_ZJLX());
+        tv13.setText(bean.getCF_XDR_ZJHM());
+        tv14.setText(bean.getCF_WSH());
+        tv15.setText(bean.getCF_WFXW());
+        tv16.setText(bean.getCF_SY());
+        tv17.setText(bean.getCF_YJ());
+        tv18.setText(bean.getCF_CFLB());
+        tv19.setText(bean.getCF_NR());
+        tv20.setText(bean.getCF_NR_FK());
+        tv21.setText(bean.getCF_NR_WFFF());
+        tv22.setText(bean.getCF_NR_ZKDX());
+        tv23.setText(bean.getCF_JDRQ());
+        tv24.setText(bean.getCF_YXQ());
+        tv25.setText(bean.getCF_GSJZQ());
+        tv26.setText(bean.getCF_CFJG());
+        tv27.setText(bean.getCF_CFJGDM());
+        tv28.setText(bean.getCF_SJLY());
+        tv29.setText(bean.getCF_SJLYDM());
+        tv30.setText(bean.getBZ());
 
     }
 
