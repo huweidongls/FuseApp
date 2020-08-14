@@ -225,6 +225,15 @@
 
                 </RelativeLayout>
 
+                <ImageView
+                    android:id="@+id/iv_yuyue"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/yuyue_index"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp"

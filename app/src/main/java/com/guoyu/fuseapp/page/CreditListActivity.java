@@ -123,7 +123,6 @@ public class CreditListActivity extends BaseActivity {
         });
 
         String url = "/publicity/data_list.json?configId=_precast_pub_code&conditions=%7B\"unifiedCode\":\"\",\"id\":\"\",\"compName\":\""+name+"\"%7D&currentPage="+1+"&pageSize=10";
-//        String url = "/publicity/data_list.json";
         ViseHttp.GET(url)
                 .baseUrl("http://www.syscredit.gov.cn/")
                 .request(new ACallback<String>() {

@@ -20,6 +20,7 @@ import com.guoyu.fuseapp.bean.ConvenienceNoticeBean;
 import com.guoyu.fuseapp.bean.IndexGongnengBean;
 import com.guoyu.fuseapp.bean.IndexZwznBean;
 import com.guoyu.fuseapp.net.NetUrl;
+import com.guoyu.fuseapp.page.DatingYuyueActivity;
 import com.guoyu.fuseapp.page.GobernmentContentActivity;
 import com.guoyu.fuseapp.page.GovernmentListActivity;
 import com.guoyu.fuseapp.page.JiazhengListActivity;
@@ -402,10 +403,14 @@ public class Fragment1 extends BaseFragment {
 
     }
 
-    @OnClick({R.id.rl_search, R.id.rl_top1, R.id.rl_top2, R.id.rl_top3, R.id.rl_top4, R.id.f1, R.id.f2, R.id.f3, R.id.f4})
+    @OnClick({R.id.rl_search, R.id.rl_top1, R.id.rl_top2, R.id.rl_top3, R.id.rl_top4, R.id.f1, R.id.f2, R.id.f3, R.id.f4, R.id.iv_yuyue})
     public void onClick(View view){
         Intent intent = new Intent();
         switch (view.getId()){
+            case R.id.iv_yuyue:
+                intent.setClass(getContext(), DatingYuyueActivity.class);
+                startActivity(intent);
+                break;
             case R.id.f1:
                 intent.setClass(getContext(), ModuleWebViewActivity.class);
                 intent.putExtra("funcode", "YLFW");
