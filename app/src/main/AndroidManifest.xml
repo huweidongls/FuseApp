@@ -190,7 +190,9 @@
         <activity android:name=".page.CreditDetails1Activity" />
         <activity android:name=".page.CreditDetails2Activity" />
         <activity android:name=".page.CreditList1Activity" />
-        <activity android:name=".page.CreditList2Activity"></activity>
+        <activity android:name=".page.CreditList2Activity" />
+        <activity android:name=".page.ChengguanFabuActivity" />
+        <activity android:name=".page.FengcaiDetailsActivity"></activity>
     </application>
 
 </manifest>

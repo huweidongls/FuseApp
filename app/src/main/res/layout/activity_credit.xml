@@ -26,23 +26,20 @@
 
     </RelativeLayout>
 
+    <ImageView
+        android:src="@mipmap/qiyexinyong"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="19dp"
-            android:text="企业名称"
-            android:textColor="#333333"
-            android:textSize="14sp" />
-
         <EditText
             android:id="@+id/et_idcard"
-            android:gravity="end"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:layout_width="0dp"

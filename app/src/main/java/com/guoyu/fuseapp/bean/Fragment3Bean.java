@@ -1,12 +1,13 @@
 package com.guoyu.fuseapp.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Administrator on 2019/10/12.
  */
 
-public class Fragment3Bean {
+public class Fragment3Bean implements Serializable {
     /**
      * status : 200
      * data : [{"id":4,"title":"标题","content":"内容","contentPics":"upload/banner/2019-10-11/507daa59551140bc8af4c5de68acb7b9.png"},{"id":2,"title":"测试标题","content":"内容","contentPics":"upload/banner/2019-10-11/507daa59551140bc8af4c5de68acb7b9.png"},{"id":1,"title":"标题","content":"内容","contentPics":"upload/banner/2019-10-11/507daa59551140bc8af4c5de68acb7b9.png"},{"id":3,"title":"标题","content":"内容","contentPics":"upload/banner/2019-10-11/507daa59551140bc8af4c5de68acb7b9.png"}]
@@ -51,7 +52,7 @@ public class Fragment3Bean {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable {
         /**
          * id : 4
          * title : 标题

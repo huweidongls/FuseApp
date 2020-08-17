@@ -32,6 +32,7 @@ import com.guoyu.fuseapp.fragment.Fragment1;
 import com.guoyu.fuseapp.fragment.Fragment2;
 import com.guoyu.fuseapp.fragment.Fragment3;
 import com.guoyu.fuseapp.fragment.Fragment4;
+import com.guoyu.fuseapp.fragment.FragmentChengguan;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.ToastUtil;
 import com.guoyu.fuseapp.util.VersionUtils;

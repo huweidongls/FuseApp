@@ -16,6 +16,7 @@ import com.guoyu.fuseapp.bean.Fragment3Bean;
 import com.guoyu.fuseapp.imagepreview.Consts;
 import com.guoyu.fuseapp.imagepreview.ImagePreviewActivity;
 import com.guoyu.fuseapp.net.NetUrl;
+import com.guoyu.fuseapp.page.FengcaiDetailsActivity;
 import com.guoyu.fuseapp.util.GlideUtils;
 
 import java.io.Serializable;
@@ -75,6 +76,15 @@ public class UrbaneleganceAdapter extends RecyclerView.Adapter<UrbaneleganceAdap
         }
         holder.tvTitle.setText(data.get(position).getTitle());
         holder.tvContent.setText(data.get(position).getContent());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(context, FengcaiDetailsActivity.class);
+                intent.putExtra("bean", data.get(position));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
