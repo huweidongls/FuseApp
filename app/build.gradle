@@ -4,10 +4,10 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.guoyu.fuseapp"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 26
-        versionCode 22
-        versionName "1.0.22"
+        versionCode 27
+        versionName "1.0.27"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -15,6 +15,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {//使用JAVA8解析  invokedynamic requires --min-sdk-version >= 26
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     configurations.all {
 
@@ -61,4 +65,5 @@ dependencies {
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
     compile 'com.zzhoujay.richtext:richtext:3.0.7'
     compile 'com.yinglan.alphatabs:library:1.0.8'
+    implementation 'com.king.zxing:zxing-lite:1.1.9'
 }

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.adapter.WeizhangListAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
+import com.guoyu.fuseapp.bean.WeizhangBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,18 +27,25 @@ public class WeizhangResultActivity extends BaseActivity {
     TextView tvTitle;
     @BindView(R.id.rv)
     RecyclerView recyclerView;
+    @BindView(R.id.tv_number)
+    TextView tvNumber;
 
     private String title = "";
 
     private WeizhangListAdapter adapter;
-    private List<String> mList;
+    private List<ArrayList<String>> mList;
+
+    private WeizhangBean bean;
+    private String number = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weizhang_result);
 
+        number = getIntent().getStringExtra("number");
         title = getIntent().getStringExtra("title");
+        bean = (WeizhangBean) getIntent().getSerializableExtra("bean");
         ButterKnife.bind(WeizhangResultActivity.this);
         initData();
 
@@ -46,10 +54,9 @@ public class WeizhangResultActivity extends BaseActivity {
     private void initData() {
 
         tvTitle.setText(title);
+        tvNumber.setText(number);
 
-        mList = new ArrayList<>();
-        mList.add("");
-        mList.add("");
+        mList = bean.getData();
         adapter = new WeizhangListAdapter(mList);
         LinearLayoutManager manager = new LinearLayoutManager(context);
         manager.setOrientation(LinearLayoutManager.VERTICAL);

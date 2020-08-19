@@ -192,7 +192,13 @@
         <activity android:name=".page.CreditList1Activity" />
         <activity android:name=".page.CreditList2Activity" />
         <activity android:name=".page.ChengguanFabuActivity" />
-        <activity android:name=".page.FengcaiDetailsActivity"></activity>
+        <activity android:name=".page.FengcaiDetailsActivity" />
+        <activity
+            android:name="com.king.zxing.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CaptureTheme" />
+        <activity android:name=".page.TraceDataActivity" />
+        <activity android:name=".page.ScannerActivity"></activity>
     </application>
 
 </manifest>

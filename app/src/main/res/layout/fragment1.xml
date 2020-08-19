@@ -41,7 +41,8 @@
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:id="@+id/rl_search"
-            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="30dp">
 
             <ImageView
@@ -61,6 +62,14 @@
                 android:layout_height="wrap_content" />
 
         </RelativeLayout>
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_saomiao"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:src="@mipmap/saomiao"-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_height="25dp" />-->
 
     </LinearLayout>
 
@@ -99,8 +108,8 @@
                             <ImageView
                                 android:src="@mipmap/tubiao_10"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_width="26dp"
-                                android:layout_height="28dp" />
+                                android:layout_width="35dp"
+                                android:layout_height="35dp" />
 
                             <TextView
                                 android:layout_gravity="center_horizontal"
@@ -130,8 +139,8 @@
                             <ImageView
                                 android:src="@mipmap/tubiao_13"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_width="27dp"
-                                android:layout_height="28dp" />
+                                android:layout_width="35dp"
+                                android:layout_height="35dp" />
 
                             <TextView
                                 android:layout_gravity="center_horizontal"
@@ -159,17 +168,17 @@
                             android:layout_height="wrap_content">
 
                             <ImageView
-                                android:src="@mipmap/tubiao_07"
+                                android:src="@mipmap/zhongkao"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_width="31dp"
-                                android:layout_height="28dp" />
+                                android:layout_width="35dp"
+                                android:layout_height="35dp" />
 
                             <TextView
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="13dp"
                                 android:textColor="@color/white_ffffff"
                                 android:textSize="13sp"
-                                android:text="教育服务"
+                                android:text="中考查询"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
@@ -190,17 +199,17 @@
                             android:layout_height="wrap_content">
 
                             <ImageView
-                                android:src="@mipmap/tubiao_16"
+                                android:src="@mipmap/saomiao"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_width="33dp"
-                                android:layout_height="28dp" />
+                                android:layout_width="35dp"
+                                android:layout_height="35dp" />
 
                             <TextView
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="13dp"
                                 android:textColor="@color/white_ffffff"
                                 android:textSize="13sp"
-                                android:text="招聘服务"
+                                android:text="食品溯源"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
@@ -209,30 +218,6 @@
                     </RelativeLayout>
 
                 </LinearLayout>
-
-                <RelativeLayout
-                    android:background="@color/white_ffffff"
-                    android:descendantFocusability="blocksDescendants"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.v7.widget.RecyclerView
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:id="@+id/rv_gongneng"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                </RelativeLayout>
-
-                <ImageView
-                    android:id="@+id/iv_yuyue"
-                    android:layout_marginTop="10dp"
-                    android:src="@mipmap/yuyue_index"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -274,6 +259,33 @@
                     </LinearLayout>
 
                 </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white_ffffff"
+                    android:descendantFocusability="blocksDescendants"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:id="@+id/rv_gongneng"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/iv_yuyue"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/yuyue_index"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
 
                 <LinearLayout
                     android:background="@color/white_ffffff"

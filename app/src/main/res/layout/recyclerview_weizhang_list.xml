@@ -10,6 +10,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/tv_wfxw"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="16dp"
@@ -20,6 +21,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
+            android:id="@+id/tv_address"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="8dp"
@@ -39,6 +41,7 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/tv_time"
                 android:layout_gravity="center_vertical"
                 android:textColor="#757575"
                 android:textSize="12sp"
@@ -47,6 +50,7 @@
                 android:layout_height="wrap_content" />
             
             <TextView
+                android:id="@+id/tv_money"
                 android:background="#FCF1F5"
                 android:layout_marginLeft="12dp"
                 android:layout_gravity="center_vertical"

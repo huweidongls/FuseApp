@@ -1,5 +1,6 @@
 package com.guoyu.fuseapp.fragment;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,22 +20,33 @@ import com.guoyu.fuseapp.base.BaseFragment;
 import com.guoyu.fuseapp.bean.ConvenienceNoticeBean;
 import com.guoyu.fuseapp.bean.IndexGongnengBean;
 import com.guoyu.fuseapp.bean.IndexZwznBean;
+import com.guoyu.fuseapp.bean.TraceDataBean;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.page.DatingYuyueActivity;
 import com.guoyu.fuseapp.page.GobernmentContentActivity;
 import com.guoyu.fuseapp.page.GovernmentListActivity;
 import com.guoyu.fuseapp.page.JiazhengListActivity;
+import com.guoyu.fuseapp.page.LoginActivity;
 import com.guoyu.fuseapp.page.ModuleWebViewActivity;
 import com.guoyu.fuseapp.page.SafeListActivity;
+import com.guoyu.fuseapp.page.ScannerActivity;
 import com.guoyu.fuseapp.page.SearchActivity;
+import com.guoyu.fuseapp.page.TraceDataActivity;
 import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.SpUtils;
+import com.guoyu.fuseapp.util.StringUtils;
+import com.guoyu.fuseapp.util.ToastUtil;
 import com.guoyu.fuseapp.util.ViseUtil;
+import com.guoyu.fuseapp.util.WeiboDialogUtils;
 import com.guoyu.fuseapp.widget.ScrollTextView;
+import com.king.zxing.CaptureActivity;
+import com.king.zxing.Intents;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.vise.xsnow.http.ViseHttp;
+import com.vise.xsnow.http.callback.ACallback;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -95,6 +107,9 @@ public class Fragment1 extends BaseFragment {
 
     private ConvenienceNoticeAdapter adapter1;
     private List<ConvenienceNoticeBean.DataBean> mList1;
+    private int requestCode = 10001;
+
+    private Dialog dialog;
 
     @Nullable
     @Override
@@ -407,6 +422,9 @@ public class Fragment1 extends BaseFragment {
     public void onClick(View view){
         Intent intent = new Intent();
         switch (view.getId()){
+//            case R.id.iv_saomiao:
+//                saomiao();
+//                break;
             case R.id.iv_yuyue:
                 intent.setClass(getContext(), DatingYuyueActivity.class);
                 startActivity(intent);
@@ -442,22 +460,28 @@ public class Fragment1 extends BaseFragment {
                 startActivity(intent);
                 break;
             case R.id.rl_top2:
-                intent.setClass(getContext(), ModuleWebViewActivity.class);
-                intent.putExtra("funcode", "YLBJ");
-                intent.putExtra("url", NetUrl.H5BASE_URL+"pages/yiliao.html");
-                startActivity(intent);
+                if(SpUtils.getUserId(getContext()).equals("0")){
+                    intent.setClass(getContext(), LoginActivity.class);
+                    startActivity(intent);
+                }else {
+                    intent.setClass(getContext(), ModuleWebViewActivity.class);
+                    intent.putExtra("funcode", "YLBJ");
+                    intent.putExtra("url", NetUrl.H5BASE_URL+"pages/yiliao.html");
+                    startActivity(intent);
+                }
                 break;
             case R.id.rl_top3:
                 intent.setClass(getContext(), ModuleWebViewActivity.class);
                 intent.putExtra("funcode", "XKZY");
-                intent.putExtra("url", NetUrl.H5BASE_URL+"pages/jyo_pages/jyo_list.html");
+                intent.putExtra("url", NetUrl.H5BASE_URL+"pages/zk_search.html");
                 startActivity(intent);
                 break;
             case R.id.rl_top4:
-                intent.setClass(getContext(), ModuleWebViewActivity.class);
-                intent.putExtra("funcode", "ZPFW");
-                intent.putExtra("url", NetUrl.H5BASE_URL+"pages/zp_list.html");
-                startActivity(intent);
+//                intent.setClass(getContext(), ModuleWebViewActivity.class);
+//                intent.putExtra("funcode", "ZPFW");
+//                intent.putExtra("url", NetUrl.H5BASE_URL+"pages/zp_list.html");
+//                startActivity(intent);
+                saomiao();
                 break;
 //            case R.id.rl1:
 //                tv1.setTextColor(getResources().getColor(R.color.theme));
@@ -510,4 +534,50 @@ public class Fragment1 extends BaseFragment {
         }
     }
 
+    /**
+     * 扫描条形码
+     */
+    private void saomiao() {
+
+        //跳转的默认扫码界面
+        startActivityForResult(new Intent(getContext(),ScannerActivity.class),requestCode);
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(data != null&&requestCode == this.requestCode){
+            String result = data.getStringExtra(Intents.Scan.RESULT);
+            String url = "/fstbe/feeding/feedingController!getProductByTraceData.do?";
+            dialog = WeiboDialogUtils.createLoadingDialog(getContext(), "请等待...");
+            ViseHttp.GET(url)
+                    .baseUrl("http://61.167.245.165:8098/")
+                    .addParam("traceCode", result)
+                    .request(new ACallback<String>() {
+                        @Override
+                        public void onSuccess(String data) {
+                            Logger.e("123123", data);
+                            Gson gson = new Gson();
+                            TraceDataBean bean = gson.fromJson(data, TraceDataBean.class);
+                            if(StringUtils.isEmpty(bean.getMsg())){
+                                Intent intent = new Intent();
+                                intent.setClass(getContext(), TraceDataActivity.class);
+                                intent.putExtra("bean", bean);
+                                startActivity(intent);
+                                WeiboDialogUtils.closeDialog(dialog);
+                            }else {
+                                ToastUtil.showShort(getContext(), bean.getMsg());
+                                WeiboDialogUtils.closeDialog(dialog);
+                            }
+                        }
+
+                        @Override
+                        public void onFail(int errCode, String errMsg) {
+                            Logger.e("123123", errMsg);
+                            WeiboDialogUtils.closeDialog(dialog);
+                        }
+                    });
+        }
+    }
 }

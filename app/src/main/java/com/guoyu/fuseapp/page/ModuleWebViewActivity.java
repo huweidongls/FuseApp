@@ -159,6 +159,9 @@ public class ModuleWebViewActivity extends BaseActivity {
         }else if(!SpUtils.getUserId(context).equals("0")&&!StringUtils.isEmpty(id)){
             url = url+"&userId="+SpUtils.getUserId(context);
         }
+        if(!StringUtils.isEmpty(funCode)&&funCode.equals("YLBJ")&&!SpUtils.getUserId(context).equals("0")){
+            url = url+"&phone="+SpUtils.getPhoneNum(context);
+        }
         webview.loadUrl(url);
 
     }

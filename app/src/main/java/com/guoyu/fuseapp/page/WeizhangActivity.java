@@ -1,13 +1,23 @@
 package com.guoyu.fuseapp.page;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.base.BaseActivity;
+import com.guoyu.fuseapp.bean.WeizhangBean;
+import com.guoyu.fuseapp.util.Logger;
+import com.guoyu.fuseapp.util.StringUtils;
+import com.guoyu.fuseapp.util.ToastUtil;
+import com.guoyu.fuseapp.util.WeiboDialogUtils;
+import com.vise.xsnow.http.ViseHttp;
+import com.vise.xsnow.http.callback.ACallback;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,8 +29,12 @@ public class WeizhangActivity extends BaseActivity {
 
     @BindView(R.id.tv_title)
     TextView tvTitle;
+    @BindView(R.id.et)
+    EditText et;
 
     private String title = "";
+
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +61,39 @@ public class WeizhangActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.btn_search:
-                intent.setClass(context, WeizhangResultActivity.class);
-                intent.putExtra("title", title);
-                startActivity(intent);
+
+                String s = et.getText().toString();
+
+                if(StringUtils.isEmpty(s)){
+                    ToastUtil.showShort(context, "车牌号码不能为空");
+                }else {
+
+                    dialog = WeiboDialogUtils.createLoadingDialog(context, "请等待...");
+                    ViseHttp.GET("/AppBreakRules/getOne")
+                            .addParam("number", s)
+                            .request(new ACallback<String>() {
+                                @Override
+                                public void onSuccess(String data) {
+                                    Logger.e("123123", data);
+                                    Gson gson = new Gson();
+                                    WeizhangBean bean = gson.fromJson(data, WeizhangBean.class);
+                                    intent.setClass(context, WeizhangResultActivity.class);
+                                    intent.putExtra("title", title);
+                                    intent.putExtra("bean", bean);
+                                    intent.putExtra("number", s);
+                                    startActivity(intent);
+                                    WeiboDialogUtils.closeDialog(dialog);
+                                }
+
+                                @Override
+                                public void onFail(int errCode, String errMsg) {
+                                    WeiboDialogUtils.closeDialog(dialog);
+                                    ToastUtil.showShort(context, "暂未查到相关信息");
+                                }
+                            });
+
+                }
+
                 break;
         }
     }
