@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.base.BaseActivity;
+import com.guoyu.fuseapp.bean.WeizhangBean;
 
 import java.util.ArrayList;
 
@@ -29,14 +30,14 @@ public class WeizhangDetailsActivity extends BaseActivity {
     @BindView(R.id.tv_time)
     TextView tvTime;
 
-    private ArrayList<String> list;
+    private WeizhangBean.DataBean bean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weizhang_details);
 
-        list = getIntent().getStringArrayListExtra("list");
+        bean = (WeizhangBean.DataBean) getIntent().getSerializableExtra("bean");
         ButterKnife.bind(WeizhangDetailsActivity.this);
         initData();
 
@@ -44,11 +45,11 @@ public class WeizhangDetailsActivity extends BaseActivity {
 
     private void initData() {
 
-        tvWfxw.setText(list.get(4));
-        tvMoney.setText("罚款"+list.get(5)+"元");
-        tvNumber.setText(list.get(0));
-        tvAddress.setText(list.get(3));
-        tvTime.setText(list.get(1).split("\\.")[0]);
+        tvWfxw.setText(bean.getCause());
+        tvMoney.setText("罚款"+bean.getManey()+"元");
+        tvNumber.setText(bean.getCarNumber());
+        tvAddress.setText(bean.getAddress());
+        tvTime.setText(bean.getTimeOne().split("\\.")[0]);
 
     }
 

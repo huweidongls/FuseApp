@@ -33,7 +33,7 @@ public class WeizhangResultActivity extends BaseActivity {
     private String title = "";
 
     private WeizhangListAdapter adapter;
-    private List<ArrayList<String>> mList;
+    private List<WeizhangBean.DataBean> mList;
 
     private WeizhangBean bean;
     private String number = "";

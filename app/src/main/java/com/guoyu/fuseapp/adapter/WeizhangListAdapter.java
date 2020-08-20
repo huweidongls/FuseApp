@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
+import com.guoyu.fuseapp.bean.WeizhangBean;
 import com.guoyu.fuseapp.page.WeizhangDetailsActivity;
 
 import java.util.ArrayList;
@@ -21,9 +22,9 @@ import java.util.List;
 public class WeizhangListAdapter extends RecyclerView.Adapter<WeizhangListAdapter.ViewHolder> {
 
     private Context context;
-    private List<ArrayList<String>> data;
+    private List<WeizhangBean.DataBean> data;
 
-    public WeizhangListAdapter(List<ArrayList<String>> data) {
+    public WeizhangListAdapter(List<WeizhangBean.DataBean> data) {
         this.data = data;
     }
 
@@ -38,17 +39,17 @@ public class WeizhangListAdapter extends RecyclerView.Adapter<WeizhangListAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.tvWfxw.setText(data.get(position).get(4));
-        holder.tvAddress.setText(data.get(position).get(3));
-        holder.tvTime.setText(data.get(position).get(1).split("\\.")[0]);
-        holder.tvMoney.setText("罚款"+data.get(position).get(5)+"元");
+        holder.tvWfxw.setText(data.get(position).getCause());
+        holder.tvAddress.setText(data.get(position).getAddress());
+        holder.tvTime.setText(data.get(position).getTimeOne().split("\\.")[0]);
+        holder.tvMoney.setText("罚款"+data.get(position).getManey()+"元");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(context, WeizhangDetailsActivity.class);
-                intent.putStringArrayListExtra("list", data.get(position));
+                intent.putExtra("bean", data.get(position));
                 context.startActivity(intent);
             }
         });
