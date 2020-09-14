@@ -13,6 +13,7 @@ import com.guoyu.fuseapp.adapter.ZhongjieListAdapter;
 import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.ZhongjieListBean;
 import com.guoyu.fuseapp.net.NetUrl;
+import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.ViseUtil;
 
 import java.util.ArrayList;

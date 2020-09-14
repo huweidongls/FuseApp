@@ -53,6 +53,15 @@ public class NoticegetOneBean {
         private int publishUser;
         private String publishDate;
         private String contentPic;
+        private String imgUrl;
+
+        public String getImgUrl() {
+            return imgUrl;
+        }
+
+        public void setImgUrl(String imgUrl) {
+            this.imgUrl = imgUrl;
+        }
 
         public String getContentPic() {
             return contentPic;

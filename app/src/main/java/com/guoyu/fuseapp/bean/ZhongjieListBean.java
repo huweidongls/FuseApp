@@ -77,6 +77,15 @@ public class ZhongjieListBean {
         private String publishDate;
         private int publishUser;
         private String depName;
+        private String imgUrl;
+
+        public String getImgUrl() {
+            return imgUrl;
+        }
+
+        public void setImgUrl(String imgUrl) {
+            this.imgUrl = imgUrl;
+        }
 
         public String getDepName() {
             return depName;

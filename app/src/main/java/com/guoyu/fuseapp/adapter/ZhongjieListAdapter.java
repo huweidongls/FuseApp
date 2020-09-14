@@ -6,11 +6,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.bean.ZhongjieListBean;
+import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.page.ZhongjieDetailsActivity;
+import com.guoyu.fuseapp.util.GlideUtils;
+import com.guoyu.fuseapp.util.StringUtils;
 
 import java.util.List;
 
@@ -45,6 +49,12 @@ public class ZhongjieListAdapter extends RecyclerView.Adapter<ZhongjieListAdapte
         holder.tvSubTitle.setText(data.get(position).getContentShort());
         holder.tvSign.setText(data.get(position).getDepName());
         holder.tvTime.setText("发布时间："+data.get(position).getPublishDate());
+
+        String img = data.get(position).getImgUrl();
+        if(!StringUtils.isEmpty(img)){
+            GlideUtils.into(context, NetUrl.BASE_URL+img.split(",")[0], holder.iv);
+        }
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +79,7 @@ public class ZhongjieListAdapter extends RecyclerView.Adapter<ZhongjieListAdapte
         private TextView tvSubTitle;
         private TextView tvSign;
         private TextView tvTime;
+        private ImageView iv;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -76,6 +87,7 @@ public class ZhongjieListAdapter extends RecyclerView.Adapter<ZhongjieListAdapte
             tvSubTitle = itemView.findViewById(R.id.tv_sub_title);
             tvSign = itemView.findViewById(R.id.tv_sign);
             tvTime = itemView.findViewById(R.id.tv_time);
+            iv = itemView.findViewById(R.id.iv);
         }
     }
 

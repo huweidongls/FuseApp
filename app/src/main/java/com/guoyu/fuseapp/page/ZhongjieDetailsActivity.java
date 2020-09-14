@@ -15,11 +15,16 @@ import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.FindNumBean;
 import com.guoyu.fuseapp.bean.NoticegetOneBean;
 import com.guoyu.fuseapp.net.NetUrl;
+import com.guoyu.fuseapp.util.Logger;
+import com.guoyu.fuseapp.util.StringUtils;
 import com.guoyu.fuseapp.util.ViseUtil;
+import com.youth.banner.Banner;
 import com.zzhoujay.richtext.ImageHolder;
 import com.zzhoujay.richtext.RichText;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -42,6 +47,8 @@ public class ZhongjieDetailsActivity extends BaseActivity {
     LinearLayout llPic;
     @BindView(R.id.iv_zan)
     ImageView ivZan;
+    @BindView(R.id.banner)
+    Banner banner;
 
     private String id = "";
     private String title = "";
@@ -71,8 +78,20 @@ public class ZhongjieDetailsActivity extends BaseActivity {
         ViseUtil.Get(context, NetUrl.AppAgentServicegetOne, map, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {
+                Logger.e("123123", s);
                 Gson gson = new Gson();
                 NoticegetOneBean bean = gson.fromJson(s, NoticegetOneBean.class);
+
+                String img = bean.getData().getImgUrl();
+                if(!StringUtils.isEmpty(img)){
+                    String[] ss = img.split(",");
+                    List<String> list = new ArrayList<>();
+                    for (int i = 0; i<ss.length; i++){
+                        list.add(NetUrl.BASE_URL+ss[i]);
+                    }
+                    initBanner(banner, list);
+                }
+
                 RichText.from(bean.getData().getContent()).bind(this)
                         .showBorder(false)
                         .size(ImageHolder.MATCH_PARENT, ImageHolder.WRAP_CONTENT)
