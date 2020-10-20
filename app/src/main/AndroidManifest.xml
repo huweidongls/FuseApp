@@ -198,7 +198,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/CaptureTheme" />
         <activity android:name=".page.TraceDataActivity" />
-        <activity android:name=".page.ScannerActivity"></activity>
+        <activity android:name=".page.ScannerActivity" />
+        <activity android:name=".page.DiaochawenjuanActivity" />
+        <activity android:name=".page.DiaochawenjuanDetailsActivity" />
     </application>
 
 </manifest>

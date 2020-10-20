@@ -5,12 +5,12 @@ package com.guoyu.fuseapp.net;
  */
 
 public class NetUrl {
-//    public static final String BASE_URL = "http://192.168.1.166:8888/";
-//    public static final String BASE_URL = "http://192.168.1.117:8888/";
-//    public static final String BASE_URL = "http://39.98.188.171:8088/";
-    public static final String BASE_URL = "http://112.101.203.127:9999/";
+    //    public static final String BASE_URL = "http://192.168.1.166:8888/";
+    public static final String BASE_URL = "http://192.168.1.117:8888/";
+    //    public static final String BASE_URL = "http://39.98.188.171:8088/";
+//    public static final String BASE_URL = "http://112.101.203.127:9999/";
     public static final String CG_URL = "http://61.167.245.172:1883/";
-//    public static final String H5BASE_URL = "http://xfsysh5.5ijiaoyu.cn/";
+    //    public static final String H5BASE_URL = "http://xfsysh5.5ijiaoyu.cn/";
     public static final String H5BASE_URL = "http://wechat.zhcssys.com/";
     //用户获取验证码
     public static final String registerPhone = "/CitizenUser/registerPhone";
@@ -77,13 +77,13 @@ public class NetUrl {
     //安全服务详情
     public static final String AppSaveInfogetOne = "/AppSaveInfo/getOne";
     //部门
-    public static final String AppConsultationInfofindDepartment="/AppConsultationInfo/findDepartment";
+    public static final String AppConsultationInfofindDepartment = "/AppConsultationInfo/findDepartment";
     //查询全部便民通知
-    public static final String AppConvenienceNoticequeryList="/AppConvenienceNotice/queryList";
+    public static final String AppConvenienceNoticequeryList = "/AppConvenienceNotice/queryList";
     //便民通知详情
-    public static final String AppConvenienceNoticegetOne="/AppConvenienceNotice/getOne";
+    public static final String AppConvenienceNoticegetOne = "/AppConvenienceNotice/getOne";
     //最新版本信息
-    public static final String AppVersionInfonewVersion="/AppVersionInfo/newVersionCity";
+    public static final String AppVersionInfonewVersion = "/AppVersionInfo/newVersionCity";
     //城市微观获取一条
     public static final String AppMiniCityInfogetOne = "/AppMiniCityInfo/getOne";
     //所有小区
@@ -91,75 +91,83 @@ public class NetUrl {
     //文体服务列表
     public static final String AppStyleInfoqueryList = "/AppStyleInfo/queryList";
     //文体服务详情
-    public static final String AppStyleInfogetOne="/AppStyleInfo/getOne";
+    public static final String AppStyleInfogetOne = "/AppStyleInfo/getOne";
     //APP全部中介服务
-    public static final String AppAgentServicequeryList="/AppAgentService/queryList";
+    public static final String AppAgentServicequeryList = "/AppAgentService/queryList";
     //上传头像
-    public static final String apiupdateheadPortrait="/CitizenUser/updateheadPortrait";
+    public static final String apiupdateheadPortrait = "/CitizenUser/updateheadPortrait";
     //社区详情
     public static final String AppCommunityServiceInfogetOne = "/AppCommunityServiceInfo/getOne";
     //查询政务指南分类
-    public static final String AppGovernmentInfofindType= "/AppGovernmentInfo/findType";
+    public static final String AppGovernmentInfofindType = "/AppGovernmentInfo/findType";
     //投诉咨询类别列表
-    public static final  String AppConsultationInfofindType = "/AppConsultationInfo/findType";
+    public static final String AppConsultationInfofindType = "/AppConsultationInfo/findType";
     //查询unionid是否存在
-    public static final  String CitizenUserselectUnionid = "/CitizenUser/selectUnionid";
+    public static final String CitizenUserselectUnionid = "/CitizenUser/selectUnionid";
     //查看点赞及浏览次数
-    public static final  String AppShareListPraiseTimesfindNum = "/AppShareListPraiseTimes/findNum";
+    public static final String AppShareListPraiseTimesfindNum = "/AppShareListPraiseTimes/findNum";
     //点赞
-    public static final  String AppShareListPraiseTimesclickLikes = "/AppShareListPraiseTimes/clickLikes";
+    public static final String AppShareListPraiseTimesclickLikes = "/AppShareListPraiseTimes/clickLikes";
     //政务指南详情
-    public static final  String AppGovernmentInfogetOne = "/AppGovernmentInfo/getOne";
+    public static final String AppGovernmentInfogetOne = "/AppGovernmentInfo/getOne";
     //中介服务详情
-    public static final  String AppAgentServicegetOne = "/AppAgentService/getOne";
+    public static final String AppAgentServicegetOne = "/AppAgentService/getOne";
     //文体活动类型列表
-    public static final  String StyleInfoItemqueryList = "/StyleInfoItemApp/queryListApp";
+    public static final String StyleInfoItemqueryList = "/StyleInfoItemApp/queryListApp";
     //家政服务分类
-    public static final  String HouseServiceInfoItemAppqueryListApp = "/HouseServiceInfoItemApp/queryListApp";
+    public static final String HouseServiceInfoItemAppqueryListApp = "/HouseServiceInfoItemApp/queryListApp";
     //查询全部预约大厅接口
-    public static final  String AppBookingBusinessqueryListHall = "/AppBookingBusiness/queryListHall";
+    public static final String AppBookingBusinessqueryListHall = "/AppBookingBusiness/queryListHall";
     //查询预约部门接口
-    public static final  String AppBookingBusinessqueryListDep = "/AppBookingBusiness/queryListDep";
+    public static final String AppBookingBusinessqueryListDep = "/AppBookingBusiness/queryListDep";
     //查询全部预约业务分类接口
-    public static final  String AppBookingBusinessqueryListBusiness = "/AppBookingBusiness/queryListBusiness";
+    public static final String AppBookingBusinessqueryListBusiness = "/AppBookingBusiness/queryListBusiness";
     //查询全部业务事项接口
-    public static final  String AppBookingBusinessqueryListDetail = "/AppBookingBusiness/queryListDetails";
+    public static final String AppBookingBusinessqueryListDetail = "/AppBookingBusiness/queryListDetails";
     //全部业务事项申请接口
-    public static final  String AppBookingBusinessqueryListManage = "/AppBookingBusiness/queryListManage";
+    public static final String AppBookingBusinessqueryListManage = "/AppBookingBusiness/queryListManage";
     //新增 业务事项申请
-    public static final  String AppBookingBusinesstoUpdate = "/AppBookingBusiness/toUpdate";
+    public static final String AppBookingBusinesstoUpdate = "/AppBookingBusiness/toUpdate";
     //查询我的预约接口
-    public static final  String AppBookingBusinessqueryListMes = "/AppBookingBusiness/queryListMes";
+    public static final String AppBookingBusinessqueryListMes = "/AppBookingBusiness/queryListMes";
     //预约信息详情
-    public static final  String AppBookingBusinessgetOneMes = "/AppBookingBusiness/getOneMes";
+    public static final String AppBookingBusinessgetOneMes = "/AppBookingBusiness/getOneMes";
     //应用中心列表
-    public static final  String AppCenterqueryList = "/AppCenter/queryList";
+    public static final String AppCenterqueryList = "/AppCenter/queryList";
     //zjhd
-    public static final  String AppGovernEnterInteractionqueryList = "/AppGovernEnterInteraction/queryList";
+    public static final String AppGovernEnterInteractionqueryList = "/AppGovernEnterInteraction/queryList";
     //详情
     public static final String AppGovernEnterInteractiongetOne = "/AppGovernEnterInteraction/getOne";
     //评论
     public static final String AppGovernEnterInteractiontoUpdate = "/AppGovernEnterInteraction/toUpdate";
     //点赞
-    public static final String AppGovernEnterInteractionlikeNum= "/AppGovernEnterInteraction/likeNum";
+    public static final String AppGovernEnterInteractionlikeNum = "/AppGovernEnterInteraction/likeNum";
     //APP公告轮播列表
-    public static final String AppointmentNoticeAppqueryListlimint5= "/AppointmentNoticeApp/queryListlimint5";
+    public static final String AppointmentNoticeAppqueryListlimint5 = "/AppointmentNoticeApp/queryListlimint5";
     //APP查询全部预约公告
-    public static final String AppointmentNoticeAppqueryList= "/AppointmentNoticeApp/queryList";
+    public static final String AppointmentNoticeAppqueryList = "/AppointmentNoticeApp/queryList";
     //通过预约公告ID查询详情
-    public static final String AppointmentNoticeAppgetOne= "/AppointmentNoticeApp/getOne";
+    public static final String AppointmentNoticeAppgetOne = "/AppointmentNoticeApp/getOne";
     //查询全部大厅或部门
-    public static final String AppAppointmentqueryList= "/AppAppointment/queryList";
+    public static final String AppAppointmentqueryList = "/AppAppointment/queryList";
     //根据部门ID查询数据
-    public static final String AppAppointmentgetOneByTime= "/AppAppointment/getOneByTime";
+    public static final String AppAppointmentgetOneByTime = "/AppAppointment/getOneByTime";
     //用户新增预约信息
-    public static final String AppAppointmentinsertInformationApp= "/AppAppointment/insertInformationApp";
+    public static final String AppAppointmentinsertInformationApp = "/AppAppointment/insertInformationApp";
     //查询我的预约信息
-    public static final String AppAppointmentgetByAppointmentApp= "/AppAppointment/getByAppointmentApp";
+    public static final String AppAppointmentgetByAppointmentApp = "/AppAppointment/getByAppointmentApp";
     //取消预约
-    public static final String AppAppointmentdeleteById= "/AppAppointment/deleteById";
+    public static final String AppAppointmentdeleteById = "/AppAppointment/deleteById";
     //预约承诺
-    public static final String yyCommitmentAppgetOne= "/yyCommitmentApp/getOne";
+    public static final String yyCommitmentAppgetOne = "/yyCommitmentApp/getOne";
     //预约免责声明
-    public static final String YyMzsmAppgetOne= "/YyMzsmApp/getOne";
+    public static final String YyMzsmAppgetOne = "/YyMzsmApp/getOne";
+    //问卷标题列表
+    public static final String AppBusQuestionquestionAll = "/AppBusQuestion/questionAll";
+    //根据标题id查询问卷题目列表
+    public static final String AppBusQuestionselectAllQuestion = "/AppBusQuestion/selectAllQuestion";
+    //APP用户提交问卷
+    public static final String AppBusQuestionsubmitAllAnswer = "/AppBusQuestion/submitAllAnswer";
+    //首页显示问卷
+    public static final String AppBusQuestionquestionOneShow = "/AppBusQuestion/questionOneShow";
 }

@@ -17,12 +17,16 @@ import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.adapter.ConvenienceNoticeAdapter;
 import com.guoyu.fuseapp.adapter.IndexGongnengAdapter;
 import com.guoyu.fuseapp.base.BaseFragment;
+import com.guoyu.fuseapp.bean.AppBusQuestionquestionOneShowBean;
 import com.guoyu.fuseapp.bean.ConvenienceNoticeBean;
 import com.guoyu.fuseapp.bean.IndexGongnengBean;
 import com.guoyu.fuseapp.bean.IndexZwznBean;
 import com.guoyu.fuseapp.bean.TraceDataBean;
+import com.guoyu.fuseapp.dialog.DialogCustom;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.page.DatingYuyueActivity;
+import com.guoyu.fuseapp.page.DiaochawenjuanActivity;
+import com.guoyu.fuseapp.page.DiaochawenjuanDetailsActivity;
 import com.guoyu.fuseapp.page.GobernmentContentActivity;
 import com.guoyu.fuseapp.page.GovernmentListActivity;
 import com.guoyu.fuseapp.page.JiazhengListActivity;
@@ -32,6 +36,7 @@ import com.guoyu.fuseapp.page.SafeListActivity;
 import com.guoyu.fuseapp.page.ScannerActivity;
 import com.guoyu.fuseapp.page.SearchActivity;
 import com.guoyu.fuseapp.page.TraceDataActivity;
+import com.guoyu.fuseapp.page.YuyueBumenActivity;
 import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.StringUtils;
@@ -121,8 +126,38 @@ public class Fragment1 extends BaseFragment {
         initRefresh();
         initGongneng();
         initData();
+        initWenjuan();
 
         return view;
+    }
+
+    /**
+     * 调查问卷
+     */
+    private void initWenjuan() {
+
+        ViseUtil.Post(getContext(), NetUrl.AppBusQuestionquestionOneShow, null, new ViseUtil.ViseListener() {
+            @Override
+            public void onReturn(String s) {
+                Gson gson = new Gson();
+                AppBusQuestionquestionOneShowBean bean = gson.fromJson(s, AppBusQuestionquestionOneShowBean.class);
+                if(bean.getData() == null){
+
+                }else {
+                    DialogCustom dialogCustom = new DialogCustom(getContext(), "当前有一条调查问卷，是否去填写？", new DialogCustom.OnYesListener() {
+                        @Override
+                        public void onYes() {
+                            Intent intent = new Intent();
+                            intent.setClass(getContext(), DiaochawenjuanDetailsActivity.class);
+                            intent.putExtra("id", bean.getData().getId()+"");
+                            startActivity(intent);
+                        }
+                    });
+                    dialogCustom.show();
+                }
+            }
+        });
+
     }
 
     /**
@@ -426,8 +461,15 @@ public class Fragment1 extends BaseFragment {
 //                saomiao();
 //                break;
             case R.id.iv_yuyue:
-                intent.setClass(getContext(), DatingYuyueActivity.class);
+                intent.setClass(getContext(), DiaochawenjuanActivity.class);
                 startActivity(intent);
+//                if(SpUtils.getUserId(getContext()).equals("0")){
+//                    intent.setClass(getContext(), LoginActivity.class);
+//                    startActivity(intent);
+//                }else {
+//                    intent.setClass(getContext(), YuyueBumenActivity.class);
+//                    startActivity(intent);
+//                }
                 break;
             case R.id.f1:
                 intent.setClass(getContext(), ModuleWebViewActivity.class);
