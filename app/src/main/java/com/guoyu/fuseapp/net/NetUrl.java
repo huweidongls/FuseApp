@@ -6,8 +6,8 @@ package com.guoyu.fuseapp.net;
 
 public class NetUrl {
     //    public static final String BASE_URL = "http://192.168.1.166:8888/";
-    public static final String BASE_URL = "http://192.168.1.117:8888/";
-    //    public static final String BASE_URL = "http://39.98.188.171:8088/";
+//    public static final String BASE_URL = "http://192.168.1.117:8888/";
+        public static final String BASE_URL = "http://39.98.188.171:8088/";
 //    public static final String BASE_URL = "http://112.101.203.127:9999/";
     public static final String CG_URL = "http://61.167.245.172:1883/";
     //    public static final String H5BASE_URL = "http://xfsysh5.5ijiaoyu.cn/";

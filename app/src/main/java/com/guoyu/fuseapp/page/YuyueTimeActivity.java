@@ -19,7 +19,6 @@ import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.AppAppointmentgetOneByTimeBean;
 import com.guoyu.fuseapp.dialog.DialogYuyueTishi;
 import com.guoyu.fuseapp.net.NetUrl;
-import com.guoyu.fuseapp.util.Logger;
 import com.guoyu.fuseapp.util.StringUtils;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.guoyu.fuseapp.util.WeiboDialogUtils;

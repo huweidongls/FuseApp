@@ -49,12 +49,14 @@ public class DiaochaAdapter extends RecyclerView.Adapter<DiaochaAdapter.ViewHold
                     Intent intent = new Intent();
                     intent.setClass(context, DiaochawenjuanDetailsActivity.class);
                     intent.putExtra("id", data.get(position).getId()+"");
+                    intent.putExtra("sm", "0");
                     context.startActivity(intent);
                 }else if(data.get(position).getIsHide() == 1){
                     if(SpUtils.getReal(context).equals("2")){
                         Intent intent = new Intent();
                         intent.setClass(context, DiaochawenjuanDetailsActivity.class);
                         intent.putExtra("id", data.get(position).getId()+"");
+                        intent.putExtra("sm", "1");
                         context.startActivity(intent);
                     }else {
                         ToastUtil.showShort(context, "需实名认证才能填写此问卷");

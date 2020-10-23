@@ -14,6 +14,7 @@ import com.guoyu.fuseapp.base.BaseActivity;
 import com.guoyu.fuseapp.bean.AppBusQuestionselectAllQuestionBean;
 import com.guoyu.fuseapp.net.NetUrl;
 import com.guoyu.fuseapp.util.Logger;
+import com.guoyu.fuseapp.util.SpUtils;
 import com.guoyu.fuseapp.util.ToastUtil;
 import com.guoyu.fuseapp.util.ViseUtil;
 import com.guoyu.fuseapp.util.WeiboDialogUtils;
@@ -38,6 +39,7 @@ public class DiaochawenjuanDetailsActivity extends BaseActivity {
     private List<AppBusQuestionselectAllQuestionBean.DataBean> mList;
 
     private String id = "";
+    private String sm = "";
     private Dialog dialog;
 
     @Override
@@ -46,6 +48,7 @@ public class DiaochawenjuanDetailsActivity extends BaseActivity {
         setContentView(R.layout.activity_diaochawenjuan_details);
 
         id = getIntent().getStringExtra("id");
+        sm = getIntent().getStringExtra("sm");
         ButterKnife.bind(DiaochawenjuanDetailsActivity.this);
         initData();
 
@@ -107,6 +110,9 @@ public class DiaochawenjuanDetailsActivity extends BaseActivity {
         Logger.e("123123", ss);
         Map<String, String> map = new LinkedHashMap<>();
         map.put("ids", ss);
+        if(sm.equals("1")){
+            map.put("userId", SpUtils.getUserId(context));
+        }
         ViseUtil.Post(context, NetUrl.AppBusQuestionsubmitAllAnswer, map, dialog, new ViseUtil.ViseListener() {
             @Override
             public void onReturn(String s) {

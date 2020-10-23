@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import com.guoyu.fuseapp.R;
 import com.guoyu.fuseapp.adapter.ConvenienceNoticeAdapter;
 import com.guoyu.fuseapp.adapter.IndexGongnengAdapter;
+import com.guoyu.fuseapp.app.MyApplication;
 import com.guoyu.fuseapp.base.BaseFragment;
 import com.guoyu.fuseapp.bean.AppBusQuestionquestionOneShowBean;
 import com.guoyu.fuseapp.bean.ConvenienceNoticeBean;
@@ -126,7 +127,9 @@ public class Fragment1 extends BaseFragment {
         initRefresh();
         initGongneng();
         initData();
-        initWenjuan();
+        if(MyApplication.isWenjuan == 0){
+            initWenjuan();
+        }
 
         return view;
     }
@@ -147,10 +150,24 @@ public class Fragment1 extends BaseFragment {
                     DialogCustom dialogCustom = new DialogCustom(getContext(), "当前有一条调查问卷，是否去填写？", new DialogCustom.OnYesListener() {
                         @Override
                         public void onYes() {
-                            Intent intent = new Intent();
-                            intent.setClass(getContext(), DiaochawenjuanDetailsActivity.class);
-                            intent.putExtra("id", bean.getData().getId()+"");
-                            startActivity(intent);
+                            MyApplication.isWenjuan = 1;
+                            if(bean.getData().getIsHide() == 0){
+                                Intent intent = new Intent();
+                                intent.setClass(getContext(), DiaochawenjuanDetailsActivity.class);
+                                intent.putExtra("id", bean.getData().getId()+"");
+                                intent.putExtra("sm", "0");
+                                startActivity(intent);
+                            }else if(bean.getData().getIsHide() == 1){
+                                if(SpUtils.getReal(getContext()).equals("2")){
+                                    Intent intent = new Intent();
+                                    intent.setClass(getContext(), DiaochawenjuanDetailsActivity.class);
+                                    intent.putExtra("id", bean.getData().getId()+"");
+                                    intent.putExtra("sm", "1");
+                                    startActivity(intent);
+                                }else {
+                                    ToastUtil.showShort(getContext(), "需实名认证才能填写此问卷");
+                                }
+                            }
                         }
                     });
                     dialogCustom.show();
@@ -461,15 +478,15 @@ public class Fragment1 extends BaseFragment {
 //                saomiao();
 //                break;
             case R.id.iv_yuyue:
-                intent.setClass(getContext(), DiaochawenjuanActivity.class);
-                startActivity(intent);
-//                if(SpUtils.getUserId(getContext()).equals("0")){
-//                    intent.setClass(getContext(), LoginActivity.class);
-//                    startActivity(intent);
-//                }else {
-//                    intent.setClass(getContext(), YuyueBumenActivity.class);
-//                    startActivity(intent);
-//                }
+//                intent.setClass(getContext(), DiaochawenjuanActivity.class);
+//                startActivity(intent);
+                if(SpUtils.getUserId(getContext()).equals("0")){
+                    intent.setClass(getContext(), LoginActivity.class);
+                    startActivity(intent);
+                }else {
+                    intent.setClass(getContext(), YuyueBumenActivity.class);
+                    startActivity(intent);
+                }
                 break;
             case R.id.f1:
                 intent.setClass(getContext(), ModuleWebViewActivity.class);

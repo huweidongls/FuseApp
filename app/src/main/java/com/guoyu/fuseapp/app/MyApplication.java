@@ -25,6 +25,8 @@ public class MyApplication extends Application {
     // 修改密码获取验证码倒计时
     public static RegisterTimeCount registerTimeCount;
 
+    public static int isWenjuan = 0;
+
     public MyApplication() {
     }
 
@@ -50,6 +52,18 @@ public class MyApplication extends Application {
     // add Activity
     public void addActivity(Activity activity) {
         mList.add(activity);
+    }
+
+    public void closeActivity(Class<? extends Activity> cls){
+
+        for(int i = 0; i<mList.size(); i++){
+            Activity y = mList.get(i);
+            if(y.getClass().equals(cls)) {
+                y.finish();
+                mList.remove(i);
+            }
+        }
+
     }
 
     public void exit() {

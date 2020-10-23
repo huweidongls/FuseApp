@@ -10,8 +10,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.guoyu.fuseapp.R;
+import com.guoyu.fuseapp.app.MyApplication;
 import com.guoyu.fuseapp.bean.AppAppointmentgetOneByTimeBean;
 import com.guoyu.fuseapp.page.YuyueSureActivity;
+import com.guoyu.fuseapp.page.YuyueTimeActivity;
 import com.guoyu.fuseapp.util.ToastUtil;
 
 import java.util.List;
@@ -63,6 +65,7 @@ public class YuyueTimeAdapter extends RecyclerView.Adapter<YuyueTimeAdapter.View
                     intent.putExtra("bean", data.get(position));
                     intent.putExtra("content", content);
                     context.startActivity(intent);
+                    MyApplication.getInstance().closeActivity(YuyueTimeActivity.class);
                 }else{
                     ToastUtil.showShort(context, "已约满");
                 }
